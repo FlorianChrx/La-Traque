@@ -1,11 +1,18 @@
-package Entities;
+package Structures;
 
 import java.util.ArrayList;
 import util.Position;
 import util.Surface;
 
+/**
+ * Classe représentant une maison, elle posède une position 
+ * @author florianchiraux
+ *
+ */
 public class Maison implements Lieu {
 	//Attributs
+	private Statut statut;
+	private Surface surface;
 	
 	//Constructeurs
 	
