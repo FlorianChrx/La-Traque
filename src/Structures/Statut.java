@@ -7,5 +7,5 @@ package Structures;
  *
  */
 public enum Statut {
-	VIVANT, MORT, TUEUR, ENQUETE;
+	ALIVE, DEAD, MURDER, INVESTIGATE;
 }
