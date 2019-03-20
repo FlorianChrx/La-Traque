@@ -1,6 +1,7 @@
 package util;
 
 public class Position {
+<<<<<<< HEAD
 	private float x;
 	private float y;
 	
@@ -22,10 +23,30 @@ public class Position {
 	}
 
 	public void setY(float y) {
+=======
+	private int x;
+	private int y;
+	
+	public Position(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	public int getX() {
+		return x;
+	}
+	public void setX(int x) {
+		this.x = x;
+	}
+	public int getY() {
+		return y;
+	}
+	public void setY(int y) {
+>>>>>>> 1e598addccc40baf962fbedf922f320f10a9a068
 		this.y = y;
 	}
 	
 	
+<<<<<<< HEAD
 	/**
 	 * Definit les valeurs <b>x</b> et <b>y</b> égalent à celle
 	 * fournit en paramètre.
@@ -101,4 +122,6 @@ public class Position {
 	
 	
 	
+=======
+>>>>>>> 1e598addccc40baf962fbedf922f320f10a9a068
 }

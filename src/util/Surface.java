@@ -1,5 +1,6 @@
 package util;
 
+<<<<<<< HEAD
 public class Surface implements Comparable<Surface>{
 	private Position pos1;
 	private float width;
@@ -101,5 +102,51 @@ public class Surface implements Comparable<Surface>{
 		return 0;
 	}
 
+=======
+public class Surface {
+	private Position origine;
+	private int height;
+	private int width;
+	
+	public Surface(Position origine, int height, int width) {
+		this.origine = origine;
+		this.height = height;
+		this.width = width;
+	}
+
+	public Position getOrigine() {
+		return origine;
+	}
+
+	public void setOrigine(Position origine) {
+		this.origine = origine;
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+	}
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+	}
+	
+	public int getOx() {
+		return origine.getX();
+	}
+	
+	public int getOy() {
+		return origine.getY();
+	}
+	
+	
+>>>>>>> 1e598addccc40baf962fbedf922f320f10a9a068
 	
 }
