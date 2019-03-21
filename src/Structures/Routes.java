@@ -104,12 +104,16 @@ public class Routes {
 	 * @param lieu
 	 */
 	public void removeAllVoisin(Lieu lieu) {
-		this.connexion.remove(lieu);
-		this.connexion.put(lieu, new ArrayList<>());
+		this.connexion.get(lieu).clear();
 	}
-
 	
-	
-	
+	/**
+	 * Permet d'obtenir la list de tous les voisins d'un lieu
+	 * @param lieu
+	 * @return une ArrayList de Lieu
+	 */
+	public ArrayList<Lieu> getVoisins(Lieu lieu){
+		return this.connexion.get(lieu);
+	}
 	
 }
