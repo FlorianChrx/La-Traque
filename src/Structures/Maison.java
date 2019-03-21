@@ -40,7 +40,7 @@ public class Maison implements Lieu {
 	 * @param surface correspondant à la surface de la maison 
 	 */
 	public Maison(Village village, Statut statut, Surface surface) {
-		this.village = village;
+		this.setVillage(village);
 		this.setStatut(statut);
 		this.surface = surface;
 	}
@@ -87,7 +87,7 @@ public class Maison implements Lieu {
 	}
 	@Override
 	public ArrayList<Lieu> getVoisins() {
-		return village.getVoisins(this);
+		return getVillage().getVoisins(this);
 	}
 	@Override
 	public Surface getSurface() {
@@ -117,7 +117,7 @@ public class Maison implements Lieu {
 	 * Permet de passer au jour suivant, soit d'incrémenter le nombre de jours depuis le meurtre de 1
 	 */
 	public void nextDay() {
-		days++;
+		setDays(getDays() + 1);
 	}
 	/**
 	 * Définie comme mort l'habitant
@@ -161,10 +161,10 @@ public class Maison implements Lieu {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + days;
+		result = prime * result + getDays();
 		result = prime * result + ((statut == null) ? 0 : statut.hashCode());
 		result = prime * result + ((surface == null) ? 0 : surface.hashCode());
-		result = prime * result + ((village == null) ? 0 : village.hashCode());
+		result = prime * result + ((getVillage() == null) ? 0 : getVillage().hashCode());
 		return result;
 	}
 	@Override
@@ -176,7 +176,7 @@ public class Maison implements Lieu {
 		if (getClass() != obj.getClass())
 			return false;
 		Maison other = (Maison) obj;
-		if (days != other.days)
+		if (getDays() != other.getDays())
 			return false;
 		if (statut != other.statut)
 			return false;
@@ -185,11 +185,23 @@ public class Maison implements Lieu {
 				return false;
 		} else if (!surface.equals(other.surface))
 			return false;
-		if (village == null) {
-			if (other.village != null)
+		if (getVillage() == null) {
+			if (other.getVillage() != null)
 				return false;
-		} else if (!village.equals(other.village))
+		} else if (!getVillage().equals(other.getVillage()))
 			return false;
 		return true;
+	}
+	public Village getVillage() {
+		return village;
+	}
+	public void setVillage(Village village) {
+		this.village = village;
+	}
+	public int getDays() {
+		return days;
+	}
+	public void setDays(int days) {
+		this.days = days;
 	}
 }
