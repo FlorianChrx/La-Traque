@@ -5,55 +5,73 @@ import util.Position;
 import util.Surface;
 
 /**
- * Classe représentant une maison, elle posède une surface
+ * 
+ * Classe représentant une maison avec surface, statut, le village dans laquelle 
+ * elle se situe et le nombre de jours depuis le meutre lorsqu'il a eu lieu (vaut 0 sinon)
  * @author florianchiraux
  *
  */
 public class Maison implements Lieu {
 	//Attributs
-	/*
-	 * Village dans lequel la maison se trouve
+	/**
+	 * Village dans lequel se situe la maison
 	 */
 	private Village village;
-	/*
-	 * Statut de la maison qui defini si son occupant est vivant, mort, contient le tueur ou si une enquete est en cours
+	/**
+	 * Statut de son habitant et de son potentiel visiteur (tueur/enqueteur)
 	 */
 	private Statut statut;
-	/*
-	 * Surface permettant de localiser la maison par son origine et sa superficie
+	/**
+	 * Surface de la maison et implicitement sa position
 	 */
 	private Surface surface;
-	/*
-	 * nombre de jours depuis le meutre 
+	/**
+	 * Nombre de jours depuis la mort de l'habitant
 	 */
 	private int days;
 	
 	
 	//Constructeurs
 	
-	
-	/*
-	 * Constructeur Standard
+	/**
+	 * Permet de construire une maison
+	 * @param village correspondant au village dans laquelle se situe la maison
+	 * @param statut correspondant au statut de l'habitant
+	 * @param surface correspondant à la surface de la maison 
 	 */
 	public Maison(Village village, Statut statut, Surface surface) {
 		this.village = village;
 		this.setStatut(statut);
 		this.surface = surface;
 	}
-	/*
-	 * Constructeur à partir d'une origine, d'une hauteur, d'une largeur et du statut
+	/**
+	 * Permet de construire une maison
+	 * @param village correspondant au village dans laquelle se situe la maison
+	 * @param statut correspondant au statut de l'habitant
+	 * @param origine correspondant au point d'origine de la surface de la maison
+	 * @param height correspondant à la hauteur de la représentation de la maison
+	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(Village village, Statut statut, Position origine, int height, int width) {
 		this(village, statut, new Surface(origine, height, width));
 	}
-	/*
-	 * Constructeur à partir d'une origine, d'une hauteur, d'une largeur et attribuant le statut par défaut
+	/**
+	 * 
+	 * @param village correspondant au village dans laquelle se situe la maison
+	 * @param origine correspondant au point d'origine de la surface de la maison
+	 * @param height correspondant à la hauteur de la représentation de la maison
+	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(Village village, Position origine, int height, int width) {
 		this(village, Statut.ALIVE, new Surface(origine, height, width));
 	}
-	/*
-	 * Constructeur à partir de coordonnées, d'une hauteur, d'une largeur et attribuant le statut par défaut
+	/**
+	 * 
+	 * @param village correspondant au village dans laquelle se situe la maison
+	 * @param x	correspondant à l'abscisse de l'origine de la surface de la maison
+	 * @param y correspondant à l'ordonnée de l'origine de la surface de la maison
+	 * @param height correspondant à la hauteur de la représentation de la maison
+	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(Village village, int x, int y, int height, int width) {
 		this(village, Statut.ALIVE, new Surface(new Position(x,y), height, width));
@@ -61,6 +79,7 @@ public class Maison implements Lieu {
 	
 	
 	//Méthodes
+	
 	
 	@Override
 	public Position getPosition() {
@@ -94,44 +113,46 @@ public class Maison implements Lieu {
 	public void setSurface(int x, int y, int height, int width) {
 		setSurface(new Position(x, y), height, width);
 	}
-	/*
-	 * Incrémente de 1 le nombre de jours depuis le meutre 
+	/**
+	 * Permet de passer au jour suivant, soit d'incrémenter le nombre de jours depuis le meurtre de 1
 	 */
 	public void nextDay() {
 		days++;
 	}
-	/*
-	 * Defini l'occupant comme mort
+	/**
+	 * Définie comme mort l'habitant
 	 */
 	public void setDead() {
 		this.setStatut(Statut.DEAD);
 	}
-	/*
-	 * Defini l'occupant comme vivant
+	/**
+	 * Définie comme vivant l'habitant
 	 */
 	public void setAlive() {
 		this.setStatut(Statut.ALIVE);
 	}
-	/*
-	 * Defini la maison comme acceuillant le tueur
+	/**
+	 * Définie la maison comme acceuillant le tueur
 	 */
 	public void setMurder() {
 		this.setStatut(Statut.MURDER);
 	}
-	/*
-	 * Defini la maison dans laquelle se déroule une enquête 
+	/**
+	 * Définie la maison comme acceuillant l'enquêteur
 	 */
 	public void setInvestigate() {
 		this.setStatut(Statut.INVESTIGATE);
 	}
-	/*
-	 * Permet d'obtenir le statut d'une maison
+	/**
+	 * Permet d'obtenir le statut actuel de la maison et de son habitant
+	 * @return Retourne un statut
 	 */
 	public Statut getStatut() {
 		return statut;
 	}
-	/*
-	 * Permet de modifier l'etat d'une maison
+	/**
+	 * Définie le statut de la maison avec le statut passé en paramètre
+	 * @param statut le statut a attribuer à la maison
 	 */
 	public void setStatut(Statut statut) {
 		this.statut = statut;
