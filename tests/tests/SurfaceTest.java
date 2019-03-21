@@ -37,7 +37,7 @@ class SurfaceTest {
 	void inContactSurfaceTest() {
 		assertFalse(s1.inContact(s2));
 		assertFalse(s2.inContact(s1));
-		s2.setPos1(new Position(1, 1));
+		s2.setOrigine(new Position(1, 1));
 		assertTrue(s1.inContact(s2));
 		assertTrue(s2.inContact(s1));
 	}
