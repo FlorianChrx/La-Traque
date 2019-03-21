@@ -1,16 +1,17 @@
 package Structures;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Routes {
 	private Map<Lieu, ArrayList<Lieu>> connexion;
 	
-	public Routes(ArrayList<Lieu> lieus) {
-		this.connexion = new HashMap<Lieu, ArrayList<Lieu>>();
-		for(int i = 0; i < lieus.size(); i++) {
-			 connexion.put(lieus.get(i), new ArrayList<>());
+	public Routes(Collection<Lieu> lieus) {
+		this.connexion = new HashMap<Lieu, ArrayList<Lieu>>(lieus.size());
+		for (Lieu lieu : lieus) {
+			connexion.put(lieu, new ArrayList<Lieu>());
 		}
 	}
 	
@@ -18,7 +19,7 @@ public class Routes {
 		return this.connexion;
 	}
 	
-	public void setConnexion(Map<Lieu,ArrayList<Lieu>> connexion) {
+	public void setConnexion(Map<Lieu, ArrayList<Lieu>> connexion) {
 		this.connexion = connexion;
 	}
 
@@ -64,7 +65,7 @@ public class Routes {
 	 * @return <b>vrai</b> ou <b>faux</b> si l'ajout à reussi ou pas (c'est à dire
 	 * si la clé de la HashMap existe)
 	 */
-	public boolean addConnexion(Lieu lieu, ArrayList<Lieu> voisins) {
+	public boolean addConnexion(Lieu lieu, Collection<Lieu> voisins) {
 		return this.connexion.get(lieu).addAll(voisins);
 	}
 	
