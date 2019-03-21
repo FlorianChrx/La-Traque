@@ -1,52 +1,129 @@
 package Structures;
 
-import java.util.ArrayList;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import util.Position;
-import util.Surface;
+class MaisonTest {
 
-public class MaisonTest {
-
-	private Maison maisonTemoin;
-	
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
 	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-		
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
 	}
 
-	@Before
-	public void setUp() throws Exception {
-		maisonTemoin = new Maison(null, 0, 0, 20, 20);
+	@BeforeEach
+	void setUp() throws Exception {
 	}
 
-	@After
-	public void tearDown() throws Exception {
-		
+	@AfterEach
+	void tearDown() throws Exception {
 	}
 
 	@Test
-	public void testConstructors() {
-		Village village = new Village();
-		Position position = new Position(0, 0);
-		Surface surface = new Surface(position, 20, 20);
-		ArrayList<Maison> liste = new ArrayList<Maison>();
-		liste.add(new Maison(village, Statut.ALIVE, surface));
-		liste.add(new Maison(village, position, 20, 20));
-		liste.add(new Maison(village, 0, 0, 20, 20));
-		liste.add(new Maison(village, Statut.ALIVE, position, 20, 20));
-		for (Maison maison : liste) {
-			maison.equals(maisonTemoin);
-		}
+	void testMaisonVillageStatutSurface() {
+		fail("Not yet implemented");
 	}
+
+	@Test
+	void testMaisonVillageStatutPositionIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testMaisonVillagePositionIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testMaisonVillageIntIntIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetPosition() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetVoisins() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetSurface() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetPositionPosition() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetPositionIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetSurfaceSurface() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetSurfacePositionIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetSurfaceIntIntIntInt() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testNextDay() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetDead() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetAlive() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetMurder() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetInvestigate() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testGetStatut() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testSetStatut() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	void testEqualsObject() {
+		fail("Not yet implemented");
+	}
+
 }
