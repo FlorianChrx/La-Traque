@@ -23,6 +23,11 @@ public class Maison implements Lieu {
 	 * Surface permettant de localiser la maison par son origine et sa superficie
 	 */
 	private Surface surface;
+	/*
+	 * nombre de jours depuis le meutre 
+	 */
+	private int days;
+	
 	
 	//Constructeurs
 	
@@ -90,6 +95,12 @@ public class Maison implements Lieu {
 		setSurface(new Position(x, y), height, width);
 	}
 	/*
+	 * Incrémente de 1 le nombre de jours depuis le meutre 
+	 */
+	public void nextDay() {
+		days++;
+	}
+	/*
 	 * Defini l'occupant comme mort
 	 */
 	public void setDead() {
@@ -124,5 +135,40 @@ public class Maison implements Lieu {
 	 */
 	public void setStatut(Statut statut) {
 		this.statut = statut;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + days;
+		result = prime * result + ((statut == null) ? 0 : statut.hashCode());
+		result = prime * result + ((surface == null) ? 0 : surface.hashCode());
+		result = prime * result + ((village == null) ? 0 : village.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Maison other = (Maison) obj;
+		if (days != other.days)
+			return false;
+		if (statut != other.statut)
+			return false;
+		if (surface == null) {
+			if (other.surface != null)
+				return false;
+		} else if (!surface.equals(other.surface))
+			return false;
+		if (village == null) {
+			if (other.village != null)
+				return false;
+		} else if (!village.equals(other.village))
+			return false;
+		return true;
 	}
 }
