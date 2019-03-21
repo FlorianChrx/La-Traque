@@ -1,8 +1,7 @@
 package util;
 
-<<<<<<< HEAD
 public class Surface implements Comparable<Surface>{
-	private Position pos1;
+	private Position origine;
 	private float width;
 	private float height;
 	private float superficie;
@@ -10,21 +9,21 @@ public class Surface implements Comparable<Surface>{
 	
 	/**
 	 * 
-	 * @param pos1 Correspond au point d'origine de la surface <b>en haut à gauche</b>
+	 * @param origine Correspond au point d'origine de la surface <b>en haut à gauche</b>
 	 * @param width
 	 * @param height
 	 */
-	public Surface(Position pos1, float width, float height) {
-		this.pos1 = pos1;
+	public Surface(Position origine, float width, float height) {
+		this.origine = origine;
 		this.width = width;
 		this.height = height;
 		calculSuperficie();
 	}
-	public Position getPos1() {
-		return pos1;
+	public Position getorigine() {
+		return origine;
 	}
-	public void setPos1(Position pos1) {
-		this.pos1 = pos1;
+	public void setorigine(Position origine) {
+		this.origine = origine;
 	}
 	public float getWidth() {
 		return width;
@@ -47,7 +46,7 @@ public class Surface implements Comparable<Surface>{
 
 	@Override
 	public String toString() {
-		return "Surface [pos1=" + pos1 + ", width=" + width + ", height=" + height + "]";
+		return "Surface [origine=" + origine + ", width=" + width + ", height=" + height + "]";
 	}
 
 	@Override
@@ -61,10 +60,10 @@ public class Surface implements Comparable<Surface>{
 		Surface other = (Surface) obj;
 		if (Float.floatToIntBits(height) != Float.floatToIntBits(other.height))
 			return false;
-		if (pos1 == null) {
-			if (other.pos1 != null)
+		if (origine == null) {
+			if (other.origine != null)
 				return false;
-		} else if (!pos1.equals(other.pos1))
+		} else if (!origine.equals(other.origine))
 			return false;
 		if (Float.floatToIntBits(width) != Float.floatToIntBits(other.width))
 			return false;
@@ -78,10 +77,10 @@ public class Surface implements Comparable<Surface>{
 	 * contact avec celle de l'instance appellée
 	 */
 	public boolean inContact(Surface surface) {
-		return this.pos1.getX() <= surface.pos1.getX()+surface.width &&
-			   this.pos1.getX()+this.width >= surface.pos1.getX() &&
-			   this.pos1.getY() <= surface.pos1.getY()+surface.height &&
-			   this.pos1.getY()+this.height >= surface.pos1.getY();
+		return this.origine.getX() <= surface.origine.getX()+surface.width &&
+			   this.origine.getX()+this.width >= surface.origine.getX() &&
+			   this.origine.getY() <= surface.origine.getY()+surface.height &&
+			   this.origine.getY()+this.height >= surface.origine.getY();
 	}
 	
 	
@@ -102,18 +101,6 @@ public class Surface implements Comparable<Surface>{
 		return 0;
 	}
 
-=======
-public class Surface {
-	private Position origine;
-	private int height;
-	private int width;
-	
-	public Surface(Position origine, int height, int width) {
-		this.origine = origine;
-		this.height = height;
-		this.width = width;
-	}
-
 	public Position getOrigine() {
 		return origine;
 	}
@@ -122,31 +109,19 @@ public class Surface {
 		this.origine = origine;
 	}
 
-	public int getHeight() {
-		return height;
-	}
-
 	public void setHeight(int height) {
 		this.height = height;
-	}
-
-	public int getWidth() {
-		return width;
 	}
 
 	public void setWidth(int width) {
 		this.width = width;
 	}
 	
-	public int getOx() {
+	public float getOx() {
 		return origine.getX();
 	}
 	
-	public int getOy() {
+	public float getOy() {
 		return origine.getY();
-	}
-	
-	
->>>>>>> 1e598addccc40baf962fbedf922f320f10a9a068
-	
+	}	
 }
