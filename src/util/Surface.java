@@ -2,9 +2,9 @@ package util;
 
 public class Surface implements Comparable<Surface>{
 	private Position origine;
-	private float width;
-	private float height;
-	private float superficie;
+	private int width;
+	private int height;
+	private int superficie;
 	
 	
 	/**
@@ -13,29 +13,34 @@ public class Surface implements Comparable<Surface>{
 	 * @param width
 	 * @param height
 	 */
-	public Surface(Position origine, float width, float height) {
+	public Surface(Position origine, int width, int height) {
 		this.origine = origine;
 		this.width = width;
 		this.height = height;
 		calculSuperficie();
 	}
+	
+	public Surface(int x, int y, int width, int height) {
+		this(new Position(x, y), width, height);
+	}
+	
 	public Position getorigine() {
 		return origine;
 	}
 	public void setorigine(Position origine) {
 		this.origine = origine;
 	}
-	public float getWidth() {
+	public int getWidth() {
 		return width;
 	}
-	public void setWidth(float width) {
+	public void setWidth(int width) {
 		this.width = width;
 		calculSuperficie();
 	}
-	public float getHeight() {
+	public int getHeight() {
 		return height;
 	}
-	public void setHeight(float height) {
+	public void setHeight(int height) {
 		this.height = height;
 		calculSuperficie();
 	}
@@ -58,14 +63,16 @@ public class Surface implements Comparable<Surface>{
 		if (getClass() != obj.getClass())
 			return false;
 		Surface other = (Surface) obj;
-		if (Float.floatToIntBits(height) != Float.floatToIntBits(other.height))
+		if (height != other.height)
 			return false;
 		if (origine == null) {
 			if (other.origine != null)
 				return false;
 		} else if (!origine.equals(other.origine))
 			return false;
-		if (Float.floatToIntBits(width) != Float.floatToIntBits(other.width))
+		if (superficie != other.superficie)
+			return false;
+		if (width != other.width)
 			return false;
 		return true;
 	}
@@ -108,20 +115,4 @@ public class Surface implements Comparable<Surface>{
 	public void setOrigine(Position origine) {
 		this.origine = origine;
 	}
-
-	public void setHeight(int height) {
-		this.height = height;
-	}
-
-	public void setWidth(int width) {
-		this.width = width;
-	}
-	
-	public float getOx() {
-		return origine.getX();
-	}
-	
-	public float getOy() {
-		return origine.getY();
-	}	
 }

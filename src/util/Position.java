@@ -1,32 +1,28 @@
 package util;
 
 public class Position {
-	private float x;
-	private float y;
+	private int x;
+	private int y;
 	
-	public Position(float x, float y) {
+	public Position(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
 	
-	public float getX() {
+	public int getX() {
 		return x;
 	}
 
-	public void setX(float x) {
+	public void setX(int x) {
 		this.x = x;
 	}
 
-	public float getY() {
+	public int getY() {
 		return y;
 	}
 
-	public void setY(float y) {
+	public void setY(int y) {
 		this.y = y;
-	}
-
-	public Position(int x, int y) {
-		this((float) x, (float) y);
 	}
 
 	/**
@@ -34,7 +30,7 @@ public class Position {
 	 * fournit en paramètre.
 	 * @param pos
 	 */
-	public void setPosition(float x, float y) {
+	public void setPosition(int x, int y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -71,10 +67,9 @@ public class Position {
 	 * fournie en parametre</b>.
 	 */
 	public int yGreaterThan(Position pos) {
-		if(this.y > pos.y) return 1;
-		if(this.y < pos.y) return -1;
-		return 0;
+		return this.y - pos.y;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -84,10 +79,12 @@ public class Position {
 		if (getClass() != obj.getClass())
 			return false;
 		Position other = (Position) obj;
-		if (Float.floatToIntBits(x) != Float.floatToIntBits(other.x))
+		if (x != other.x)
 			return false;
-		if (Float.floatToIntBits(y) != Float.floatToIntBits(other.y))
+		if (y != other.y)
 			return false;
 		return true;
 	}
+	
+	
 }
