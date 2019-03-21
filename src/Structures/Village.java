@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Village {
 	private ArrayList<Lieu> lieux;
-	private ArrayList<Route> routes;
+	private ArrayList<Routes> routes;
 	
 	public ArrayList<Lieu> getVoisins(Maison maison) {
 		return null;
