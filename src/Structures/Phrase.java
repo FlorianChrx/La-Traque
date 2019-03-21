@@ -1,13 +1,14 @@
 package Structures;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 public class Phrase {
 	private static ArrayList<String> courts;
 	private static ArrayList<String> moyens; 
 	private static ArrayList<String> longs; 
 	
-	public Phrase() {
+	public Phrase(Collection<Lieu> col) {
 		
 	}
 	
