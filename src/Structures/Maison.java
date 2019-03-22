@@ -117,7 +117,7 @@ public class Maison implements Lieu {
 	 * Permet de passer au jour suivant, soit d'incrémenter le nombre de jours depuis le meurtre de 1
 	 */
 	public void nextDay() {
-		setDays(getDays() + 1);
+		days++;
 	}
 	/**
 	 * Définie comme mort l'habitant
@@ -192,16 +192,32 @@ public class Maison implements Lieu {
 			return false;
 		return true;
 	}
+	/**
+	 * Permet d'obtenir le village dans lequel se trouve la maison 
+	 * @return Retourne le village contennant la maison
+	 */
 	public Village getVillage() {
 		return village;
 	}
+	/**
+	 * Permet de changer la maison de village
+	 * @param village représentant le village dans lequel la maison se trouve
+	 */
 	public void setVillage(Village village) {
 		this.village = village;
 	}
+	/**
+	 * Permet de savoir le nombre de jours depuis le meurtre
+	 * @return Retourne le nombre de jours depuis le meurtre
+	 */
 	public int getDays() {
 		return days;
 	}
-	public void setDays(int days) {
-		this.days = days;
+	/**
+	 * Permet d'obtenir une phrase à afficher en fonction du nombre de jours depuis le meurtre
+	 * @return Retourne une chaine de caractère 
+	 */
+	public String getPhrase() {
+		return Phrase.nextPhrase(days);
 	}
 }
