@@ -220,4 +220,10 @@ public class Maison implements Lieu {
 	public String getPhrase() {
 		return Phrase.nextPhrase(days);
 	}
+	/**
+	 * Permet de remettre à 0 le nombre de jours depuis le meurtre
+	 */
+	public void resetDays() {
+		this.days = 0;
+	}
 }
