@@ -1,6 +1,10 @@
 package Entities;
 
-public class Enqueteur extends Personnage {
+import java.util.ArrayList;
+
+import Structures.Lieu;
+
+public abstract class Enqueteur extends Personnage {
 	//Attributs
 	
 	//Constructeurs
