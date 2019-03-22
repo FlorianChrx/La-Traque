@@ -59,4 +59,5 @@ public interface Lieu {
 	 * @param width correspondant à une largeur
 	 */
 	public void setSurface(int x, int y, int height, int width);
+	public boolean equals(Object o);
 }
