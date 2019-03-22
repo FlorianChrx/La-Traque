@@ -9,4 +9,9 @@ public class Village {
 	public ArrayList<Lieu> getVoisins(Maison maison) {
 		return null;
 	}
+
+	public ArrayList<Lieu> getLieux() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
