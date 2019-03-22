@@ -154,4 +154,5 @@ public abstract class Personnage implements Controlable {
 	public boolean canGoToAll(Collection<Lieu> lieux) {
 		return canGo().containsAll(lieux);
 	}
+	
 }
