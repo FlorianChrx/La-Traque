@@ -1,6 +1,11 @@
 package Entities;
 
-public class Tueur extends Personnage {
+import java.util.ArrayList;
+
+import Structures.Lieu;
+
+public abstract class Tueur extends Personnage {
+
 	//Attributs
 	
 	//Constructeurs
