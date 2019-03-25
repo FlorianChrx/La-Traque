@@ -5,20 +5,41 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+
+/**
+ * Class permettant de representer les connexions entres les Lieus
+ * @author geoffrey
+ *
+ */
 public class Routes {
+	
+	/**
+	 * Map associant un Lieu avec un ArrayList de Lieu
+	 */
 	private Map<Lieu, ArrayList<Lieu>> connexion;
 	
+	/**
+	 * On fournit un ArrayList qui correspond à la liste des clés, c'est à dire toutes les maisons
+	 * @param lieus
+	 */
 	public Routes(Collection<Lieu> lieus) {
 		this.connexion = new HashMap<Lieu, ArrayList<Lieu>>(lieus.size());
 		for (Lieu lieu : lieus) {
 			connexion.put(lieu, new ArrayList<Lieu>());
 		}
 	}
-	
+	/**
+	 * Getter de la Map
+	 * @return la Map<Lieu, ArrayList<Lieu>>
+	 */
 	public Map<Lieu, ArrayList<Lieu>> getConnexion() {
 		return this.connexion;
 	}
 	
+	/**
+	 * Permet de modifier tous les lieus et connexions.
+	 * @param connexion : Map<Lieu, ArrayList<Lieu>> associant les Lieus et leurs voisins
+	 */
 	public void setConnexion(Map<Lieu, ArrayList<Lieu>> connexion) {
 		this.connexion = connexion;
 	}
