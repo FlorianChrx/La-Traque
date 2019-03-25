@@ -1,6 +1,7 @@
 package Entities;
 
 import Structures.Lieu;
+import Structures.Maison;
 import Structures.Village;
 
 public abstract class Enqueteur extends Personnage {
@@ -13,7 +14,10 @@ public abstract class Enqueteur extends Personnage {
 	}
 	
 	public void enquete() {
-		System.out.println(lieu.getPhrase());
+		if (lieu instanceof Maison) {
+			System.out.println(lieu.getPhrase());
+			((Maison) lieu).setInvestigate();
+		}
 	}
 
 }
