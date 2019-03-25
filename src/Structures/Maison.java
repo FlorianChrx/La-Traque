@@ -1,6 +1,8 @@
 package Structures;
 
 import java.util.ArrayList;
+
+import util.Entity;
 import util.Position;
 import util.Surface;
 
@@ -11,7 +13,7 @@ import util.Surface;
  * @author florianchiraux
  *
  */
-public class Maison implements Lieu {
+public class Maison implements Lieu, Entity {
 	//Attributs
 	/**
 	 * Village dans lequel se situe la maison
@@ -213,10 +215,6 @@ public class Maison implements Lieu {
 	public int getDays() {
 		return days;
 	}
-	/**
-	 * Permet d'obtenir une phrase à afficher en fonction du nombre de jours depuis le meurtre
-	 * @return Retourne une chaine de caractère 
-	 */
 	public String getPhrase() {
 		return Phrase.nextPhrase(days);
 	}
@@ -225,5 +223,9 @@ public class Maison implements Lieu {
 	 */
 	public void resetDays() {
 		this.days = 0;
+	}
+	@Override
+	public void update() {
+		this.nextDay();
 	}
 }
