@@ -3,16 +3,7 @@ package util;
 import java.util.ArrayList;
 import java.util.Collection;
 
-/**
- * 
- * Classe permettant de gérer les entités du plateau
- * @author florianchiraux
- *
- */
 public class EntityManager {
-	/**
-	 * liste des entités présentes sur le plateau
-	 */
 	private static ArrayList<Entity> entités;
 	
 	public static boolean add(Entity e) {
