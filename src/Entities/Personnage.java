@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import Structures.Lieu;
+import Structures.Maison;
 import Structures.Village;
 import util.Entity;
 
@@ -53,8 +54,10 @@ public abstract class Personnage implements Controlable, Entity {
 	 */
 	public Personnage(Village village, int nbActions) {
 		ArrayList<Lieu> lieux = village.getLieux();
+		do {
 		Collections.shuffle(lieux);
 		this.setLieu(lieux.get(1));
+		} while (!(lieu instanceof Maison));
 		this.setNbActions(nbActions);
 	}
 
