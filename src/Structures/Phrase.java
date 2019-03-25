@@ -8,7 +8,7 @@ public class Phrase {
 	private static ArrayList<String> moyens; 
 	private static ArrayList<String> longs; 
 	
-	public Phrase(Collection<Lieu> col) {
+	public Phrase() {
 		
 	}
 	
