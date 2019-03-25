@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import Structures.Lieu;
 import Structures.Village;
+import util.Entity;
 
 /**
  * 
@@ -14,7 +15,7 @@ import Structures.Village;
  *
  */
 
-public abstract class Personnage implements Controlable {
+public abstract class Personnage implements Controlable, Entity {
 	
 	
 	//Attributs
@@ -139,4 +140,5 @@ public abstract class Personnage implements Controlable {
 	public boolean canGoToAll(Collection<Lieu> lieux) {
 		return lieuxAccessibles().containsAll(lieux);
 	}
+	public abstract void update();
 }
