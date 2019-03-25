@@ -59,5 +59,10 @@ public interface Lieu {
 	 * @param width correspondant à une largeur
 	 */
 	public void setSurface(int x, int y, int height, int width);
+	/**
+	 * Permet d'obtenir une phrase à afficher en fonction du nombre de jours depuis le meurtre
+	 * @return Retourne une chaine de caractère 
+	 */
+	public String getPhrase();
 	public boolean equals(Object o);
 }
