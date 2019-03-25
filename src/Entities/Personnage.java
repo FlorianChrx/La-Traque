@@ -22,15 +22,15 @@ public abstract class Personnage implements Controlable {
 	/**
 	 * Répresente le lieu où se situe le personnage
 	 */
-	private Lieu lieu;
+	protected Lieu lieu;
 	/**
 	 * Représente le nombre d'actions que peut effectuer le personnage en une journée
 	 */
-	private int nbActions;
+	protected int nbActions;
 	/**
 	 * Représentant le nombre d'action effectués ce jour;
 	 */
-	private int actionsDone;
+	protected int actionsDone;
 	
 	
 	//Constructeurs
