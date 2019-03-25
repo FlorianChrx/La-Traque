@@ -22,15 +22,15 @@ public abstract class Personnage implements Controlable {
 	/**
 	 * Répresente le lieu où se situe le personnage
 	 */
-	private Lieu lieu;
+	protected Lieu lieu;
 	/**
 	 * Représente le nombre d'actions que peut effectuer le personnage en une journée
 	 */
-	private int nbActions;
+	protected int nbActions;
 	/**
 	 * Représentant le nombre d'action effectués ce jour;
 	 */
-	private int actionsDone;
+	protected int actionsDone;
 	
 	
 	//Constructeurs
@@ -133,26 +133,10 @@ public abstract class Personnage implements Controlable {
 	 * Permet d'effectuer certaines actions au changement de journée
 	 */
 	public abstract void nextDay();
-	/**
-	 * Permet de savoir où peut se deplécer le personnage le personnage 
-	 * @return
-	 */
-	public abstract ArrayList<Lieu> canGo();
-	/**
-	 * Permet de determiner si le personnage peu se déplacer vers un lieu donné
-	 * @param lieu qui représente le lieu testé
-	 * @return vrai ou faux selon si le personnage peu se rendre au lieu visé 
-	 */
 	public boolean canGoTo(Lieu lieu) {
-		return canGo().contains(lieu);
+		return lieuxAccessibles().contains(lieu);
 	}
-	/**
-	 * Permet de determiner si le personnage peu se déplacer vers un ensemble de lieux donné
-	 * @param lieux une collection de lieux testés
-	 * @return vrai ou faux selon si le personnage peu se rendre aux lieus visés
-	 */
 	public boolean canGoToAll(Collection<Lieu> lieux) {
-		return canGo().containsAll(lieux);
+		return lieuxAccessibles().containsAll(lieux);
 	}
-	
 }
