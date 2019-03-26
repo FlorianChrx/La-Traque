@@ -1,2 +1,10 @@
 # Project
 ## Description générale
+À bien rédiger ensemble
+## Tâches actuelles
+- Amélie: création de classes concrêtes au sein du package "classes", il s'agit de créer des tueurs et enqueteurs heritants des superclasses portant ces noms et d'en écrire le comportement (méthodes non implémentés et d'autres si nécessaire)
+- Baptiste: Création de la classe Phrase qui à l'instanciation récupere l'integralité des phrases dans des CSV et les attributs dans des listes, elle doit être capable de renvoyer une phrase s'adaptant à la valeur passé en paramètre
+- Geoffrey: RTT
+- Florian: Reste à disposition pour toute information demandée par les membres du projet
+## Consignes diverses
+- Dans le cas ou vous inviteriez des personnes extérieures au projet faites les push leur code sur leur compte github afin que le code ne soit pas implémenté directement et qu'il puisse être verifié (oui je tient à la sécurité du projet) 
