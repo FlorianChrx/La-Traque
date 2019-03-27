@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import Structures.Lieu;
 import Structures.Maison;
 
+/**
+ * Classe du Chien appartenant au MaitreChien [Deux actions]
+ * @author calamar
+ *
+ */
 public class Chien extends Personnage {
 	//Attributs
 	
@@ -20,11 +25,12 @@ public class Chien extends Personnage {
 
 	//Méthodes	
 	/**
-	 * Permet au chien de mordre le tueur si celui-ci se trouve dans la même maison
-	 * et d'avancer (De 1 ou de 2 en fonction de si il a mordu le tueur ce tour-ci
+	 * Le chien avance. Si le tueur se situe dans la maison et que le chien a des
+	 *  points d'actions, le chien bloque le tueur. Si le tueur se situe dans la
+	 *  maison mais que le chien n'a plus de d'actions le tueur le bloque. Si il n'y
+	 *  a personne, le chien avance une nouvelle fois.
 	 */
 	public void action(Lieu lieu) { 
-		// Chaque action nbActions - 1
 		if(lieu instanceof Maison) {
 			goTo(lieu);
 			actionsDone ++;

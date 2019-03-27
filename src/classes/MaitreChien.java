@@ -8,7 +8,7 @@ import Structures.Lieu;
 import Structures.Village;
 
 /**
- * Classe du rôle Maître-Chien (Enquêteur)
+ * Classe du rôle MaitreChien (Enquêteur) [Deux actions]
  * @author calamar
  *
  */
@@ -21,7 +21,6 @@ public class MaitreChien extends Enqueteur {
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
 	 * @param village
-	 * @param nbActions que peut effectuer le personnage
 	 */
 	public MaitreChien(Village village) {
 		super(village, 1);
@@ -30,10 +29,9 @@ public class MaitreChien extends Enqueteur {
 	/**
 	 * Construteur avec le lieu de départ du MaitreChien
 	 * @param lieu de départ
-	 * @param nbActions que peut effectuer le personnage
 	 */
-	public MaitreChien(Lieu lieu, int nbActions) {
-		super(lieu, nbActions);
+	public MaitreChien(Lieu lieu) {
+		super(lieu, 2);
 	}
 	
 	//Méthodes
@@ -43,12 +41,22 @@ public class MaitreChien extends Enqueteur {
 	}
 	@Override
 	public void nextDay() {
-		goTo(lieu);
-		
+		goTo(lieu);		
 	}
 	@Override
 	public void update() {
-		nextDay();
-		
+		nextDay();		
+	}
+	@Override
+	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
+		if(canDoAction()) {
+			if(this.lieu.equals(lieu)) {
+				enquete();
+			} else {
+				goTo(lieu);
+			}
+		} else {
+			// g plu d'action frr
+		}
 	}	
 }
