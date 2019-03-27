@@ -1,7 +1,5 @@
 package Structures;
 
-import java.util.ArrayList;
-
 import Entities.Entity;
 import util.Position;
 import util.Surface;
@@ -13,7 +11,7 @@ import util.Surface;
  * @author florianchiraux
  *
  */
-public class Maison implements Lieu, Entity {
+public class Maison extends Lieu implements Entity {
 	//Attributs
 	/**
 	 * Village dans lequel se situe la maison
@@ -42,9 +40,8 @@ public class Maison implements Lieu, Entity {
 	 * @param surface correspondant à la surface de la maison 
 	 */
 	public Maison(Village village, Statut statut, Surface surface) {
-		this.setVillage(village);
+		super(surface, village);
 		this.setStatut(statut);
-		this.surface = surface;
 	}
 	/**
 	 * Permet de construire une maison
@@ -83,38 +80,6 @@ public class Maison implements Lieu, Entity {
 	//Méthodes
 	
 	
-	@Override
-	public Position getPosition() {
-		return surface.getOrigine();
-	}
-	@Override
-	public ArrayList<Lieu> getVoisins() {
-		return getVillage().getVoisins(this);
-	}
-	@Override
-	public Surface getSurface() {
-		return surface;
-	}
-	@Override
-	public void setPosition(Position s) {
-		surface.setOrigine(s);	
-	}
-	@Override
-	public void setPosition(int x, int y) {
-		setPosition(new Position(x, y));
-	}
-	@Override
-	public void setSurface(Surface s) {
-		surface = s;
-	}
-	@Override
-	public void setSurface(Position s, int height, int width) {
-		setSurface(new Surface(s, height, width));
-	}
-	@Override
-	public void setSurface(int x, int y, int height, int width) {
-		setSurface(new Position(x, y), height, width);
-	}
 	/**
 	 * Permet de passer au jour suivant, soit d'incrémenter le nombre de jours depuis le meurtre de 1
 	 */
@@ -187,41 +152,6 @@ public class Maison implements Lieu, Entity {
 	public void setStatut(Statut statut) {
 		this.statut = statut;
 	}
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + getDays();
-		result = prime * result + ((statut == null) ? 0 : statut.hashCode());
-		result = prime * result + ((surface == null) ? 0 : surface.hashCode());
-		result = prime * result + ((getVillage() == null) ? 0 : getVillage().hashCode());
-		return result;
-	}
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Maison other = (Maison) obj;
-		if (getDays() != other.getDays())
-			return false;
-		if (statut != other.statut)
-			return false;
-		if (surface == null) {
-			if (other.surface != null)
-				return false;
-		} else if (!surface.equals(other.surface))
-			return false;
-		if (getVillage() == null) {
-			if (other.getVillage() != null)
-				return false;
-		} else if (!getVillage().equals(other.getVillage()))
-			return false;
-		return true;
-	}
 	/**
 	 * Permet d'obtenir le village dans lequel se trouve la maison 
 	 * @return Retourne le village contennant la maison
@@ -256,4 +186,40 @@ public class Maison implements Lieu, Entity {
 	public void update() {
 		this.nextDay();
 	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + days;
+		result = prime * result + ((statut == null) ? 0 : statut.hashCode());
+		result = prime * result + ((surface == null) ? 0 : surface.hashCode());
+		result = prime * result + ((village == null) ? 0 : village.hashCode());
+		return result;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Maison))
+			return false;
+		Maison other = (Maison) obj;
+		if (days != other.days)
+			return false;
+		if (statut != other.statut)
+			return false;
+		if (surface == null) {
+			if (other.surface != null)
+				return false;
+		} else if (!surface.equals(other.surface))
+			return false;
+		if (village == null) {
+			if (other.village != null)
+				return false;
+		} else if (!village.equals(other.village))
+			return false;
+		return true;
+	}
+	
 }

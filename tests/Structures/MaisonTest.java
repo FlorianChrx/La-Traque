@@ -178,5 +178,32 @@ class MaisonTest {
 		maison.resetDays();
 		assertEquals(0, maison.getDays());
 	}
+	
+	@Test
+	void testIsDead() {
+		assertFalse(maison.isDead());
+		maison.setDead();
+		assertTrue(maison.isDead());
+	}
 
+	@Test
+	void testIsAlive() {
+		assertTrue(maison.isAlive());
+		maison.setDead();
+		assertFalse(maison.isAlive());
+	}
+	
+	@Test
+	void testIsMurder() {
+		assertFalse(maison.isMurder());
+		maison.setMurder();
+		assertTrue(maison.isMurder());
+	}
+	
+	@Test
+	void testIsInvestigate() {
+		assertFalse(maison.isInvestigate());
+		maison.setInvestigate();
+		assertTrue(maison.isInvestigate());
+	}
 }
