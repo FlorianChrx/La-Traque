@@ -10,7 +10,9 @@ import Structures.Village;
  *
  */
 public abstract class Tueur extends Personnage {
+	//Attributs
 	
+	//Constructeurs
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
 	 * @param village
@@ -18,10 +20,9 @@ public abstract class Tueur extends Personnage {
 	 */
 	public Tueur(Village village, int nbActions) {
 		super(village, nbActions);
-	}
-	
+	}	
 	/**
-	 * Construteur avec le lieu de départ du tueur
+	 * Construteur avec le lieu de départ du Tueur
 	 * @param lieu de départ
 	 * @param nbActions que peut effectuer le personnage
 	 */
@@ -29,6 +30,7 @@ public abstract class Tueur extends Personnage {
 		super(lieu, nbActions);
 	}
 	
+	//Méthodes	
 	/**
 	 * Permet de tuer le résident d'une maison
 	 */

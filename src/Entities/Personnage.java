@@ -58,14 +58,12 @@ public abstract class Personnage implements Controlable, Entity {
 	}
 
 	
-	//Méthodes
-	
+	//Méthodes	
 
 	@Override
 	public void goTo(Lieu lieu) {
 		setLieu(lieu);
 	}
-
 	@Override
 	public abstract ArrayList<Lieu> lieuxAccessibles();
 	/**
