@@ -8,27 +8,35 @@ public class Chien extends Personnage {
 	//Attributs
 	
 	//Constructeurs	
+	
+	/**
+	 * Constructeur le lieu de départ du Chien
+	 * @param lieu de départ
+	 * @param nbActions que peut effectuer le personnage
+	 */
 	public Chien(Lieu lieu, int nbActions) {
 		super(lieu, nbActions);
 	}
 
 	//Méthodes
+	
+	/**
+	 * Permet au chien de mordre le tueur si celui-ci se trouve dans la même maison
+	 */
 	public void action() { // Chaque action nbActions - 1
 		
 	}
 	@Override
 	public ArrayList<Lieu> lieuxAccessibles() {
-		// TODO Auto-generated method stub
-		return null;
+		return lieu.getVoisins();
 	}
 	@Override
 	public void nextDay() {
-		// TODO Auto-generated method stub
+		goTo(lieu);
 		
 	}
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
-		
+		nextDay();		
 	}
 }
