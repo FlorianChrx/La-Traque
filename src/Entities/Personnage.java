@@ -138,4 +138,5 @@ public abstract class Personnage implements Controlable, Entity {
 		return lieuxAccessibles().containsAll(lieux);
 	}
 	public abstract void update();
+	public abstract void action(Lieu lieu);
 }

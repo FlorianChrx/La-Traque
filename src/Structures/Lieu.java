@@ -64,6 +64,15 @@ public interface Lieu {
 	 * @return Retourne une chaine de caractère 
 	 */
 	public String getPhrase();
+	/**
+	 * Test si ce lieu est le même que celui passé en paramètre
+	 * @param o un autre lieu
+	 * @return Vrai ou faux si les lieux sont identiques
+	 */
 	public boolean equals(Object o);
+	/**
+	 * Permet d'obtenir le village dans lequel se trouve le lieu
+	 * @return le village dans lequel se trouve le lieu
+	 */
 	public Village getVillage();
 }
