@@ -1,8 +1,8 @@
-package Entities;
+package entities;
 
-import Structures.Lieu;
-import Structures.Maison;
-import Structures.Village;
+import structures.Lieu;
+import structures.Maison;
+import structures.Village;
 
 /**
  * Class abstraite correspondant aux Tueurs

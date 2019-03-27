@@ -1,4 +1,4 @@
-package Structures;
+package structures;
 /**
  * 
  * Classe énumérant les status possibles d'une maison

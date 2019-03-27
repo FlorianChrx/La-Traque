@@ -2,9 +2,9 @@ package classes;
 
 import java.util.ArrayList;
 
-import Entities.Enqueteur;
-import Structures.Lieu;
-import Structures.Village;
+import entities.Enqueteur;
+import structures.Lieu;
+import structures.Village;
 
 /**
  * Classe du rôle Maître-Chien (Enquêteur)

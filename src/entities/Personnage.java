@@ -1,11 +1,11 @@
-package Entities;
+package entities;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-import Structures.Lieu;
-import Structures.Village;
+import structures.Lieu;
+import structures.Village;
 
 /**
  * 

@@ -1,7 +1,7 @@
-package Entities;
+package entities;
 
-import Structures.Lieu;
-import Structures.Village;
+import structures.Lieu;
+import structures.Village;
 
 public abstract class Enqueteur extends Personnage {
 	//Attributs

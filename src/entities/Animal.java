@@ -1,6 +1,6 @@
-package Entities;
+package entities;
 
-import Structures.Lieu;
+import structures.Lieu;
 
 public abstract class Animal extends Personnage {
 
