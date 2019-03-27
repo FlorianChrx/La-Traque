@@ -23,8 +23,8 @@ public class MaitreChien extends Enqueteur {
 	 * @param village
 	 * @param nbActions que peut effectuer le personnage
 	 */
-	public MaitreChien(Village village, int nbActions) {
-		super(village, nbActions);
+	public MaitreChien(Village village) {
+		super(village, 1);
 	}
 	
 	/**
