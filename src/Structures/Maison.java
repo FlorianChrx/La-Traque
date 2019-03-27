@@ -145,6 +145,18 @@ public class Maison implements Lieu, Entity {
 	public void setInvestigate() {
 		this.setStatut(Statut.INVESTIGATE);
 	}
+	public void isDead() {
+		this.setStatut(Statut.DEAD);
+	}
+	public void isAlive() {
+		this.setStatut(Statut.ALIVE);
+	}
+	public void isMurder() {
+		this.setStatut(Statut.MURDER);
+	}
+	public void isInvestigate() {
+		this.setStatut(Statut.INVESTIGATE);
+	}
 	/**
 	 * Permet d'obtenir le statut actuel de la maison et de son habitant
 	 * @return Retourne un statut
