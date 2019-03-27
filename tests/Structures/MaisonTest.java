@@ -8,9 +8,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import structures.Maison;
-import structures.Statut;
-import structures.Village;
 import util.Position;
 import util.Surface;
 

@@ -10,9 +10,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import structures.Lieu;
-import structures.Maison;
-import structures.Routes;
 import util.Surface;
 
 class RoutesTest {

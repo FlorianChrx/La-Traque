@@ -1,9 +1,9 @@
-package entities;
+package Entities;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-import structures.Lieu;
+import Structures.Lieu;
 
 
 /**

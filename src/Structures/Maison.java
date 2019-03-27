@@ -1,8 +1,8 @@
-package structures;
+package Structures;
 
 import java.util.ArrayList;
 
-import entities.Entity;
+import Entities.Entity;
 import util.Position;
 import util.Surface;
 

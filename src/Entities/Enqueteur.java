@@ -1,12 +1,10 @@
-package entities;
+package Entities;
 
-import structures.Lieu;
-import structures.Village;
+import Structures.Lieu;
+import Structures.Village;
 
 public abstract class Enqueteur extends Personnage {
-	//Attributs
-	
-	//Constructeurs
+
 	public Enqueteur(Village village, int nbActions) {
 		super(village, nbActions);
 	}
@@ -14,7 +12,6 @@ public abstract class Enqueteur extends Personnage {
 		super(lieu, nbActions);
 	}
 	
-	//Méthodes
 	public void enquete() {
 		System.out.println(lieu.getPhrase());
 	}
