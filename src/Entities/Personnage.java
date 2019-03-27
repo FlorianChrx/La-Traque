@@ -6,7 +6,6 @@ import java.util.Collections;
 
 import Structures.Lieu;
 import Structures.Village;
-import util.Entity;
 
 /**
  * 

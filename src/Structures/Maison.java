@@ -2,7 +2,7 @@ package Structures;
 
 import java.util.ArrayList;
 
-import util.Entity;
+import Entities.Entity;
 import util.Position;
 import util.Surface;
 
