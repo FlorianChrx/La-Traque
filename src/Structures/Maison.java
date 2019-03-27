@@ -14,19 +14,11 @@ import util.Surface;
 public class Maison extends Lieu implements Entity {
 	//Attributs
 	/**
-	 * Village dans lequel se situe la maison
-	 */
-	private Village village;
-	/**
 	 * Statut de son habitant et de son potentiel visiteur (tueur/enqueteur)
 	 */
 	private Statut statut;
 	/**
 	 * Surface de la maison et implicitement sa position
-	 */
-	private Surface surface;
-	/**
-	 * Nombre de jours depuis la mort de l'habitant
 	 */
 	private int days;
 	
