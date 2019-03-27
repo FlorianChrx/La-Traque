@@ -65,4 +65,5 @@ public interface Lieu {
 	 */
 	public String getPhrase();
 	public boolean equals(Object o);
+	public Village getVillage();
 }
