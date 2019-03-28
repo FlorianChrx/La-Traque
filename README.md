@@ -3,7 +3,7 @@
 À bien rédiger ensemble
 ## Tâches actuelles
 - Amélie: création de classes concrêtes au sein du package "classes", il s'agit de créer des tueurs et enqueteurs heritants des superclasses portant ces noms et d'en écrire le comportement (méthodes non implémentés et d'autres si nécessaire)
-- Baptiste: Création de la classe Phrase qui à l'instanciation récupere l'integralité des phrases dans des CSV et les attributs dans des listes, elle doit être capable de renvoyer une phrase s'adaptant à la valeur passé en paramètre
+- Baptiste: Création de la classe Bar
 - Geoffrey: RTT
 - Florian: Reste à disposition pour toute information demandée par les membres du projet
 ## Consignes diverses
