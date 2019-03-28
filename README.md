@@ -3,7 +3,7 @@
 À bien rédiger ensemble
 ## Tâches actuelles
 - Amélie: création de classes concrêtes au sein du package "classes", il s'agit de créer des tueurs et enqueteurs heritants des superclasses portant ces noms et d'en écrire le comportement (méthodes non implémentés et d'autres si nécessaire)
-- Baptiste: Création de la classe Bar
+- Baptiste: RTT
 - Geoffrey: RTT
 - Florian: Reste à disposition pour toute information demandée par les membres du projet
 ## Consignes diverses
