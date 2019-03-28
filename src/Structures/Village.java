@@ -10,6 +10,19 @@ public class Village {
 	private Tueur tueur;
 	private Enqueteur enqueteur;
 	
+	public Village(Tueur tueur, Enqueteur enqueteur, String lienCSV) {
+		init(lienCSV);
+		this.tueur = tueur;
+		this.enqueteur = enqueteur;
+	}
+
+	private void init(String lienCSV) {
+		this.lieux = new ArrayList<Lieu>();
+		// à développer
+		this.routes = new Routes(lieux);
+		// à développer
+	}
+
 	public ArrayList<Lieu> getVoisins(Lieu lieu) {
 		return routes.getVoisins(lieu);
 	}
