@@ -14,9 +14,9 @@ import util.Surface;
 public class Maison extends Lieu implements Entity {
 	//Attributs
 	/**
-	 * Statut de son habitant et de son potentiel visiteur (tueur/enqueteur)
+	 * Statut de son habitant 
 	 */
-	private Statut statut;
+	private StatutMaison statutMaison;
 	/**
 	 * Surface de la maison et implicitement sa position
 	 */
@@ -31,9 +31,9 @@ public class Maison extends Lieu implements Entity {
 	 * @param statut correspondant au statut de l'habitant
 	 * @param surface correspondant à la surface de la maison 
 	 */
-	public Maison(Village village, Statut statut, Surface surface) {
+	public Maison(Village village, StatutMaison statut, Surface surface) {
 		super(surface, village);
-		this.setStatut(statut);
+		this.setStatutMaison(statut);
 	}
 	/**
 	 * Permet de construire une maison
@@ -43,7 +43,7 @@ public class Maison extends Lieu implements Entity {
 	 * @param height correspondant à la hauteur de la représentation de la maison
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
-	public Maison(Village village, Statut statut, Position origine, int height, int width) {
+	public Maison(Village village, StatutMaison statut, Position origine, int height, int width) {
 		this(village, statut, new Surface(origine, height, width));
 	}
 	/**
@@ -54,7 +54,7 @@ public class Maison extends Lieu implements Entity {
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(Village village, Position origine, int height, int width) {
-		this(village, Statut.ALIVE, new Surface(origine, height, width));
+		this(village, StatutMaison.ALIVE, new Surface(origine, height, width));
 	}
 	/**
 	 * 
@@ -65,7 +65,7 @@ public class Maison extends Lieu implements Entity {
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(Village village, int x, int y, int height, int width) {
-		this(village, Statut.ALIVE, new Surface(new Position(x,y), height, width));
+		this(village, StatutMaison.ALIVE, new Surface(new Position(x,y), height, width));
 	}
 	
 	
@@ -82,67 +82,41 @@ public class Maison extends Lieu implements Entity {
 	 * Définie comme mort l'habitant
 	 */
 	public void setDead() {
-		this.setStatut(Statut.DEAD);
+		this.setStatutMaison(StatutMaison.DEAD);
 	}
 	/**
 	 * Définie comme vivant l'habitant
 	 */
 	public void setAlive() {
-		this.setStatut(Statut.ALIVE);
-	}
-	/**
-	 * Définie la maison comme acceuillant le tueur
-	 */
-	public void setMurder() {
-		this.setStatut(Statut.MURDER);
-	}
-	/**
-	 * Définie la maison comme acceuillant l'enquêteur
-	 */
-	public void setInvestigate() {
-		this.setStatut(Statut.INVESTIGATE);
+		this.setStatutMaison(StatutMaison.ALIVE);
 	}
 	/**
 	 * Vérifie si l'habitant est mort
 	 * @return Vrai ou faux selon l'etat de la maison
 	 */
 	public boolean isDead() {
-		return statut.equals(Statut.DEAD);
+		return statutMaison.equals(StatutMaison.DEAD);
 	}
 	/**
 	 * Vérifie si l'habitant est en vie
 	 * @return Vrai ou faux selon l'etat de la maison
 	 */
 	public boolean isAlive() {
-		return statut.equals(Statut.ALIVE);
-	}
-	/**
-	 * Vérifie si la maison est occupée par le tueur
-	 * @return Vrai ou faux selon l'etat de la maison
-	 */
-	public boolean isMurder() {
-		return statut.equals(Statut.MURDER);
-	}
-	/**
-	 * Vérifie si la maison subit une enquête
-	 * @return Vrai ou faux selon l'etat de la maison
-	 */
-	public boolean isInvestigate() {
-		return statut.equals(Statut.INVESTIGATE);
+		return statutMaison.equals(StatutMaison.ALIVE);
 	}
 	/**
 	 * Permet d'obtenir le statut actuel de la maison et de son habitant
 	 * @return Retourne un statut
 	 */
-	public Statut getStatut() {
-		return statut;
+	public StatutMaison getStatutMaison() {
+		return statutMaison;
 	}
 	/**
 	 * Définie le statut de la maison avec le statut passé en paramètre
 	 * @param statut le statut a attribuer à la maison
 	 */
-	public void setStatut(Statut statut) {
-		this.statut = statut;
+	public void setStatutMaison(StatutMaison statutMaison) {
+		this.statutMaison = statutMaison;
 	}
 	/**
 	 * Permet d'obtenir le village dans lequel se trouve la maison 
@@ -183,7 +157,7 @@ public class Maison extends Lieu implements Entity {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + days;
-		result = prime * result + ((statut == null) ? 0 : statut.hashCode());
+		result = prime * result + ((statutMaison == null) ? 0 : statutMaison.hashCode());
 		result = prime * result + ((surface == null) ? 0 : surface.hashCode());
 		result = prime * result + ((village == null) ? 0 : village.hashCode());
 		return result;
@@ -199,7 +173,7 @@ public class Maison extends Lieu implements Entity {
 		Maison other = (Maison) obj;
 		if (days != other.days)
 			return false;
-		if (statut != other.statut)
+		if (statutMaison != other.statutMaison)
 			return false;
 		if (surface == null) {
 			if (other.surface != null)

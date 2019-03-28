@@ -21,10 +21,42 @@ public abstract class Lieu {
 	 * Village dans lequel se situe le lieu
 	 */
 	protected Village village;
+	/**
+	 * Statut du lieu s'il contient l'enqueteur ou le tueur 
+	 */
+	protected Statut statutLieu;
 	
 	public Lieu(Surface surface, Village village) {
 		this.surface = surface;
 		this.village = village;
+	}
+	
+	
+	/**
+	 * Définie la maison comme acceuillant le tueur
+	 */
+	public void setMurder() {
+		this.setStatutLieu(Statut.MURDER);
+	}
+	/**
+	 * Définie la maison comme acceuillant l'enquêteur
+	 */
+	public void setInvestigate() {
+		this.setStatutLieu(Statut.INVESTIGATE);
+	}
+	/**
+	 * Vérifie si la maison est occupée par le tueur
+	 * @return Vrai ou faux selon l'etat de la maison
+	 */
+	public boolean isMurder() {
+		return statutLieu.equals(Statut.MURDER);
+	}
+	/**
+	 * Vérifie si la maison subit une enquête
+	 * @return Vrai ou faux selon l'etat de la maison
+	 */
+	public boolean isInvestigate() {
+		return statutLieu.equals(Statut.INVESTIGATE);
 	}
 	
 	/**
@@ -108,5 +140,5 @@ public abstract class Lieu {
 		return this.village;
 	}
 	
-	
+	public Statut getStatutLieu();
 }
