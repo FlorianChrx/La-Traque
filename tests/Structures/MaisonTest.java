@@ -20,7 +20,7 @@ class MaisonTest {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		village = new Village();
+		village = new Village(null, null, null);
 		statut = StatutMaison.ALIVE;
 		surface = new Surface(5, 5, 20, 20);
 		maison = new Maison(village, statut, surface);
