@@ -1,5 +1,5 @@
 package Structures;
 
 public enum Statut {
-	 MURDER, INVESTIGATE;
+	 MURDER, INVESTIGATE, EMPTY;
 }

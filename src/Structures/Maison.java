@@ -22,7 +22,6 @@ public class Maison extends Lieu implements Entity {
 	 */
 	private int days;
 	
-	
 	//Constructeurs
 	
 	/**
@@ -33,7 +32,7 @@ public class Maison extends Lieu implements Entity {
 	 */
 	public Maison(Village village, StatutMaison statut, Surface surface) {
 		super(surface, village);
-		this.setStatutMaison(statut);
+		this.statutMaison = statut;
 	}
 	/**
 	 * Permet de construire une maison
@@ -119,28 +118,11 @@ public class Maison extends Lieu implements Entity {
 		this.statutMaison = statutMaison;
 	}
 	/**
-	 * Permet d'obtenir le village dans lequel se trouve la maison 
-	 * @return Retourne le village contennant la maison
-	 */
-	public Village getVillage() {
-		return village;
-	}
-	/**
-	 * Permet de changer la maison de village
-	 * @param village représentant le village dans lequel la maison se trouve
-	 */
-	public void setVillage(Village village) {
-		this.village = village;
-	}
-	/**
 	 * Permet de savoir le nombre de jours depuis le meurtre
 	 * @return Retourne le nombre de jours depuis le meurtre
 	 */
 	public int getDays() {
 		return days;
-	}
-	public String getPhrase() {
-		return Phrase.nextPhrase(days);
 	}
 	/**
 	 * Permet de remettre à 0 le nombre de jours depuis le meurtre
@@ -186,6 +168,10 @@ public class Maison extends Lieu implements Entity {
 		} else if (!village.equals(other.village))
 			return false;
 		return true;
+	}
+	@Override
+	public String getPhrase() {
+		return phrase.nextPhrase(this.days);
 	}
 	
 }

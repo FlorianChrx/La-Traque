@@ -34,6 +34,7 @@ class MaisonTest {
 	void setUp() throws Exception {
 		maison.setSurface(surface);
 		maison.setStatutMaison(statut);
+		maison.setEmpty();
 		maison.setVillage(village);
 		maison.resetDays();
 	}

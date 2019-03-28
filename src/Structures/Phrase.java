@@ -1,14 +1,15 @@
 package Structures;
 
 import java.util.ArrayList;
-import util.CSVReader;
 import java.util.Random;
 
+import util.CSVReader;
+
 public class Phrase {
-	private static ArrayList<String> courts;
-	private static ArrayList<String> moyens; 
-	private static ArrayList<String> longs; 
-	private static Random alea;
+	private ArrayList<String> courts;
+	private ArrayList<String> moyens; 
+	private ArrayList<String> longs; 
+	private Random alea;
 	
 	public Phrase() {
 		CSVReader court = new CSVReader("court.csv");
@@ -20,7 +21,7 @@ public class Phrase {
 		alea = new Random();
 	}
 	
-	public static String nextPhrase(int nbJours) {
+	public String nextPhrase(int nbJours) {
 		if (nbJours < 3) {
 			return nextPhraseShort();
 		}
@@ -29,15 +30,15 @@ public class Phrase {
 		}
 		return nextPhraseLong();
 	}
-	
-	public static String nextPhraseShort() {
+
+	public String nextPhraseShort() {
 		return courts.get(alea.nextInt(40));
 	}
 	
-	public static String nextPhraseMedium() {
+	public String nextPhraseMedium() {
 		return moyens.get(alea.nextInt(40));
 	}
-	public static String nextPhraseLong() {
+	public String nextPhraseLong() {
 		return longs.get(alea.nextInt(40));
 	}
 }
