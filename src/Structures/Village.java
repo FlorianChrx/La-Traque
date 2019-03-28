@@ -25,5 +25,12 @@ public class Village {
 	public Lieu getEnqueteurLocation() {
 		return enqueteur.getLieu();
 	}
-	
+
+	public Tueur getTueur() {
+		return tueur;
+	}
+
+	public Enqueteur getEnqueteur() {
+		return enqueteur;
+	}
 }
