@@ -9,9 +9,6 @@ public class Village {
 	private Routes routes;
 	private Tueur tueur;
 	private Enqueteur enqueteur;
-	private Phrase phrase;
-	
-	
 	
 	public ArrayList<Lieu> getVoisins(Lieu lieu) {
 		return routes.getVoisins(lieu);
