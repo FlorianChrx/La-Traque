@@ -1,7 +1,8 @@
-package Entities;
+package classes;
 
 import java.util.ArrayList;
 
+import Entities.Personnage;
 import Structures.Lieu;
 import Structures.Maison;
 
@@ -34,13 +35,11 @@ public class Chien extends Personnage {
 		if(lieu instanceof Maison) {
 			goTo(lieu);
 			actionsDone ++;
-			if(((Maison) lieu).isMurder()) {
-				if(canDoAction()) {
-					lieu.getVillage().getTueur().setBlocked();
-					actionsDone ++;
-				} else {
-					setBlocked();
-				}
+			if(canDoAction() && lieu.isMurder()) {
+				lieu.getVillage().getTueur().setBlocked();
+				actionsDone ++;
+			} else if ((!canDoAction()) && lieu.isMurder()) {
+				setBlocked();
 			}
 		}
 	}
