@@ -43,6 +43,7 @@ public class Chien extends Personnage {
 			}
 		}
 	}
+	
 	@Override
 	public ArrayList<Lieu> lieuxAccessibles() {
 		return lieu.getVoisins();
