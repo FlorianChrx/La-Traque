@@ -33,7 +33,7 @@ class MaisonTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		maison.setSurface(surface);
-		maison.setStatutMaison(statut);
+		maison.setAlive();
 		maison.setEmpty();
 		maison.setVillage(village);
 		maison.resetDays();
@@ -121,16 +121,16 @@ class MaisonTest {
 	}
 
 	@Test
-	void testNextDay() {
-		maison.nextDay();
+	void testupdate() {
+		maison.update();
 		assertEquals(1, maison.getDays());
-		maison.nextDay();
+		maison.update();
 		assertEquals(2, maison.getDays());
-		maison.nextDay();
+		maison.update();
 		assertEquals(3, maison.getDays());
-		maison.nextDay();
+		maison.update();
 		assertEquals(4, maison.getDays());
-		maison.nextDay();
+		maison.update();
 		assertEquals(5, maison.getDays());
 	}
 
@@ -175,7 +175,7 @@ class MaisonTest {
 	
 	@Test
 	void testResetDays() {
-		maison.nextDay();
+		maison.update();
 		maison.resetDays();
 		assertEquals(0, maison.getDays());
 	}
