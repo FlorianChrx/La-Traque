@@ -39,7 +39,7 @@ public abstract class Lieu {
 		this.setStatutLieu(Statut.MURDER);
 	}
 	/**
-	 * Définie la maison comme acceuillant l'enquêteur
+	 * Définie le lieu comme acceuillant l'enquêteur
 	 */
 	public void setInvestigate() {
 		this.setStatutLieu(Statut.INVESTIGATE);
@@ -52,8 +52,8 @@ public abstract class Lieu {
 		return statutLieu.equals(Statut.MURDER);
 	}
 	/**
-	 * Vérifie si la maison subit une enquête
-	 * @return Vrai ou faux selon l'etat de la maison
+	 * Vérifie si le lieu subit une enquête
+	 * @return Vrai ou faux selon l'etat du lieu
 	 */
 	public boolean isInvestigate() {
 		return statutLieu.equals(Statut.INVESTIGATE);
@@ -140,5 +140,10 @@ public abstract class Lieu {
 		return this.village;
 	}
 	
-	public Statut getStatutLieu();
+	public Statut getStatutLieu() {
+		return this.statutLieu;
+	}
+	public void setStatutLieu(Statut statut) {
+		this.statutLieu = statut;
+	}
 }
