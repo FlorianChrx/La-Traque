@@ -74,7 +74,7 @@ public class Maison extends Lieu implements Entity {
 	/**
 	 * Permet de passer au jour suivant, soit d'incrémenter le nombre de jours depuis le meurtre de 1
 	 */
-	public void nextDay() {
+	private void nextDay() {
 		days++;
 	}
 	/**
@@ -114,7 +114,7 @@ public class Maison extends Lieu implements Entity {
 	 * Définie le statut de la maison avec le statut passé en paramètre
 	 * @param statut le statut a attribuer à la maison
 	 */
-	public void setStatutMaison(StatutMaison statutMaison) {
+	private void setStatutMaison(StatutMaison statutMaison) {
 		this.statutMaison = statutMaison;
 	}
 	/**
