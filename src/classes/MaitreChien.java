@@ -2,7 +2,6 @@ package classes;
 
 import java.util.ArrayList;
 
-import Entities.Chien;
 import Entities.Enqueteur;
 import Structures.Lieu;
 import Structures.Village;
