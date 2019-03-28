@@ -21,12 +21,61 @@ public abstract class Lieu {
 	 * Village dans lequel se situe le lieu
 	 */
 	protected Village village;
+	/**
+	 * Statut du lieu s'il contient l'enqueteur ou le tueur 
+	 */
+	protected Statut statutLieu;
+	protected static Phrase phrase = new Phrase();
 	
-	public Lieu(Surface surface, Village village) {
+	
+	
+	/**
+	 * Permet de construire un lieu
+	 * @param village correspondant au village dans lequel se situe le lieu
+	 * @param statut correspondant au statut du lieu
+	 * @param surface correspondant à la surface du lieu
+	 */
+	public Lieu(Surface surface, Village village, Statut statut) {
 		this.surface = surface;
 		this.village = village;
+		this.statutLieu = statut;
+	}
+	public Lieu(Surface surface, Village village) {
+		this(surface, village, Statut.EMPTY);
 	}
 	
+	/**
+	 * Définie le lieu comme acceuillant le tueur
+	 */
+	public void setMurder() {
+		this.setStatutLieu(Statut.MURDER);
+	}
+	/**
+	 * Définie le lieu comme acceuillant l'enquêteur
+	 */
+	public void setInvestigate() {
+		this.setStatutLieu(Statut.INVESTIGATE);
+	}
+	/**
+	 * Définie le lieu comme vide
+	 */
+	public void setEmpty() {
+		this.setStatutLieu(Statut.EMPTY);
+	}
+	/**
+	 * Vérifie si le lieu est occupé par le tueur
+	 * @return Vrai ou faux selon l'etat du lieu
+	 */
+	public boolean isMurder() {
+		return statutLieu.equals(Statut.MURDER);
+	}
+	/**
+	 * Vérifie si le lieu subit une enquête
+	 * @return Vrai ou faux selon l'etat du lieu
+	 */
+	public boolean isInvestigate() {
+		return statutLieu.equals(Statut.INVESTIGATE);
+	}
 	/**
 	 * Permet d'obtenir la Position du lieu
 	 * @return Retourne la position du lieu
@@ -107,6 +156,25 @@ public abstract class Lieu {
 	public Village getVillage() {
 		return this.village;
 	}
-	
-	
+	/**
+	 * Permet de changer le lieu de village
+	 * @param village représentant le village dans lequel le lieu se trouve
+	 */
+	public void setVillage(Village village) {
+		this.village = village;
+	}
+	/**
+	 * Permet d'obtenir le statut actuel du lieu
+	 * @return le statut actuel du lieu
+	 */
+	public Statut getStatutLieu() {
+		return this.statutLieu;
+	}
+	/**
+	 * Permet de redéfinir le statut du lieu avec un statut donné
+	 * @param statut : le statut à attribuer au lieu
+	 */
+	public void setStatutLieu(Statut statut) {
+		this.statutLieu = statut;
+	}
 }
