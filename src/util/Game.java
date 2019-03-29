@@ -23,19 +23,19 @@ public class Game {
 		enqueteur = new MaitreChien(villageActuel);
 	}
 	
-	public Lieu getTueurLocation() {
+	public static Lieu getTueurLocation() {
 		return tueur.getLieu();
 	}
 	
-	public Lieu getEnqueteurLocation() {
+	public static Lieu getEnqueteurLocation() {
 		return enqueteur.getLieu();
 	}
 
-	public Tueur getTueur() {
+	public static Tueur getTueur() {
 		return tueur;
 	}
 
-	public Enqueteur getEnqueteur() {
+	public static Enqueteur getEnqueteur() {
 		return enqueteur;
 	}
 	
