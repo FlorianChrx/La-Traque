@@ -24,4 +24,27 @@ public class Village {
 	public ArrayList<Lieu> getLieux() {
 		return lieux;
 	}
+	
+	public boolean[][] toBooleanTab(){
+		boolean[][] tab = new boolean[30][30];
+		for (Lieu lieu : lieux) {
+			tab[lieu.getPosition().getX()][lieu.getPosition().getY()] = true;
+		}
+		return tab;
+	}
+	
+	public String toString() {
+		boolean[][] tab = toBooleanTab();
+		String res = "";
+		for (int i = 0; i < tab.length; i++) {
+			for (int j = 0; j < tab[i].length; j++) {
+				if (tab[i][j]) {
+					res += "#";
+				} else {
+					res += ".";
+				}
+			}
+		}
+		return res;
+	}
 }
