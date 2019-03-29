@@ -21,6 +21,9 @@ public class Game {
 		villageActuel = new Village("");
 		tueur = null;
 		enqueteur = new MaitreChien(villageActuel);
+		while(true) {
+			
+		}
 	}
 	
 	public static Lieu getTueurLocation() {
