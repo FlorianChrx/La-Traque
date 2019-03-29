@@ -24,7 +24,12 @@ public class Village {
 	public ArrayList<Lieu> getLieux() {
 		return lieux;
 	}
-	
+	/**
+	 * Méthode permettant de transformer le village en tableau de booleen (les cases avec la valeur vrai étant 
+	 * des cases avec une maison à cette position)
+	 * /!\ la map doit etre inferieure ou égale à 30*30 pour appeler cette méthode sous peine de faire 
+	 * planter le jeu
+	 */
 	public boolean[][] toBooleanTab(){
 		boolean[][] tab = new boolean[30][30];
 		for (Lieu lieu : lieux) {
@@ -32,7 +37,10 @@ public class Village {
 		}
 		return tab;
 	}
-	
+	/**
+	 * Méthode permettant de représenter le village par une chaine de caractères à partir d'un tableau booléen
+	 * généré à l'appel de cette méthode via la méthode {@link toBooleanTab()}
+	 */
 	public String toString() {
 		boolean[][] tab = toBooleanTab();
 		String res = "";
