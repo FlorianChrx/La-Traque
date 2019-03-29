@@ -3,8 +3,8 @@
 À bien rédiger ensemble
 ## Tâches actuelles
 - Amélie: création de classes concrêtes au sein du package "classes", il s'agit de créer des tueurs et enqueteurs heritants des superclasses portant ces noms et d'en écrire le comportement (méthodes non implémentés et d'autres si nécessaire)
-- Baptiste: RTT
-- Geoffrey: RTT
+- Baptiste: Création de la classe village
+- Geoffrey: Création de la classe CSVReader
 - Florian: Reste à disposition pour toute information demandée par les membres du projet
 ## Consignes diverses
 - Dans le cas ou vous inviteriez des personnes extérieures au projet faites les push leur code sur leur compte github afin que le code ne soit pas implémenté directement et qu'il puisse être verifié (oui je tient à la sécurité du projet) 
