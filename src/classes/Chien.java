@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Entities.Personnage;
 import Structures.Lieu;
 import Structures.Maison;
+import util.Game;
 
 /**
  * Classe du Chien appartenant au MaitreChien [Deux actions]
@@ -36,7 +37,7 @@ public class Chien extends Personnage {
 			goTo(lieu);
 			actionsDone ++;
 			if(canDoAction() && lieu.isMurder()) {
-				lieu.getVillage().getTueur().setBlocked();
+				Game.getTueur().setBlocked();
 				actionsDone ++;
 			} else if ((!canDoAction()) && lieu.isMurder()) {
 				setBlocked();
