@@ -10,4 +10,8 @@ Ce projet est réalisé dans le cadre du 2ème semestre de DUT informatique en p
 - Florian: Reste à disposition pour toute information demandée par les membres du projet
 ## Consignes diverses
 - Dans le cas ou vous inviteriez des personnes extérieures au projet faites les push leur code sur leur compte github afin que le code ne soit pas implémenté directement et qu'il puisse être verifié (oui je tient à la sécurité du projet) 
-- veuillez travailler dans la branche dédié à votre classe en developpement (utiliser "git branch" pour lister les branches et "git checkout <branch>" pour vous y rendre
+- utiliser sa branche pour les améliorations du mode texte et la branche "Update" pour les amélioration globales
+## Comment faire un push ?
+- git add *.java
+- git commit
+- git push
