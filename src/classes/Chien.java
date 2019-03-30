@@ -58,4 +58,9 @@ public class Chien extends Personnage {
 	public void update() {
 		nextDay();		
 	}
+
+	@Override
+	public void goTo(Lieu lieu) {
+		this.lieu = lieu;
+	}
 }
