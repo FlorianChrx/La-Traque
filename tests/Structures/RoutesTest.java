@@ -14,11 +14,11 @@ import util.Surface;
 
 class RoutesTest {
 	
-	Lieu lieu1 = new Maison(null, null, new Surface(0, 0, 10, 10));
-	Lieu lieu2 = new Maison(null, null, new Surface(1, 1, 10, 10));
-	Lieu lieu3 = new Maison(null, null, new Surface(2, 2, 10, 10));
-	Lieu lieu4 = new Maison(null, null, new Surface(3, 3, 10, 10));
-	Lieu lieu5 = new Maison(null, null, new Surface(4, 4, 10, 10));
+	Lieu lieu1 = new Maison(null, new Surface(0, 0, 10, 10));
+	Lieu lieu2 = new Maison(null, new Surface(1, 1, 10, 10));
+	Lieu lieu3 = new Maison(null, new Surface(2, 2, 10, 10));
+	Lieu lieu4 = new Maison(null, new Surface(3, 3, 10, 10));
+	Lieu lieu5 = new Maison(null, new Surface(4, 4, 10, 10));
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
