@@ -57,5 +57,13 @@ public class MaitreChien extends Enqueteur {
 		} else {
 			// g plu d'action frr
 		}
+	}
+
+	public Chien getChien() {
+		return chien;
+	}
+
+	public void setChien(Chien chien) {
+		this.chien = chien;
 	}	
 }
