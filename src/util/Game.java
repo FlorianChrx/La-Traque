@@ -42,4 +42,9 @@ public class Game {
 	public static Village getVillageActuel() {
 		return villageActuel;
 	}
+
+	public static void win() {
+		// TODO Auto-generated method stub
+		
+	}
 }
