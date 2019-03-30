@@ -3,6 +3,7 @@ package Entities;
 import Structures.Lieu;
 import Structures.Maison;
 import Structures.Village;
+import util.Game;
 
 /**
  * Class abstraite correspondant aux Tueurs
@@ -39,8 +40,10 @@ public abstract class Tueur extends Personnage {
 			((Maison) lieu).setDead();
 		}
 	}
-	
 	public void goTo(Lieu lieu) {
+		if (lieu.isInvestigate()) {
+			Game.win();
+		}
 		this.lieu.setEmpty();
 		this.lieu = lieu;
 		this.lieu.setMurder();
