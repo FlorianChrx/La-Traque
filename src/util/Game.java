@@ -10,11 +10,26 @@ import classes.MaitreChien;
 
 public class Game {
 	
+	/**
+	 * Village actuel présent dans le jeu
+	 */
 	private static Village villageActuel;
+	/**
+	 * Tueur actuel présent dans le jeu
+	 */
 	private static Tueur tueur;
+	/**
+	 * Enqueteur actuel présent dans le jeu
+	 */
 	private static Enqueteur enqueteur;
+	/**
+	 * Scanner permettant les saisies clavier
+	 */
 	private static Scanner clavier = new Scanner(System.in);
 	
+	/**
+	 * Méthode principale du jeu
+	 */
 	public static void main(String[] args) {
 		System.out.println("Bienvenue dans notre jeu appuies sur entrée pour jouer !");
 		clavier.nextLine();
@@ -23,22 +38,38 @@ public class Game {
 		enqueteur = new MaitreChien(villageActuel);
 	}
 	
+	/**
+	 * Permet d'obtenir le lieu actuel du tueur
+	 * @return le lieu ou se situe le tueur
+	 */
 	public static Lieu getTueurLocation() {
 		return tueur.getLieu();
 	}
-	
+	/**
+	 * Permet d'obtenir le lieu actuel de l'enqueteur
+	 * @return le lieu ou se situe l'enqueteur
+	 */
 	public static Lieu getEnqueteurLocation() {
 		return enqueteur.getLieu();
 	}
-
+	/**
+	 * Permet d'obtenir l'instance du tueur actuel du jeu
+	 * @return le tueur actuel
+	 */
 	public static Tueur getTueur() {
 		return tueur;
 	}
-
+	/**
+	 * Permet d'obtenir l'instance de l'enqueteur actuel du jeu
+	 * @return l'enqueteur actuel
+	 */
 	public static Enqueteur getEnqueteur() {
 		return enqueteur;
 	}
-
+	/**
+	 * Permet d'obtenir l'instance du village actuel du jeu
+	 * @return le village actuel ou se déroule l'action
+	 */
 	public static Village getVillageActuel() {
 		return villageActuel;
 	}
