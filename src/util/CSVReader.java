@@ -10,7 +10,6 @@ public class CSVReader {
 	private Scanner scanner;
 	
 	public CSVReader(String file) {
-		/*
 		this.file = new ArrayList<>();
 		try {
 			this.scanner = new Scanner(new File(file));
@@ -21,7 +20,6 @@ public class CSVReader {
 			e.printStackTrace();
 			System.out.println("lol pas toruvé");
 		}
-		*/
 	}
 	
 	public String toString() {
