@@ -22,9 +22,12 @@ public abstract class Lieu {
 	 */
 	protected Village village;
 	/**
-	 * Statut du lieu s'il contient l'enqueteur ou le tueur 
+	 * Statut du lieu (s'il contient l'enqueteur ou le tueur)
 	 */
 	protected Statut statutLieu;
+	/**
+	 * Genérateur de phrase
+	 */
 	protected static Phrase phrase = new Phrase();
 	
 	
