@@ -13,10 +13,6 @@ public class Village {
 	}
 
 	private void init(String lienCSV) {
-		this.lieux = new ArrayList<Lieu>();
-		// à développer
-		this.routes = new Routes(lieux);
-		// à développer 
 		villageTest();
 	}
 
@@ -71,6 +67,7 @@ public class Village {
 					res += ".";
 				}
 			}
+			res += "\n";
 		}
 		return res;
 	}
@@ -78,11 +75,13 @@ public class Village {
 	 * Permet de générer un village test
 	 */
 	private void villageTest() {
+		this.lieux = new ArrayList<Lieu>();
 		lieux.add(new Maison(this, 2, 2, 0, 0));
 		lieux.add(new Maison(this, 5, 5, 0, 0));
 		lieux.add(new Maison(this, 10, 10, 0, 0));
 		lieux.add(new Maison(this, 20, 20, 0, 0));
-		lieux.add(new Maison(this, 30, 30, 0, 0));
+		lieux.add(new Maison(this, 25, 25, 0, 0));
+		this.routes = new Routes(lieux);
 		routes.addConnexion(lieux.get(0), lieux.get(1));
 		routes.addConnexion(lieux.get(1), lieux.get(2));
 		routes.addConnexion(lieux.get(2), lieux.get(3));

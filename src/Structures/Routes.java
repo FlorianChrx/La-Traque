@@ -2,7 +2,7 @@ package Structures;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 
@@ -23,7 +23,7 @@ public class Routes {
 	 * @param lieus
 	 */
 	public Routes(Collection<Lieu> lieus) {
-		this.connexion = new HashMap<Lieu, ArrayList<Lieu>>(lieus.size());
+		this.connexion = new LinkedHashMap<Lieu, ArrayList<Lieu>>(lieus.size());
 		for (Lieu lieu : lieus) {
 			connexion.put(lieu, new ArrayList<Lieu>());
 		}
@@ -75,6 +75,7 @@ public class Routes {
 	 * si la clé de la HashMap existe)
 	 */
 	public boolean addConnexion(Lieu lieu, Lieu voisin) {
+		System.out.println(connexion.size());
 		boolean b1 = this.connexion.get(lieu).add(voisin);
 		boolean b2 = this.connexion.get(voisin).add(lieu);
 		return b1 && b2;
