@@ -51,7 +51,8 @@ public abstract class Personnage implements Controlable, Entity {
 	 * @param nbActions représentant le nombre d'actions possible par tour
 	 */
 	public Personnage(Village village, int nbActions) {
-		ArrayList<Lieu> lieux = village.getLieux();
+		ArrayList<Lieu> lieux = new ArrayList<Lieu>();
+		lieux.addAll(village.getLieux());
 		Collections.shuffle(lieux);
 		this.setLieu(lieux.get(1));
 		this.setNbActions(nbActions);
