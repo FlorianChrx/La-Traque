@@ -4,8 +4,8 @@ import util.Surface;
 
 public class Bar extends Lieu{
 
-	public Bar(Surface surface, Village village) {
-		super(surface, village);
+	public Bar(Surface surface) {
+		super(surface);
 		// TODO Auto-generated constructor stub
 	}
 
