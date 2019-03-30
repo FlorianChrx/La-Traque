@@ -2,6 +2,8 @@ package Structures;
 
 import java.util.ArrayList;
 
+import util.Position;
+
 public class Village {
 	private ArrayList<Lieu> lieux;
 	private Routes routes;
@@ -14,11 +16,23 @@ public class Village {
 		this.lieux = new ArrayList<Lieu>();
 		// à développer
 		this.routes = new Routes(lieux);
-		// à développer
+		// à développer 
+		villageTest();
 	}
 
 	public ArrayList<Lieu> getVoisins(Lieu lieu) {
 		return routes.getVoisins(lieu);
+	}
+	
+	public String getVoisinsString(Lieu lieuActuel) {
+		String res = "Lieux accessibles: ";
+		ArrayList<Lieu> voisins = getVoisins(lieuActuel);
+		for (Lieu lieu : lieux) {
+			if(voisins.contains(lieu)) {
+				res += lieux.indexOf(lieu) + ", ";
+			}
+		}
+		return res;
 	}
 
 	public ArrayList<Lieu> getLieux() {
@@ -47,12 +61,31 @@ public class Village {
 		for (int i = 0; i < tab.length; i++) {
 			for (int j = 0; j < tab[i].length; j++) {
 				if (tab[i][j]) {
-					res += "#";
+					for (Lieu lieu : lieux) {
+						if(lieu.getPosition().equals(new Position(i,j))) {
+							res += lieux.indexOf(lieu);
+							break;
+						}
+					}
 				} else {
 					res += ".";
 				}
 			}
 		}
 		return res;
+	}
+	/**
+	 * Permet de générer un village test
+	 */
+	private void villageTest() {
+		lieux.add(new Maison(this, 2, 2, 0, 0));
+		lieux.add(new Maison(this, 5, 5, 0, 0));
+		lieux.add(new Maison(this, 10, 10, 0, 0));
+		lieux.add(new Maison(this, 20, 20, 0, 0));
+		lieux.add(new Maison(this, 30, 30, 0, 0));
+		routes.addConnexion(lieux.get(0), lieux.get(1));
+		routes.addConnexion(lieux.get(1), lieux.get(2));
+		routes.addConnexion(lieux.get(2), lieux.get(3));
+		routes.addConnexion(lieux.get(3), lieux.get(4));
 	}
 }
