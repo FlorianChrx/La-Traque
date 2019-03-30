@@ -42,8 +42,4 @@ public class Game {
 	public static Village getVillageActuel() {
 		return villageActuel;
 	}
-
-	public static void setVillageActuel(Village villageActuel) {
-		Game.villageActuel = villageActuel;
-	}
 }
