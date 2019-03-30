@@ -30,7 +30,9 @@ public class Game {
 			 System.out.println("Votre Choix :");;
 			 do {
 				 choix = clavier.nextLine();
-				 choixInt = Integer.parseInt(choix);
+				 // - 1 pour avoir l'indice de la maison choisie (car le chiffre visible
+				 // est le numéro de la maison et non son indice)
+				 choixInt = Integer.parseInt(choix) - 1;
 			 } while (choixInt > villageActuel.getLieux().size() || ! enqueteur.canGoTo(villageActuel.getLieux().get(choixInt)));
 			 enqueteur.goTo(villageActuel.getLieux().get(choixInt));
 		}

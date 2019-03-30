@@ -58,7 +58,8 @@ public class Village {
 				if (tab[i][j]) {
 					for (Lieu lieu : lieux) {
 						if(lieu.getPosition().equals(new Position(i,j))) {
-							res += lieux.indexOf(lieu);
+							// + 1 pour avoir le numéro de la maison
+							res += (lieux.indexOf(lieu)+1);
 							break;
 						}
 					}
