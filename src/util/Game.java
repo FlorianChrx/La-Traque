@@ -27,14 +27,26 @@ public class Game {
 			 int choixInt;
 			 System.out.println(villageActuel.toString());
 			 System.out.println(villageActuel.getVoisinsString(getEnqueteurLocation()));
-			 System.out.println("Votre Choix :");;
 			 do {
+				 System.out.println("-- Tour de l'enqueteur --");
+				 System.out.println("Votre Choix :");
 				 choix = clavier.nextLine();
 				 // - 1 pour avoir l'indice de la maison choisie (car le chiffre visible
 				 // est le numéro de la maison et non son indice)
 				 choixInt = Integer.parseInt(choix);
-			 } while (choixInt > villageActuel.getLieux().size() && choixInt < villageActuel.getLieux().size() || ! enqueteur.canGoTo(villageActuel.getLieux().get(choixInt-1)));
-			 enqueteur.goTo(villageActuel.getLieux().get(choixInt-1));
+			 } while ((choixInt > villageActuel.getLieux().size() && choixInt < villageActuel.getLieux().size() || !enqueteur.canGoTo(villageActuel.getLieux().get(choixInt-1)) && !enqueteur.getLieu().equals(villageActuel.getLieux().get(choixInt-1))) && enqueteur.canDoAction());
+			 enqueteur.action(villageActuel.getLieux().get(choixInt-1));
+			 /*
+			 do {
+				 System.out.println("-- Tour du tueur --");
+				 System.out.println("Votre Choix :");
+				 choix = clavier.nextLine();
+				 // - 1 pour avoir l'indice de la maison choisie (car le chiffre visible
+				 // est le numéro de la maison et non son indice)
+				 choixInt = Integer.parseInt(choix);
+			 } while ((choixInt > villageActuel.getLieux().size() && choixInt < villageActuel.getLieux().size() || !tueur.canGoTo(villageActuel.getLieux().get(choixInt-1))) && tueur.canDoAction());
+			 tueur.action(villageActuel.getLieux().get(choixInt-1));
+			 */
 		}
 	}
 	
