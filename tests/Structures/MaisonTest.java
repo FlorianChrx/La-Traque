@@ -1,15 +1,20 @@
 package Structures;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import util.Position;
 import util.Surface;
+
+/**
+ * 
+ * Classe de test pour la classe Maison
+ * @author florianchiraux
+ *
+ */
 
 class MaisonTest {
 	
