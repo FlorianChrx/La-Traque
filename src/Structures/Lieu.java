@@ -2,6 +2,7 @@ package Structures;
 
 import java.util.ArrayList;
 
+import util.Game;
 import util.Position;
 import util.Surface;
 
@@ -18,10 +19,6 @@ public abstract class Lieu {
 	 */
 	protected Surface surface;
 	/**
-	 * Village dans lequel se situe le lieu
-	 */
-	protected Village village;
-	/**
 	 * Statut du lieu s'il contient l'enqueteur ou le tueur 
 	 */
 	protected Statut statutLieu;
@@ -31,17 +28,15 @@ public abstract class Lieu {
 	
 	/**
 	 * Permet de construire un lieu
-	 * @param village correspondant au village dans lequel se situe le lieu
 	 * @param statut correspondant au statut du lieu
 	 * @param surface correspondant à la surface du lieu
 	 */
-	public Lieu(Surface surface, Village village, Statut statut) {
+	public Lieu(Surface surface, Statut statut) {
 		this.surface = surface;
-		this.village = village;
 		this.statutLieu = statut;
 	}
-	public Lieu(Surface surface, Village village) {
-		this(surface, village, Statut.EMPTY);
+	public Lieu(Surface surface) {
+		this(surface, Statut.EMPTY);
 	}
 	
 	/**
@@ -103,7 +98,7 @@ public abstract class Lieu {
 	 * @return Retourne liste de lieus
 	 */
 	public ArrayList<Lieu> getVoisins() {
-		return getVillage().getVoisins(this);
+		return Game.getVillageActuel().getVoisins(this);
 	}
 	/**
 	 * Permet d'obtenir la surface du lieu
@@ -143,25 +138,31 @@ public abstract class Lieu {
 	 * @return Retourne une chaine de caractère 
 	 */
 	public abstract String getPhrase();
-	/**
-	 * Test si ce lieu est le même que celui passé en paramètre
-	 * @param o un autre lieu
-	 * @return Vrai ou faux si les lieux sont identiques
-	 */
-	public abstract boolean equals(Object o);
-	/**
-	 * Permet d'obtenir le village dans lequel se trouve le lieu
-	 * @return le village dans lequel se trouve le lieu
-	 */
-	public Village getVillage() {
-		return this.village;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((statutLieu == null) ? 0 : statutLieu.hashCode());
+		result = prime * result + ((surface == null) ? 0 : surface.hashCode());
+		return result;
 	}
-	/**
-	 * Permet de changer le lieu de village
-	 * @param village représentant le village dans lequel le lieu se trouve
-	 */
-	public void setVillage(Village village) {
-		this.village = village;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof Lieu))
+			return false;
+		Lieu other = (Lieu) obj;
+		if (statutLieu != other.statutLieu)
+			return false;
+		if (surface == null) {
+			if (other.surface != null)
+				return false;
+		} else if (!surface.equals(other.surface))
+			return false;
+		return true;
 	}
 	/**
 	 * Permet d'obtenir le statut actuel du lieu
@@ -177,4 +178,5 @@ public abstract class Lieu {
 	public void setStatutLieu(Statut statut) {
 		this.statutLieu = statut;
 	}
+	
 }
