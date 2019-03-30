@@ -61,10 +61,6 @@ public abstract class Personnage implements Controlable, Entity {
 	//Méthodes	
 
 	@Override
-	public void goTo(Lieu lieu) {
-		setLieu(lieu);
-	}
-	@Override
 	public abstract ArrayList<Lieu> lieuxAccessibles();
 	/**
 	 * Permet d'obtenir le lieu dans lequel se trouve le personnage
