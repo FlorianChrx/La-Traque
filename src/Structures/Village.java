@@ -22,9 +22,8 @@ public class Village {
 	
 	public String getVoisinsString(Lieu lieuActuel) {
 		String res = "Lieux accessibles: ";
-		ArrayList<Lieu> voisins = getVoisins(lieuActuel);
 		for (Lieu lieu : lieux) {
-			if(voisins.contains(lieu)) {
+			if(routes.isConnected(lieu, lieuActuel)) {
 				res += lieux.indexOf(lieu) + ", ";
 			}
 		}
