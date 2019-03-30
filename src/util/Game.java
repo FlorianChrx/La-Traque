@@ -10,17 +10,30 @@ import classes.MaitreChien;
 
 public class Game {
 	
-	static Village villageActuel;
-	static Tueur tueur;
-	static Enqueteur enqueteur;
-	static Scanner clavier = new Scanner(System.in);
+	public static Village villageActuel;
+	public static Tueur tueur;
+	public static Enqueteur enqueteur;
+	public static Scanner clavier = new Scanner(System.in);
+	public static boolean win = false;
 	
 	public static void main(String[] args) {
 		System.out.println("Bienvenue dans notre jeu appuies sur entrée pour jouer !");
 		clavier.nextLine();
-		villageActuel = new Village("");
+		villageActuel = new Village("../../ressources/empty.csv");
 		tueur = null;
 		enqueteur = new MaitreChien(villageActuel);
+		while (!win) {
+			 String choix;
+			 int choixInt;
+			 System.out.println(villageActuel.toString());
+			 System.out.println(villageActuel.getVoisinsString(getEnqueteurLocation()));
+			 System.out.println("Votre Choix :");;
+			 do {
+				 choix = clavier.nextLine();
+				 choixInt = Integer.parseInt(choix);
+			 } while (choixInt > villageActuel.getLieux().size() || ! enqueteur.canGoTo(villageActuel.getLieux().get(choixInt)));
+			 enqueteur.goTo(villageActuel.getLieux().get(choixInt));
+		}
 	}
 	
 	public static Lieu getTueurLocation() {
@@ -37,6 +50,10 @@ public class Game {
 
 	public static Enqueteur getEnqueteur() {
 		return enqueteur;
+	}
+	
+	public static void win() {
+		win = true;
 	}
 	
 }
