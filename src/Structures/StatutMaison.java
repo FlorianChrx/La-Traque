@@ -6,5 +6,8 @@ package Structures;
  *
  */
 public enum StatutMaison {
+	/**
+	 * Liste des différents statuts possibles pour une maison
+	 */
 	ALIVE, DEAD;
 }
