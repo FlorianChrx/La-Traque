@@ -74,13 +74,10 @@ public class Routes {
 	 * @return <b>vrai</b> ou <b>faux</b> si l'ajout à reussi ou pas (c'est à dire
 	 * si la clé de la HashMap existe)
 	 */
-	public void addConnexion(Lieu lieu, Lieu voisin) {
-		ArrayList<Lieu> old1 = connexion.get(lieu);
-		old1.add(voisin);
-		connexion.put(lieu, old1);
-		ArrayList<Lieu> old2 = connexion.get(voisin);
-		old1.add(lieu);
-		connexion.put(voisin, old2);
+	public boolean addConnexion(Lieu lieu, Lieu voisin) {
+		boolean b1 = this.connexion.get(lieu).add(voisin);
+		boolean b2 = this.connexion.get(voisin).add(lieu);
+		return b1 && b2;
 	}
 	
 	/**
@@ -92,9 +89,11 @@ public class Routes {
 	 * si la clé de la HashMap existe)
 	 */
 	public void addConnexion(Lieu lieu, Collection<Lieu> voisins) {
+		this.connexion.get(lieu).addAll(voisins);
 		for(Lieu voisin : voisins) {
-			addConnexion(lieu, voisin);
+			this.connexion.get(voisin).add(lieu);
 		}
+			
 	}
 	
 	/**
