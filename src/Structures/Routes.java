@@ -89,11 +89,9 @@ public class Routes {
 	 * si la clé de la HashMap existe)
 	 */
 	public void addConnexion(Lieu lieu, Collection<Lieu> voisins) {
-		this.connexion.get(lieu).addAll(voisins);
 		for(Lieu voisin : voisins) {
-			this.connexion.get(voisin).add(lieu);
+			addConnexion(lieu, voisin);
 		}
-			
 	}
 	
 	/**
