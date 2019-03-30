@@ -1,4 +1,6 @@
-# Project
+# Project "Chasse au monstre"
+## Consignes
+Ce projet est réalisé dans le cadre du 2ème semestre de DUT informatique en programmation orientée objet. L'objectif est de réaliser un jeu basé sur un plateau que doit parcourir un monstre. Le monstre doit parcourir tout le plateau pour gagner et le chasseur doit quant à lui retrouver le monstre sur le plateau.
 ## Description générale
 À bien rédiger ensemble
 ## Tâches actuelles
