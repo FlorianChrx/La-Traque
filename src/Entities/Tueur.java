@@ -39,4 +39,11 @@ public abstract class Tueur extends Personnage {
 			((Maison) lieu).setDead();
 		}
 	}
+	
+	public void goTo(Lieu lieu) {
+		this.lieu.setEmpty();
+		this.lieu = lieu;
+		this.lieu.setMurder();
+		tue();
+	}
 }
