@@ -10,7 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import util.Position;
 import util.Surface;
-
+/**
+ * 
+ * Classe de test pour la classe Maison
+ * @author florianchiraux
+ *
+ */
 class MaisonTest {
 	
 	private static Village village;
