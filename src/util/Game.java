@@ -10,10 +10,10 @@ import classes.MaitreChien;
 
 public class Game {
 	
-	static Village villageActuel;
-	static Tueur tueur;
-	static Enqueteur enqueteur;
-	static Scanner clavier = new Scanner(System.in);
+	private static Village villageActuel;
+	private static Tueur tueur;
+	private static Enqueteur enqueteur;
+	private static Scanner clavier = new Scanner(System.in);
 	
 	public static void main(String[] args) {
 		System.out.println("Bienvenue dans notre jeu appuies sur entrée pour jouer !");
@@ -38,5 +38,12 @@ public class Game {
 	public static Enqueteur getEnqueteur() {
 		return enqueteur;
 	}
-	
+
+	public static Village getVillageActuel() {
+		return villageActuel;
+	}
+
+	public static void setVillageActuel(Village villageActuel) {
+		Game.villageActuel = villageActuel;
+	}
 }
