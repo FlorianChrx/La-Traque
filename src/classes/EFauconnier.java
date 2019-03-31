@@ -7,55 +7,52 @@ import Structures.Lieu;
 import Structures.Village;
 
 /**
- * Classe du rôle MaitreChien (Enquêteur) [Deux actions]
+ * Classe du rôle Fauconnier (Enquêteur) [NbActions pas encore défini]
  * @author calamar
  *
  */
-public class MaitreChien extends Enqueteur {
+public class EFauconnier extends Enqueteur {
 	//Attributs
-	private Chien chien; // -> Vraiment ?
 	
 	//Constructeurs
-	
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
 	 * @param village
 	 */
-	public MaitreChien(Village village) {
+	public EFauconnier(Village village) {
 		super(village, 1);
 	}
 	
 	/**
-	 * Construteur avec le lieu de départ du MaitreChien
+	 * Constructeur avec le lieu de départ du Fauconnier
 	 * @param lieu de départ
 	 */
-	public MaitreChien(Lieu lieu) {
-		super(lieu, 2);
+	public EFauconnier(Lieu lieu) {
+		super(lieu, 1);
 	}
-	
+
 	//Méthodes
 	@Override
 	public ArrayList<Lieu> lieuxAccessibles() {
 		return lieu.getVoisins();
 	}
+
 	@Override
 	public void nextDay() {
 		goTo(lieu);		
 	}
+
 	@Override
 	public void update() {
 		nextDay();		
 	}
+
 	@Override
-	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par jouer
-		if(canDoAction()) {
-			if(this.lieu.equals(lieu)) {
-				enquete();
-			} else {
-				goTo(lieu);
-			}
-		} else {
-			// g plu d'action frr
-		}
-	}	
+	public void action(Lieu lieu) {
+		//  A voir avec l'équipe pour définir	
+		// Voit autour de lui
+		// Proposition : Choix entre -> Faucon qui tourne autour : le joueur voit autour de lui
+		//							 -> Envoyer son faucon voir un endroit en particulier
+	}
+
 }
