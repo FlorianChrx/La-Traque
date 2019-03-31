@@ -57,5 +57,11 @@ public class MaitreChien extends Enqueteur {
 		} else {
 			// g plu d'action frr
 		}
+	}
+
+	@Override
+	public boolean hasHelper() {
+		return true;
 	}	
+	
 }
