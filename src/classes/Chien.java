@@ -63,4 +63,11 @@ public class Chien extends Personnage {
 	public void goTo(Lieu lieu) {
 		this.lieu = lieu;
 	}
+
+	@Override
+	public boolean hasHelper() {
+		return false;
+	}
+	
+	
 }
