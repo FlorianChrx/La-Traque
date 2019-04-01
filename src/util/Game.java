@@ -69,9 +69,6 @@ public class Game {
 		afficherVillagePour(enqueteur);
 		int choix;
 		System.out.println("-- Tour de l'enqueteur --");
-		System.out.println(enqueteur.getActionsDone());
-		System.out.println(enqueteur.getNbActions());
-
 		System.out.println("Votre Choix :");
 		choix = choix(1, villageActuel.getLieux().size()+1);
 		if (choix != -1 && (enqueteur.canGoTo(villageActuel.getLieux().get(choix-1)) || enqueteur.getLieu().equals(villageActuel.getLieux().get(choix-1)))) {
