@@ -2,6 +2,7 @@ package Structures;
 
 import java.util.List;
 
+import Entities.Entity;
 import util.Game;
 import util.Position;
 import util.Surface;
@@ -13,7 +14,7 @@ import util.Surface;
  *
  */
 
-public abstract class Lieu {
+public abstract class Lieu implements Entity{
 	/**
 	 * Surface de la maison et implicitement sa position
 	 */
@@ -178,5 +179,4 @@ public abstract class Lieu {
 	public void setStatutLieu(Statut statut) {
 		this.statutLieu = statut;
 	}
-	
 }
