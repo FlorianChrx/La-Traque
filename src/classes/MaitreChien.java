@@ -47,7 +47,7 @@ public class MaitreChien extends Enqueteur {
 		nextDay();		
 	}
 	@Override
-	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par jouer
+	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
 		if(canDoAction()) {
 			if(this.lieu.equals(lieu)) {
 				enquete();
