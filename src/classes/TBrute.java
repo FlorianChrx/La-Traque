@@ -1,6 +1,6 @@
 package classes;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import Entities.Tueur;
 import Structures.Lieu;
@@ -33,7 +33,7 @@ public class TBrute extends Tueur {
 
 	//Méthodes 
 	@Override
-	public ArrayList<Lieu> lieuxAccessibles() {
+	public List<Lieu> lieuxAccessibles() {
 		return lieu.getVoisins();
 	}
 
@@ -53,6 +53,12 @@ public class TBrute extends Tueur {
 	public void action(Lieu lieu) {
 		// A voir avec l'équipe pour définir
 		
+	}
+
+	@Override
+	public boolean hasHelper() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

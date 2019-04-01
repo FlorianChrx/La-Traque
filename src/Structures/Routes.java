@@ -3,6 +3,7 @@ package Structures;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -137,7 +138,7 @@ public class Routes {
 	 * @param lieu
 	 * @return une ArrayList de Lieu
 	 */
-	public ArrayList<Lieu> getVoisins(Lieu lieu){
+	public List<Lieu> getVoisins(Lieu lieu){
 		return this.connexion.get(lieu);
 	}	
 }

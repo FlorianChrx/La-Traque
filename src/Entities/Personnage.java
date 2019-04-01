@@ -1,5 +1,6 @@
 package Entities;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -51,7 +52,7 @@ public abstract class Personnage implements Controlable, Entity {
 	 * @param nbActions représentant le nombre d'actions possible par tour
 	 */
 	public Personnage(Village village, int nbActions) {
-		List<Lieu> lieux = village.getLieux();
+		List<Lieu> lieux = new ArrayList<Lieu>();
 		lieux.addAll(village.getLieux());
 		Collections.shuffle(lieux);
 		this.setLieu(lieux.get(1));

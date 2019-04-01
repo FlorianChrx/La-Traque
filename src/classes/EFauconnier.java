@@ -1,6 +1,6 @@
 package classes;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import Entities.Enqueteur;
 import Structures.Lieu;
@@ -33,7 +33,7 @@ public class EFauconnier extends Enqueteur {
 
 	//Méthodes
 	@Override
-	public ArrayList<Lieu> lieuxAccessibles() {
+	public List<Lieu> lieuxAccessibles() {
 		return lieu.getVoisins();
 	}
 
@@ -53,6 +53,12 @@ public class EFauconnier extends Enqueteur {
 		// Voit autour de lui
 		// Proposition : Choix entre -> Faucon qui tourne autour : le joueur voit autour de lui
 		//							 -> Envoyer son faucon voir un endroit en particulier
+	}
+
+	@Override
+	public boolean hasHelper() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

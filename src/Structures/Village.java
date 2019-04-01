@@ -14,22 +14,24 @@ public class Village {
 	 * Gestionnaire des routes (connexions) entre les lieux
 	 */
 	private Routes routes;
-	
 	/**
 	 * Permet de construire un village selon une carte prédefinie 
 	 * dont le lien et donné en paramètre
 	 * @param lienCSV un String représentant le lien vers le fichier de configuration du village
 	 */
 	public Village(String lienCSV) {
-		init(lienCSV);
+		villageTest();
 	}
 	/**
 	 * Initialise le village selon la configuration dont le lien est donné 
 	 * @param lienCSV un String représentant le lien vers le fichier de configuration du village
 	 */
+	/*
 	private void init(String lienCSV) {
-		villageTest();
+		System.out.println("ll");
 	}
+	 */
+	
 	/**
 	 * Permet d'obtenir la liste de voisins d'un lieu
 	 * @param lieu le lieu dont on cherche les voisins
@@ -41,10 +43,10 @@ public class Village {
   
 	public String getVoisinsString(Lieu lieuActuel) {
 		String res = "Lieux accessibles: ";
-		for (Lieu lieu : lieux) {
-			if(routes.isConnected(lieu, lieuActuel)) {
-				res += (lieux.indexOf(lieu)+1) + ", ";
-			}
+		List<Lieu> voisins = new ArrayList<Lieu>();
+		voisins.addAll(getVoisins(lieuActuel));
+		for (Lieu lieu : voisins) {
+			res += (lieux.indexOf(lieu) + 1) + ", ";
 		}
 		return res;
 	}
