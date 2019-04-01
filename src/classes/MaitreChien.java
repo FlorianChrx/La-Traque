@@ -1,6 +1,6 @@
 package classes;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import Entities.Enqueteur;
 import Structures.Lieu;
@@ -35,7 +35,7 @@ public class MaitreChien extends Enqueteur {
 	
 	//Méthodes
 	@Override
-	public ArrayList<Lieu> lieuxAccessibles() {
+	public List<Lieu> lieuxAccessibles() {
 		return lieu.getVoisins();
 	}
 	@Override
@@ -57,6 +57,12 @@ public class MaitreChien extends Enqueteur {
 		} else {
 			// g plu d'action frr
 		}
-		actionsDone++;
+    actionsDone++;
+	}
+
+	@Override
+	public boolean hasHelper() {
+		return true;
 	}	
+	
 }

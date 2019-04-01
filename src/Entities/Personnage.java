@@ -1,8 +1,8 @@
 package Entities;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 import Structures.Lieu;
 import Structures.Village;
@@ -51,7 +51,7 @@ public abstract class Personnage implements Controlable, Entity {
 	 * @param nbActions représentant le nombre d'actions possible par tour
 	 */
 	public Personnage(Village village, int nbActions) {
-		ArrayList<Lieu> lieux = village.getLieux();
+		List<Lieu> lieux = village.getLieux();
 		Collections.shuffle(lieux);
 		this.setLieu(lieux.get(1));
 		this.setNbActions(nbActions);
@@ -61,7 +61,7 @@ public abstract class Personnage implements Controlable, Entity {
 	//Méthodes	
 
 	@Override
-	public abstract ArrayList<Lieu> lieuxAccessibles();
+	public abstract List<Lieu> lieuxAccessibles();
 	/**
 	 * Permet d'obtenir le lieu dans lequel se trouve le personnage
 	 * @return
@@ -135,4 +135,5 @@ public abstract class Personnage implements Controlable, Entity {
 	}
 	public abstract void update();
 	public abstract void action(Lieu lieu);
+	public abstract boolean hasHelper();
 }
