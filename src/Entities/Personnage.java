@@ -52,6 +52,7 @@ public abstract class Personnage implements Controlable, Entity {
 	 */
 	public Personnage(Village village, int nbActions) {
 		List<Lieu> lieux = village.getLieux();
+		lieux.addAll(village.getLieux());
 		Collections.shuffle(lieux);
 		this.setLieu(lieux.get(1));
 		this.setNbActions(nbActions);
