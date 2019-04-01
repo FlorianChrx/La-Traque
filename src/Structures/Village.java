@@ -22,15 +22,6 @@ public class Village {
 	public Village(String lienCSV) {
 		villageTest();
 	}
-	/**
-	 * Initialise le village selon la configuration dont le lien est donné 
-	 * @param lienCSV un String représentant le lien vers le fichier de configuration du village
-	 */
-	/*
-	private void init(String lienCSV) {
-		System.out.println("ll");
-	}
-	 */
 	
 	/**
 	 * Permet d'obtenir la liste de voisins d'un lieu
@@ -39,16 +30,6 @@ public class Village {
 	 */
 	public List<Lieu> getVoisins(Lieu lieu) {
 		return routes.getVoisins(lieu);
-	}
-  
-	public String getVoisinsString(Lieu lieuActuel) {
-		String res = "Lieux accessibles: ";
-		List<Lieu> voisins = new ArrayList<Lieu>();
-		voisins.addAll(getVoisins(lieuActuel));
-		for (Lieu lieu : voisins) {
-			res += (lieux.indexOf(lieu) + 1) + ", ";
-		}
-		return res;
 	}
    /**
 	 * Permet d'obtenir la liste de tous les lieux du village
