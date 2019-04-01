@@ -12,9 +12,9 @@ public class Phrase {
 	private Random alea;
 	
 	public Phrase() {
-		CSVReader court = new CSVReader("court.csv");
-		CSVReader moyen = new CSVReader("moyen.csv");
-		CSVReader longss = new CSVReader("long.csv");
+		CSVReader court = new CSVReader("../../DATA/court.csv");
+		CSVReader moyen = new CSVReader("../../DATA/moyen.csv");
+		CSVReader longss = new CSVReader("../../DATA/long.csv");
 		courts = court.getList();
 		moyens = moyen.getList();
 		longs = longss.getList();
