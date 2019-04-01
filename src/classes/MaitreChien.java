@@ -13,7 +13,7 @@ import Structures.Village;
  */
 public class MaitreChien extends Enqueteur {
 	//Attributs
-	private Chien chien;
+	private Chien chien; // -> Vraiment ?
 	
 	//Constructeurs
 	
@@ -64,5 +64,5 @@ public class MaitreChien extends Enqueteur {
 	public boolean hasHelper() {
 		return true;
 	}	
-	
 }
+
