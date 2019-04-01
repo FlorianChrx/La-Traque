@@ -1,6 +1,6 @@
 package Structures;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import util.Game;
 import util.Position;
@@ -97,7 +97,7 @@ public abstract class Lieu {
 	 * Permet d'obtenir les lieux voisins accessibles
 	 * @return Retourne liste de lieus
 	 */
-	public ArrayList<Lieu> getVoisins() {
+	public List<Lieu> getVoisins() {
 		return Game.getVillageActuel().getVoisins(this);
 	}
 	/**

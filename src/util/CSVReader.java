@@ -3,10 +3,11 @@ package util;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CSVReader {
-	private ArrayList<String> file;
+	private List<String> file;
 	private Scanner scanner;
 	
 	public CSVReader(String file) {
@@ -30,7 +31,7 @@ public class CSVReader {
 		return this.file.get(i);
 	}
 
-	public ArrayList<String> getList() {
+	public List<String> getList() {
 		return this.file;
 	}
 }

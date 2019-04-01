@@ -1,12 +1,13 @@
 package Structures;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Village {
 	/**
 	 * Liste de tous les lieux du village
 	 */
-	private ArrayList<Lieu> lieux;
+	private List<Lieu> lieux;
 	/**
 	 * Gestionnaire des routes (connexions) entre les lieux
 	 */
@@ -35,14 +36,14 @@ public class Village {
 	 * @param lieu le lieu dont on cherche les voisins
 	 * @return Une liste de lieux
 	 */
-	public ArrayList<Lieu> getVoisins(Lieu lieu) {
+	public List<Lieu> getVoisins(Lieu lieu) {
 		return routes.getVoisins(lieu);
 	}
 	/**
 	 * Permet d'obtenir la liste de tous les lieux du village
 	 * @return La liste de tous les lieux du village
 	 */
-	public ArrayList<Lieu> getLieux() {
+	public List<Lieu> getLieux() {
 		return lieux;
 	}
 }
