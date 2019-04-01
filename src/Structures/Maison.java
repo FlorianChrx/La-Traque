@@ -1,6 +1,5 @@
 package Structures;
 
-import Entities.Entity;
 import util.Position;
 import util.Surface;
 
@@ -11,7 +10,7 @@ import util.Surface;
  * @author florianchiraux
  *
  */
-public class Maison extends Lieu implements Entity {
+public class Maison extends Lieu{
 	//Attributs
 	/**
 	 * Statut de son habitant 
@@ -69,7 +68,9 @@ public class Maison extends Lieu implements Entity {
 	 * Permet de passer au jour suivant, soit d'incrémenter le nombre de jours depuis le meurtre de 1
 	 */
 	private void nextDay() {
-		days++;
+		if (isDead()) {
+			this.days = days + 1;
+		}
 	}
 	/**
 	 * Définie comme mort l'habitant
