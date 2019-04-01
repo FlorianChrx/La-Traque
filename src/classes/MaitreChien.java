@@ -22,7 +22,7 @@ public class MaitreChien extends Enqueteur {
 	 * @param village
 	 */
 	public MaitreChien(Village village) {
-		super(village, 1);
+		super(village, 2);
 	}
 	
 	/**
@@ -40,11 +40,11 @@ public class MaitreChien extends Enqueteur {
 	}
 	@Override
 	public void nextDay() {
-		goTo(lieu);		
+		actionsDone = 0;	
 	}
 	@Override
 	public void update() {
-		nextDay();		
+		nextDay();
 	}
 	@Override
 	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
@@ -57,6 +57,7 @@ public class MaitreChien extends Enqueteur {
 		} else {
 			// g plu d'action frr
 		}
+    actionsDone++;
 	}
 
 	@Override
