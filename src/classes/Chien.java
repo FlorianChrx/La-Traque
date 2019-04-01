@@ -1,6 +1,6 @@
 package classes;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import Entities.Personnage;
 import Structures.Lieu;
@@ -46,7 +46,7 @@ public class Chien extends Personnage {
 	}
 	
 	@Override
-	public List<Lieu> lieuxAccessibles() {
+	public ArrayList<Lieu> lieuxAccessibles() {
 		return lieu.getVoisins();
 	}
 	@Override
@@ -58,16 +58,4 @@ public class Chien extends Personnage {
 	public void update() {
 		nextDay();		
 	}
-
-	@Override
-	public void goTo(Lieu lieu) {
-		this.lieu = lieu;
-	}
-
-	@Override
-	public boolean hasHelper() {
-		return false;
-	}
-	
-	
 }

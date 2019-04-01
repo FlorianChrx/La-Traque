@@ -1,8 +1,7 @@
 package Structures;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import Entities.Entity;
 import util.Game;
 import util.Position;
 import util.Surface;
@@ -14,7 +13,7 @@ import util.Surface;
  *
  */
 
-public abstract class Lieu implements Entity{
+public abstract class Lieu {
 	/**
 	 * Surface de la maison et implicitement sa position
 	 */
@@ -98,7 +97,7 @@ public abstract class Lieu implements Entity{
 	 * Permet d'obtenir les lieux voisins accessibles
 	 * @return Retourne liste de lieus
 	 */
-	public List<Lieu> getVoisins() {
+	public ArrayList<Lieu> getVoisins() {
 		return Game.getVillageActuel().getVoisins(this);
 	}
 	/**
@@ -179,4 +178,5 @@ public abstract class Lieu implements Entity{
 	public void setStatutLieu(Statut statut) {
 		this.statutLieu = statut;
 	}
+	
 }

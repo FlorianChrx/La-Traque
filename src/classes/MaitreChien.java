@@ -1,6 +1,6 @@
 package classes;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import Entities.Enqueteur;
 import Structures.Lieu;
@@ -22,7 +22,7 @@ public class MaitreChien extends Enqueteur {
 	 * @param village
 	 */
 	public MaitreChien(Village village) {
-		super(village, 2);
+		super(village, 1);
 	}
 	
 	/**
@@ -35,16 +35,16 @@ public class MaitreChien extends Enqueteur {
 	
 	//Méthodes
 	@Override
-	public List<Lieu> lieuxAccessibles() {
+	public ArrayList<Lieu> lieuxAccessibles() {
 		return lieu.getVoisins();
 	}
 	@Override
 	public void nextDay() {
-		actionsDone = 0;	
+		goTo(lieu);		
 	}
 	@Override
 	public void update() {
-		nextDay();
+		nextDay();		
 	}
 	@Override
 	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
@@ -57,12 +57,5 @@ public class MaitreChien extends Enqueteur {
 		} else {
 			// g plu d'action frr
 		}
-    actionsDone++;
-	}
-
-	@Override
-	public boolean hasHelper() {
-		return true;
 	}	
-	
 }
