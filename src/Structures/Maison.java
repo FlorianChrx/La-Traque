@@ -1,6 +1,5 @@
 package Structures;
 
-import Entities.Entity;
 import util.Position;
 import util.Surface;
 
@@ -11,7 +10,7 @@ import util.Surface;
  * @author florianchiraux
  *
  */
-public class Maison extends Lieu implements Entity {
+public class Maison extends Lieu{
 	//Attributs
 	/**
 	 * Statut de son habitant 
@@ -26,45 +25,39 @@ public class Maison extends Lieu implements Entity {
 	
 	/**
 	 * Permet de construire une maison
-	 * @param village correspondant au village dans laquelle se situe la maison
 	 * @param statut correspondant au statut de l'habitant
 	 * @param surface correspondant à la surface de la maison 
 	 */
-	public Maison(Village village, StatutMaison statut, Surface surface) {
-		super(surface, village);
+	public Maison(StatutMaison statut, Surface surface) {
+		super(surface);
 		this.statutMaison = statut;
 	}
 	/**
 	 * Permet de construire une maison
-	 * @param village correspondant au village dans laquelle se situe la maison
 	 * @param statut correspondant au statut de l'habitant
 	 * @param origine correspondant au point d'origine de la surface de la maison
 	 * @param height correspondant à la hauteur de la représentation de la maison
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
-	public Maison(Village village, StatutMaison statut, Position origine, int height, int width) {
-		this(village, statut, new Surface(origine, height, width));
+	public Maison(StatutMaison statut, Position origine, int height, int width) {
+		this(statut, new Surface(origine, height, width));
 	}
 	/**
-	 * 
-	 * @param village correspondant au village dans laquelle se situe la maison
 	 * @param origine correspondant au point d'origine de la surface de la maison
 	 * @param height correspondant à la hauteur de la représentation de la maison
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
-	public Maison(Village village, Position origine, int height, int width) {
-		this(village, StatutMaison.ALIVE, new Surface(origine, height, width));
+	public Maison(Position origine, int height, int width) {
+		this(StatutMaison.ALIVE, new Surface(origine, height, width));
 	}
 	/**
-	 * 
-	 * @param village correspondant au village dans laquelle se situe la maison
 	 * @param x	correspondant à l'abscisse de l'origine de la surface de la maison
 	 * @param y correspondant à l'ordonnée de l'origine de la surface de la maison
 	 * @param height correspondant à la hauteur de la représentation de la maison
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
-	public Maison(Village village, int x, int y, int height, int width) {
-		this(village, StatutMaison.ALIVE, new Surface(new Position(x,y), height, width));
+	public Maison(int x, int y, int height, int width) {
+		this(StatutMaison.ALIVE, new Surface(new Position(x,y), height, width));
 	}
 	
 	
@@ -75,7 +68,9 @@ public class Maison extends Lieu implements Entity {
 	 * Permet de passer au jour suivant, soit d'incrémenter le nombre de jours depuis le meurtre de 1
 	 */
 	private void nextDay() {
-		days++;
+		if (isDead()) {
+			this.days = days + 1;
+		}
 	}
 	/**
 	 * Définie comme mort l'habitant
@@ -135,20 +130,22 @@ public class Maison extends Lieu implements Entity {
 		this.nextDay();
 	}
 	@Override
+	public String getPhrase() {
+		return phrase.nextPhrase(this.days);
+	}
+	@Override
 	public int hashCode() {
 		final int prime = 31;
-		int result = 1;
+		int result = super.hashCode();
 		result = prime * result + days;
 		result = prime * result + ((statutMaison == null) ? 0 : statutMaison.hashCode());
-		result = prime * result + ((surface == null) ? 0 : surface.hashCode());
-		result = prime * result + ((village == null) ? 0 : village.hashCode());
 		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
-		if (obj == null)
+		if (!super.equals(obj))
 			return false;
 		if (!(obj instanceof Maison))
 			return false;
@@ -157,21 +154,6 @@ public class Maison extends Lieu implements Entity {
 			return false;
 		if (statutMaison != other.statutMaison)
 			return false;
-		if (surface == null) {
-			if (other.surface != null)
-				return false;
-		} else if (!surface.equals(other.surface))
-			return false;
-		if (village == null) {
-			if (other.village != null)
-				return false;
-		} else if (!village.equals(other.village))
-			return false;
 		return true;
 	}
-	@Override
-	public String getPhrase() {
-		return phrase.nextPhrase(this.days);
-	}
-	
 }

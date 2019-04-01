@@ -55,12 +55,23 @@ public class Surface implements Comparable<Surface>{
 	}
 
 	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + height;
+		result = prime * result + ((origine == null) ? 0 : origine.hashCode());
+		result = prime * result + superficie;
+		result = prime * result + width;
+		return result;
+	}
+
+	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
 			return true;
 		if (obj == null)
 			return false;
-		if (getClass() != obj.getClass())
+		if (!(obj instanceof Surface))
 			return false;
 		Surface other = (Surface) obj;
 		if (height != other.height)
@@ -115,4 +126,5 @@ public class Surface implements Comparable<Surface>{
 	public void setOrigine(Position origine) {
 		this.origine = origine;
 	}
+	
 }

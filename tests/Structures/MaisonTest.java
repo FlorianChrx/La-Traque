@@ -1,29 +1,32 @@
 package Structures;
 
 import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
 import util.Position;
 import util.Surface;
 
+/**
+ * 
+ * Classe de test pour la classe Maison
+ * @author florianchiraux
+ *
+ */
+
 class MaisonTest {
 	
-	private static Village village;
 	private static StatutMaison statut;
 	private static Surface surface;
 	private static Maison maison;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		village = new Village(null);
 		statut = StatutMaison.ALIVE;
 		surface = new Surface(5, 5, 20, 20);
-		maison = new Maison(village, statut, surface);
+		maison = new Maison(statut, surface);
 	}
 
 	@AfterAll
@@ -35,7 +38,6 @@ class MaisonTest {
 		maison.setSurface(surface);
 		maison.setAlive();
 		maison.setEmpty();
-		maison.setVillage(village);
 		maison.resetDays();
 	}
 
@@ -44,33 +46,29 @@ class MaisonTest {
 	}
 
 	@Test
-	void testMaisonVillageStatutSurface() {
-		Maison maisonT = new Maison(village, statut, surface);
-		assertEquals(village, maisonT.getVillage());
+	void testMaisonStatutSurface() {
+		Maison maisonT = new Maison(statut, surface);
 		assertEquals(statut, maisonT.getStatutMaison());
 		assertEquals(surface, maisonT.getSurface());
 	}
 
 	@Test
-	void testMaisonVillageStatutPositionIntInt() {
-		Maison maisonT = new Maison(village, statut, new Position(5, 5), 20, 20);
-		assertEquals(village, maisonT.getVillage());
+	void testMaisonStatutPositionIntInt() {
+		Maison maisonT = new Maison(statut, new Position(5, 5), 20, 20);
 		assertEquals(statut, maisonT.getStatutMaison());
 		assertEquals(surface, maisonT.getSurface());
 	}
 
 	@Test
-	void testMaisonVillagePositionIntInt() {
-		Maison maisonT = new Maison(village, new Position(5, 5), 20, 20);
-		assertEquals(village, maisonT.getVillage());
+	void testMaisonPositionIntInt() {
+		Maison maisonT = new Maison(new Position(5, 5), 20, 20);
 		assertEquals(statut, maisonT.getStatutMaison());
 		assertEquals(surface, maisonT.getSurface());
 	}
 
 	@Test
-	void testMaisonVillageIntIntIntInt() {
-		Maison maisonT = new Maison(village, 5, 5, 20, 20);
-		assertEquals(village, maisonT.getVillage());
+	void testMaisonIntIntIntInt() {
+		Maison maisonT = new Maison(5, 5, 20, 20);
 		assertEquals(statut, maisonT.getStatutMaison());
 		assertEquals(surface, maisonT.getSurface());
 	}
@@ -121,20 +119,6 @@ class MaisonTest {
 	}
 
 	@Test
-	void testupdate() {
-		maison.update();
-		assertEquals(1, maison.getDays());
-		maison.update();
-		assertEquals(2, maison.getDays());
-		maison.update();
-		assertEquals(3, maison.getDays());
-		maison.update();
-		assertEquals(4, maison.getDays());
-		maison.update();
-		assertEquals(5, maison.getDays());
-	}
-
-	@Test
 	void testSetDead() {
 		maison.setDead();
 		assertEquals(StatutMaison.DEAD, maison.getStatutMaison());
@@ -167,8 +151,8 @@ class MaisonTest {
 
 	@Test
 	void testEqualsObject() {
-		Maison maison2 = new Maison(village, 5, 5, 20, 20);
-		Maison maison3 = new Maison(village, 10, 10, 20, 20);
+		Maison maison2 = new Maison(5, 5, 20, 20);
+		Maison maison3 = new Maison(10, 10, 20, 20);
 		assertTrue(maison.equals(maison2));
 		assertFalse(maison.equals(maison3));
 	}
@@ -185,6 +169,7 @@ class MaisonTest {
 		assertFalse(maison.isDead());
 		maison.setDead();
 		assertTrue(maison.isDead());
+		assertFalse(maison.isAlive());
 	}
 
 	@Test
@@ -206,5 +191,15 @@ class MaisonTest {
 		assertFalse(maison.isInvestigate());
 		maison.setInvestigate();
 		assertTrue(maison.isInvestigate());
+	}
+	
+	@Test
+	void testUpdate() {
+		assertEquals(0, maison.getDays());
+		maison.update();
+		assertEquals(0, maison.getDays());
+		maison.setDead();
+		maison.update();
+		assertEquals(1, maison.getDays());
 	}
 }

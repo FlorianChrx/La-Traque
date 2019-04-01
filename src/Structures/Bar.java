@@ -2,10 +2,10 @@ package Structures;
 
 import util.Surface;
 
-public class Bar extends Lieu{
+public class Bar extends Lieu {
 
-	public Bar(Surface surface, Village village) {
-		super(surface, village);
+	public Bar(Surface surface) {
+		super(surface);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -19,6 +19,12 @@ public class Bar extends Lieu{
 	public boolean equals(Object o) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

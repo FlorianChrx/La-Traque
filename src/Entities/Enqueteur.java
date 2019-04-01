@@ -2,6 +2,7 @@ package Entities;
 
 import Structures.Lieu;
 import Structures.Village;
+import util.Game;
 
 public abstract class Enqueteur extends Personnage {
 	//Attributs
@@ -25,12 +26,20 @@ public abstract class Enqueteur extends Personnage {
 	}
 	
 	//Méthodes	
-	/**
-	 * Pour l'instant ne fait que print une phrase
-	 */
 	public void enquete() {
-		System.out.println(lieu.getPhrase());
+		if (this.lieu.isMurder()) {
+			//Game.win();
+		} else {
+			System.out.println(lieu.getPhrase());
+		}
 	}
-
+	public void goTo(Lieu lieu) {
+		if (lieu.isMurder()) {
+			Game.win();
+		}
+		this.lieu.setEmpty();
+		this.lieu = lieu;
+		this.lieu.setInvestigate();
+	}
 }
 
