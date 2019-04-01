@@ -3,6 +3,7 @@ package util;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,7 +16,7 @@ public class CSVReader {
 	/**
 	 * ArrayList correspondant a l'ensemble des informations contenu dans le CSV
 	 */
-	private ArrayList<String> file;
+	private List<String> file;
 	private Scanner scanner;
 	
 	
@@ -67,7 +68,8 @@ public class CSVReader {
 	 * Permet d'obtenir l'ArrayList correspondant au fichier CSV
 	 * @return
 	 */
-	public ArrayList<String> getList() {
+	public List<String> getList() {
+
 		return this.file;
 	}
 }

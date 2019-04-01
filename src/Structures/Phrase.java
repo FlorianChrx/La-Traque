@@ -1,14 +1,14 @@
 package Structures;
 
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import util.CSVReader;
 
 public class Phrase {
-	private ArrayList<String> courts;
-	private ArrayList<String> moyens; 
-	private ArrayList<String> longs; 
+	private List<String> courts;
+	private List<String> moyens; 
+	private List<String> longs; 
 	private Random alea;
 	
 	public Phrase() {
