@@ -31,10 +31,8 @@ public class Village {
 	 * @return Une liste de lieux
 	 */
 	public List<Lieu> getVoisins(Lieu lieu) {
+		System.out.println(routes.toString());
 		return routes.getVoisins(lieu);
-	}
-	public String getVoisinsString(Lieu lieu) {
-		return routes.getVoisinsString(lieu);
 	}
    /**
 	 * Permet d'obtenir la liste de tous les lieux du village
