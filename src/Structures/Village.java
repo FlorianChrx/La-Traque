@@ -71,8 +71,7 @@ public class Village {
 				if (tab[i][j]) {
 					for (Lieu lieu : lieux) {
 						if(lieu.getPosition().equals(new Position(i,j))) {
-							// + 1 pour avoir le numéro de la maison
-							res += (lieux.indexOf(lieu) + 1);
+							res += lieu.getNom();
 							break;
 						}
 					}
@@ -99,5 +98,13 @@ public class Village {
 		routes.addConnexion(lieux.get(1), lieux.get(2));
 		routes.addConnexion(lieux.get(2), lieux.get(3));
 		routes.addConnexion(lieux.get(3), lieux.get(4));
+	}
+	public Lieu getLieu(char c) {
+		for (Lieu lieu : lieux) {
+			if (lieu.getNom() == c) {
+				return lieu;
+			}
+		}
+		return null;
 	}
 }
