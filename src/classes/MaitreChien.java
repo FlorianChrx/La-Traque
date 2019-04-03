@@ -1,7 +1,5 @@
 package classes;
 
-import java.util.List;
-
 import Entities.Enqueteur;
 import Structures.Lieu;
 import Structures.Village;
@@ -13,7 +11,7 @@ import Structures.Village;
  */
 public class MaitreChien extends Enqueteur {
 	//Attributs
-	private Chien chien; // -> Vraiment ?
+	private Chien chien;
 	
 	//Constructeurs
 	
@@ -34,18 +32,7 @@ public class MaitreChien extends Enqueteur {
 	}
 	
 	//Méthodes
-	@Override
-	public List<Lieu> lieuxAccessibles() {
-		return lieu.getVoisins();
-	}
-	@Override
-	public void nextDay() {
-		actionsDone = 0;	
-	}
-	@Override
-	public void update() {
-		nextDay();
-	}
+	
 	@Override
 	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
 		if(canDoAction()) {
