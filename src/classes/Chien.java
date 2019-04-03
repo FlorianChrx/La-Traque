@@ -1,7 +1,5 @@
 package classes;
 
-import java.util.List;
-
 import Entities.Personnage;
 import Structures.Lieu;
 import Structures.Maison;
@@ -44,21 +42,6 @@ public class Chien extends Personnage {
 			}
 		}
 	}
-	
-	@Override
-	public List<Lieu> lieuxAccessibles() {
-		return lieu.getVoisins();
-	}
-	@Override
-	public void nextDay() {
-		goTo(lieu);
-		
-	}
-	@Override
-	public void update() {
-		nextDay();		
-	}
-
 	@Override
 	public void goTo(Lieu lieu) {
 		this.lieu = lieu;
@@ -67,7 +50,5 @@ public class Chien extends Personnage {
 	@Override
 	public boolean hasHelper() {
 		return false;
-	}
-	
-	
+	}	
 }
