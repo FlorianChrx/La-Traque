@@ -32,7 +32,7 @@ public class Maison extends Lieu{
 	public Maison(StatutMaison statut, Surface surface) {
 		super(surface);
 		this.statutMaison = statut;
-		this.nom = phrase.nomMaison().charAt(0);
+		this.nom = phrase.nomMaison();
 	}
 	/**
 	 * Permet de construire une maison
