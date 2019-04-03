@@ -7,7 +7,7 @@ import Structures.Lieu;
 import Structures.Village;
 
 /**
- * Classe du rôle Fauconnier (Enquêteur) [NbActions pas encore défini]
+ * Classe du rôle Fauconnier (Enquêteur) [Deux actions]
  * @author calamar
  *
  */
@@ -47,8 +47,24 @@ public class EFauconnier extends Enqueteur {
 		nextDay();		
 	}
 
+	/**
+	 * 
+	 */
 	@Override
 	public void action(Lieu lieu) {
+		if(canDoAction()) {
+			if(this.lieu.equals(lieu)) {
+				enquete();
+			} else {
+				goTo(lieu);
+			}
+		} else {
+			// g plu d'action frr
+			System.out.println("Le Maitre Chien n'a plus d'actions.");
+			//chien.action(lieu);
+			System.out.println("Le Chien n'a plus d'actions.");
+		}
+		actionsDone++;
 		//  A voir avec l'équipe pour définir	
 		// Voit autour de lui
 		// Proposition : Choix entre -> Faucon qui tourne autour : le joueur voit autour de lui
