@@ -55,7 +55,6 @@ public class TWarper extends Tueur {
 
 	@Override
 	public boolean hasHelper() {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

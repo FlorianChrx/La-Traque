@@ -56,8 +56,11 @@ public class MaitreChien extends Enqueteur {
 			}
 		} else {
 			// g plu d'action frr
+			System.out.println("Le Maitre Chien n'a plus d'actions.");
+			chien.action(lieu);
+			System.out.println("Le Chien n'a plus d'actions.");
 		}
-    actionsDone++;
+		actionsDone++;
 	}
 
 	@Override
