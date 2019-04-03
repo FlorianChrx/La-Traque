@@ -57,8 +57,7 @@ public class EFauconnier extends Enqueteur {
 
 	@Override
 	public boolean hasHelper() {
-		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 }
