@@ -1,7 +1,9 @@
 package Structures;
 
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import util.Position;
 
@@ -9,7 +11,7 @@ public class Village {
 	/**
 	 * Liste de tous les lieux du village
 	 */
-	private List<Lieu> lieux;
+	private Map<Character, Lieu> lieux;
 	/**
 	 * Gestionnaire des routes (connexions) entre les lieux
 	 */
@@ -34,7 +36,7 @@ public class Village {
 	public String getVoisinsString(Lieu lieuActuel) {
 		String res = "Lieux accessibles: ";
 		for (Lieu lieu : getVoisins(lieuActuel)) {
-			res += lieux.indexOf(lieu);
+			res += lieu.getNom() +", ";
 		}
 		return res;
 	}
@@ -42,8 +44,8 @@ public class Village {
 	 * Permet d'obtenir la liste de tous les lieux du village
 	 * @return La liste de tous les lieux du village
 	 */
-	public List<Lieu> getLieux() {
-		return lieux;
+	public Collection<Lieu> getLieux() {
+		return lieux.values();
 	}
   
 	/**
@@ -54,7 +56,7 @@ public class Village {
 	 */
 	public boolean[][] toBooleanTab(){
 		boolean[][] tab = new boolean[30][30];
-		for (Lieu lieu : lieux) {
+		for (Lieu lieu : getLieux()) {
 			tab[lieu.getPosition().getX()][lieu.getPosition().getY()] = true;
 		}
 		return tab;
@@ -69,7 +71,7 @@ public class Village {
 		for (int i = 0; i < tab.length; i++) {
 			for (int j = 0; j < tab[i].length; j++) {
 				if (tab[i][j]) {
-					for (Lieu lieu : lieux) {
+					for (Lieu lieu : getLieux()) {
 						if(lieu.getPosition().equals(new Position(i,j))) {
 							res += lieu.getNom();
 							break;
@@ -87,24 +89,25 @@ public class Village {
 	 * Permet de générer un village test
 	 */
 	private void villageTest() {
-		this.lieux = new ArrayList<Lieu>();
-		lieux.add(new Maison(2, 2, 0, 0));
-		lieux.add(new Maison(5, 5, 0, 0));
-		lieux.add(new Maison(10, 10, 0, 0));
-		lieux.add(new Maison(20, 20, 0, 0));
-		lieux.add(new Maison(25, 25, 0, 0));
-		this.routes = new Routes(lieux);
-		routes.addConnexion(lieux.get(0), lieux.get(1));
-		routes.addConnexion(lieux.get(1), lieux.get(2));
-		routes.addConnexion(lieux.get(2), lieux.get(3));
-		routes.addConnexion(lieux.get(3), lieux.get(4));
+		this.lieux = new HashMap<Character, Lieu>();
+		Maison m1 = new Maison(2, 2, 0, 0);
+		Maison m2 = new Maison(5, 5, 0, 0);
+		Maison m3 = new Maison(10, 10, 0, 0);	
+		Maison m4 = new Maison(20, 20, 0, 0);
+		Maison m5 = new Maison(25, 25, 0, 0);
+		lieux.put(m1.getNom(), m1);
+		lieux.put(m2.getNom(), m2);
+		lieux.put(m3.getNom(), m3);
+		lieux.put(m4.getNom(), m4);
+		lieux.put(m5.getNom(), m5);
+		this.routes = new Routes(lieux.values());
+		routes.addConnexion(m1, m2);
+		routes.addConnexion(m2, m3);
+		routes.addConnexion(m3, m4);
+		routes.addConnexion(m3, m5);
 	}
 	public Lieu getLieu(char c) {
-		for (Lieu lieu : lieux) {
-			if (lieu.getNom() == c) {
-				return lieu;
-			}
-		}
+		if (lieux.containsKey(c)) return lieux.get(c);
 		return null;
 	}
 }
