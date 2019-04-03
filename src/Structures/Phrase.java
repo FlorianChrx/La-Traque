@@ -23,14 +23,14 @@ public class Phrase {
 		alea = new Random();
 	}
 	
-	public String nomMaison() {
+	public static char nomMaison() {
 		int i = alea.nextInt(noms.size());
 		String nom = noms.get(i);
 		noms.remove(i);
-		return nom;
+		return nom.charAt(0);
 	}
 	
-	public String nextPhrase(int nbJours) {
+	public static String nextPhrase(int nbJours) {
 		if (nbJours < 3) {
 			return nextPhraseShort();
 		}
@@ -40,14 +40,14 @@ public class Phrase {
 		return nextPhraseLong();
 	}
 	
-	public String nextPhraseShort() {
+	public static String nextPhraseShort() {
 		return courts.get(alea.nextInt(40));
 	}
 	
-	public String nextPhraseMedium() {
+	public static String nextPhraseMedium() {
 		return moyens.get(alea.nextInt(40));
 	}
-	public String nextPhraseLong() {
+	public static String nextPhraseLong() {
 		return longs.get(alea.nextInt(40));
 	}
 }
