@@ -179,4 +179,5 @@ public abstract class Lieu implements Entity{
 	public void setStatutLieu(Statut statut) {
 		this.statutLieu = statut;
 	}
+	public abstract char getNom();
 }
