@@ -140,5 +140,13 @@ public class Routes {
 	 */
 	public List<Lieu> getVoisins(Lieu lieu){
 		return this.connexion.get(lieu);
-	}	
+	}
+	public String getVoisinsString(Lieu lieu) {
+		String res = "Lieux accessibles: ";
+		List<Lieu> voisins = getVoisins(lieu);
+		for (Lieu voisin : voisins) {
+			res += voisin.getNom() +", ";
+		}
+		return res;
+	}
 }

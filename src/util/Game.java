@@ -38,16 +38,23 @@ public class Game {
 		tueur = null;
 		enqueteur = new MaitreChien(villageActuel);
 		while (!win) {
+			System.out.println(villageActuel.toString());
 			do {
-				System.out.println(villageActuel.toString());
+				System.out.println("Vous êtes dans la maison " + getEnqueteurLocation().getNom());
 				System.out.println(villageActuel.getVoisinsString(getEnqueteurLocation()));
 				String choix;
+				char name;
 				do {
-					choix = clavier.nextLine();
-				} while (choix.length() < 1 || villageActuel.getLieu(choix.charAt(0)) == null || (!enqueteur.getLieu().equals(villageActuel.getLieu(choix.charAt(0))) && !enqueteur.getLieu().getVoisins().contains(villageActuel.getLieu(choix.charAt(0)))));
-				enqueteur.action(villageActuel.getLieu('D'));
+					do {
+						choix = clavier.nextLine();
+					} while (choix.length() != 1);
+					name = choix.charAt(0);
+				} while (villageActuel.getLieu(name) == null);
+				enqueteur.action(villageActuel.getLieu(name));
 			} while (enqueteur.canDoAction());
+			enqueteur.update();
 		}
+		
 	}
 	/**
 	 * Permet d'obtenir le lieu actuel du tueur

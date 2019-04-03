@@ -33,12 +33,8 @@ public class Village {
 	public List<Lieu> getVoisins(Lieu lieu) {
 		return routes.getVoisins(lieu);
 	}
-	public String getVoisinsString(Lieu lieuActuel) {
-		String res = "Lieux accessibles: ";
-		for (Lieu lieu : getVoisins(lieuActuel)) {
-			res += lieu.getNom() +", ";
-		}
-		return res;
+	public String getVoisinsString(Lieu lieu) {
+		return routes.getVoisinsString(lieu);
 	}
    /**
 	 * Permet d'obtenir la liste de tous les lieux du village
