@@ -44,7 +44,7 @@ public class Game {
 				String choix;
 				do {
 					choix = clavier.nextLine();
-				} while (choix.length() < 1 || villageActuel.getLieu(choix.charAt(0)) == null || (enqueteur.getLieu().equals(villageActuel.getLieu(choix.charAt(0))) && enqueteur.getLieu().getVoisins().contains(villageActuel.getLieu(choix.charAt(0)))));
+				} while (choix.length() < 1 || villageActuel.getLieu(choix.charAt(0)) == null || (!enqueteur.getLieu().equals(villageActuel.getLieu(choix.charAt(0))) && !enqueteur.getLieu().getVoisins().contains(villageActuel.getLieu(choix.charAt(0)))));
 				enqueteur.action(villageActuel.getLieu('D'));
 			} while (enqueteur.canDoAction());
 		}

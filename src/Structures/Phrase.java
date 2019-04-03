@@ -41,13 +41,13 @@ public class Phrase {
 	}
 	
 	public String nextPhraseShort() {
-		return courts.get(alea.nextInt(40));
+		return courts.get(alea.nextInt(courts.size()));
 	}
 	
 	public String nextPhraseMedium() {
-		return moyens.get(alea.nextInt(40));
+		return moyens.get(alea.nextInt(moyens.size()));
 	}
 	public String nextPhraseLong() {
-		return longs.get(alea.nextInt(40));
+		return longs.get(alea.nextInt(longs.size()));
 	}
 }

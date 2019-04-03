@@ -164,4 +164,5 @@ public class Maison extends Lieu{
 	public char getNom() {
 		return nom;
 	}
+	
 }
