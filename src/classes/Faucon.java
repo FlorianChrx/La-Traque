@@ -6,6 +6,7 @@ import java.util.List;
 
 import Entities.Personnage;
 import Structures.Lieu;
+import Structures.Maison;
 
 /**
  * Classe du Faucon ~millenium~ appartenant au Fauconnier [Une action] 
@@ -22,18 +23,24 @@ public class Faucon extends Personnage {
 	 * @param lieu de départ
 	 */
 	public Faucon(Lieu lieu) {
-		super(lieu, 2);
+		super(lieu, 1);
 	}
 	
 	//Méthodes
 	
+	/**
+	 * Le Faucon prend le lieu du Fauconnier et affiche le statut d'une maison voisine aléatoire.
+	 */
 	@Override
 	public void action(Lieu lieu) {
-		if(canDoAction()) {
-			List<Lieu> voisins = new ArrayList<Lieu>();
-			voisins.addAll(lieu.getVoisins());
-			Collections.shuffle(voisins);
-			goTo(voisins.get(0));
+		if(lieu instanceof Maison) {
+			if(canDoAction()) {
+				List<Lieu> voisins = new ArrayList<Lieu>();
+				voisins.addAll(lieu.getVoisins());
+				Collections.shuffle(voisins);
+				lieu = voisins.get(0);
+				lieu.getStatutLieu();
+			}
 		}
 	}
 

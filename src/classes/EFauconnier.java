@@ -13,6 +13,7 @@ import Structures.Village;
  */
 public class EFauconnier extends Enqueteur {
 	//Attributs
+	private Faucon faucon;
 	
 	//Constructeurs
 	/**
@@ -48,7 +49,7 @@ public class EFauconnier extends Enqueteur {
 	}
 
 	/**
-	 * 
+	 * L'enquêteur enquête  si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
 	 */
 	@Override
 	public void action(Lieu lieu) {
@@ -59,16 +60,11 @@ public class EFauconnier extends Enqueteur {
 				goTo(lieu);
 			}
 		} else {
-			// g plu d'action frr
-			System.out.println("Le Maitre Chien n'a plus d'actions.");
-			//chien.action(lieu);
-			System.out.println("Le Chien n'a plus d'actions.");
+			System.out.println("Le Fauconnier n'a plus d'actions.");
+			faucon.action(lieu);
+			System.out.println("Le Faucon n'a plus d'actions.");
 		}
 		actionsDone++;
-		//  A voir avec l'équipe pour définir	
-		// Voit autour de lui
-		// Proposition : Choix entre -> Faucon qui tourne autour : le joueur voit autour de lui
-		//							 -> Envoyer son faucon voir un endroit en particulier
 	}
 
 	@Override
