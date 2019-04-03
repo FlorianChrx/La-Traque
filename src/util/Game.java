@@ -41,11 +41,11 @@ public class Game {
 			do {
 				System.out.println(villageActuel.toString());
 				System.out.println(villageActuel.getVoisinsString(getEnqueteurLocation()));
-				char choix;
+				String choix;
 				do {
-					choix = clavier.nextLine().charAt(0);
-				} while (villageActuel.getLieu(choix) == null || villageActuel.getLieu(choix).isInvestigate() || (villageActuel.getVoisins(getEnqueteurLocation()).contains(villageActuel.getLieu(choix))));
-				enqueteur.action(villageActuel.getLieu(choix));
+					choix = clavier.nextLine();
+				} while (choix.length() < 1 || villageActuel.getLieu(choix.charAt(0)) == null || (enqueteur.getLieu().equals(villageActuel.getLieu(choix.charAt(0))) && enqueteur.getLieu().getVoisins().contains(villageActuel.getLieu(choix.charAt(0)))));
+				enqueteur.action(villageActuel.getLieu('D'));
 			} while (enqueteur.canDoAction());
 		}
 	}
