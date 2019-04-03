@@ -41,24 +41,13 @@ public class Game {
 			do {
 				System.out.println(villageActuel.toString());
 				System.out.println(villageActuel.getVoisinsString(getEnqueteurLocation()));
-				int idx;
+				char choix;
 				do {
-					idx = demanderchoix(1, villageActuel.getLieux().size() + 1) - 1;
-				} while (villageActuel.getLieux().get(idx).isInvestigate() || (villageActuel.getVoisins(getEnqueteurLocation()).contains(villageActuel.getLieux().get(idx))));
-				enqueteur.action(villageActuel.getLieux().get(idx));
+					choix = clavier.nextLine().charAt(0);
+				} while (villageActuel.getLieu(choix) == null || villageActuel.getLieu(choix).isInvestigate() || (villageActuel.getVoisins(getEnqueteurLocation()).contains(villageActuel.getLieu(choix))));
+				enqueteur.action(villageActuel.getLieu(choix));
 			} while (enqueteur.canDoAction());
 		}
-	}
-	
-	public static int demanderchoix(int min, int max) {
-		int choixI;
-		String choixS = clavier.nextLine();
-		try {
-			choixI = Integer.parseInt(choixS);
-		} catch (Exception e) {
-			choixI = demanderchoix(min,max);
-		}
-		return choixI;
 	}
 	/**
 	 * Permet d'obtenir le lieu actuel du tueur
