@@ -140,6 +140,7 @@ public class Maison extends Lieu{
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + days;
+		result = prime * result + nom;
 		result = prime * result + ((statutMaison == null) ? 0 : statutMaison.hashCode());
 		return result;
 	}
@@ -153,6 +154,8 @@ public class Maison extends Lieu{
 			return false;
 		Maison other = (Maison) obj;
 		if (days != other.days)
+			return false;
+		if (nom != other.nom)
 			return false;
 		if (statutMaison != other.statutMaison)
 			return false;
