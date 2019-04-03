@@ -20,6 +20,7 @@ public class Maison extends Lieu{
 	 * Surface de la maison et implicitement sa position
 	 */
 	private int days;
+	private String nom;
 	
 	//Constructeurs
 	
@@ -31,6 +32,7 @@ public class Maison extends Lieu{
 	public Maison(StatutMaison statut, Surface surface) {
 		super(surface);
 		this.statutMaison = statut;
+		this.nom = phrase.nomMaison();
 	}
 	/**
 	 * Permet de construire une maison
