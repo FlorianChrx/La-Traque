@@ -23,9 +23,9 @@ public class Routes {
 	 * On fournit un ArrayList qui correspond à la liste des clés, c'est à dire toutes les maisons
 	 * @param lieus
 	 */
-	public Routes(Collection<Lieu> lieus) {
-		this.connexion = new HashMap<Lieu, ArrayList<Lieu>>(lieus.size());
-		for (Lieu lieu : lieus) {
+	public Routes(Collection<Lieu> lieux) {
+		this.connexion = new HashMap<Lieu, ArrayList<Lieu>>(lieux.size());
+		for (Lieu lieu : lieux) {
 			connexion.put(lieu, new ArrayList<Lieu>());
 		}
 	}
