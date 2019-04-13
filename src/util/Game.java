@@ -42,6 +42,8 @@ public class Game {
 			do {
 				System.out.println("Vous êtes dans la maison " + getEnqueteurLocation().getNom());
 				System.out.println(villageActuel.getVoisins(getEnqueteurLocation()));
+				System.out.println(getEnqueteurLocation());
+				System.out.println(villageActuel.getVoisins(villageActuel.getLieu('C')));
 				String choix;
 				char name;
 				do {
@@ -54,7 +56,6 @@ public class Game {
 			} while (enqueteur.canDoAction());
 			enqueteur.update();
 		}
-		
 	}
 	/**
 	 * Permet d'obtenir le lieu actuel du tueur
