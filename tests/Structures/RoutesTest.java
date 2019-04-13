@@ -14,6 +14,8 @@ import util.Surface;
 
 class RoutesTest {
 	
+	Phrase p = new Phrase();
+	
 	Lieu lieu1 = new Maison(null, new Surface(0, 0, 10, 10));
 	Lieu lieu2 = new Maison(null, new Surface(1, 1, 10, 10));
 	Lieu lieu3 = new Maison(null, new Surface(2, 2, 10, 10));
