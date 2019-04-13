@@ -1,5 +1,6 @@
 package classes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Entities.Tueur;
@@ -32,9 +33,17 @@ public class TWarper extends Tueur {
 	}
 	
 	//Méthodes	
+	
+	/**
+	 * Retourne les voisins (du lieu) ainsi que leur voisins.
+	 */
 	@Override
 	public List<Lieu> lieuxAccessibles() {
-		return lieu.getVoisins(); // Il faudrait aussi les voisins des voisins : au cas où il voudrait sauter
+		List<Lieu> liste = new ArrayList<Lieu>();
+		for(Lieu lieu : lieu.getVoisins()) {
+			liste.addAll(lieu.getVoisins());
+		}
+		return liste;	
 	}
 	
 	@Override
@@ -47,10 +56,17 @@ public class TWarper extends Tueur {
 		nextDay();		
 	}
 	
+	/**
+	 * Le Warper se déplace d'une ou de deux maisons en fonction du lieu choisit.
+	 */
 	@Override
 	public void action(Lieu lieu) {
-		// A le choix entre faire une petit (avancer de une case) ou un grand un bond (avancer de deux cases)
-		// Du coup, une seule action ?
+		if(canDoAction()) {
+			goTo(lieu);
+		} else {
+			System.out.println("Le Warper n'a plus d'actions.");
+		}
+		actionsDone++;
 	}
 
 	@Override
