@@ -31,7 +31,6 @@ public class Village {
 	 * @return Une liste de lieux
 	 */
 	public List<Lieu> getVoisins(Lieu lieu) {
-		System.out.println(routes.toString());
 		return routes.getVoisins(lieu);
 	}
    /**
@@ -101,7 +100,7 @@ public class Village {
 		routes.addConnexion(m3, m5);
 	}
 	public Lieu getLieu(char c) {
-		if (lieux.containsKey(c)) return lieux.get(c);
+		if (lieux.containsKey(Character.toUpperCase(c))) return lieux.get(Character.toUpperCase(c));
 		return null;
 	}
 }
