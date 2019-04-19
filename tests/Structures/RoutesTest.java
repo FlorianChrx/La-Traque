@@ -71,6 +71,11 @@ class RoutesTest {
 		assertTrue(routes.isConnected(lieu1, lieu2));
 		assertTrue(routes.isConnected(lieu2, lieu1));
 		assertFalse(routes.isConnected(lieu1, lieu5));
+		assertFalse(routes.isConnected(lieu1, lieu3));
+		assertFalse(routes.isConnected(lieu1, lieu4));
+		assertFalse(routes.isConnected(lieu3, lieu1));
+		assertFalse(routes.isConnected(lieu4, lieu1));
+		assertFalse(routes.isConnected(lieu5, lieu1));
 		routes.addConnexion(lieu3, lieus);
 		assertTrue(routes.isConnected(lieu3, lieu1));
 		assertTrue(routes.isConnected(lieu3, lieu2));
