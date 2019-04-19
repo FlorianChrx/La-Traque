@@ -24,6 +24,9 @@ public class Village {
 	public Village(String lienCSV) {
 		villageTest();
 	}
+	public Village() {
+		villageTest();
+	}
 	
 	/**
 	 * Permet d'obtenir la liste de voisins d'un lieu
