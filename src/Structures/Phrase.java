@@ -30,7 +30,7 @@ public class Phrase {
 		return nom.charAt(0);
 	}
 	
-	public String nextPhrase(int nbJours) {
+	public static String nextPhrase(int nbJours) {
 		if (nbJours < 3) {
 			return nextPhraseShort();
 		}
@@ -39,7 +39,7 @@ public class Phrase {
 		}
 		return nextPhraseLong();
 	}
-	
+
 	public String nextPhraseShort() {
 		return courts.get(alea.nextInt(courts.size()));
 	}
