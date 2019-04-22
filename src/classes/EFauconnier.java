@@ -7,12 +7,13 @@ import Structures.Lieu;
 import Structures.Village;
 
 /**
- * Classe du rôle Fauconnier (Enquêteur) [NbActions pas encore défini]
+ * Classe du rôle Fauconnier (Enquêteur) [Deux actions]
  * @author calamar
  *
  */
 public class EFauconnier extends Enqueteur {
 	//Attributs
+	private Faucon faucon;
 	
 	//Constructeurs
 	/**
@@ -47,12 +48,23 @@ public class EFauconnier extends Enqueteur {
 		nextDay();		
 	}
 
+	/**
+	 * L'enquêteur enquête  si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
+	 */
 	@Override
 	public void action(Lieu lieu) {
-		//  A voir avec l'équipe pour définir	
-		// Voit autour de lui
-		// Proposition : Choix entre -> Faucon qui tourne autour : le joueur voit autour de lui
-		//							 -> Envoyer son faucon voir un endroit en particulier
+		if(canDoAction()) {
+			if(this.lieu.equals(lieu)) {
+				enquete();
+			} else {
+				goTo(lieu);
+			}
+		} else {
+			System.out.println("Le Fauconnier n'a plus d'actions.");
+			faucon.action(lieu);
+			System.out.println("Le Faucon n'a plus d'actions.");
+		}
+		actionsDone++;
 	}
 
 	@Override

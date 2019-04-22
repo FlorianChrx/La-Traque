@@ -1,7 +1,5 @@
 package classes;
 
-import java.util.List;
-
 import Entities.Tueur;
 import Structures.Lieu;
 import Structures.Village;
@@ -25,7 +23,7 @@ public class TBrute extends Tueur {
 	
 	/**
 	 * Constructeur avec le lieu de départ de la Brute
-	 * @param lieu de départd
+	 * @param lieu de départ
 	 */
 	public TBrute(Lieu lieu) {
 		super(lieu, 1);
@@ -33,31 +31,12 @@ public class TBrute extends Tueur {
 
 	//Méthodes 
 	@Override
-	public List<Lieu> lieuxAccessibles() {
-		return lieu.getVoisins();
-	}
-
-	@Override
-	public void nextDay() {
-		goTo(lieu);
-		
-	}
-	
-	@Override
-	public void update() {
-		nextDay();
-		
-	}
-
-	@Override
 	public void action(Lieu lieu) {
-		// A voir avec l'équipe pour définir
-		
+		// A voir avec l'équipe pour définir		
 	}
 
 	@Override
 	public boolean hasHelper() {
 		return false;
 	}
-
 }

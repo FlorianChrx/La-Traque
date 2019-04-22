@@ -11,6 +11,9 @@ import Structures.Village;
  */
 public class MaitreChien extends Enqueteur {
 	//Attributs
+	/**
+	 * Bon toutou
+	 */
 	private Chien chien;
 	
 	//Constructeurs
@@ -33,6 +36,10 @@ public class MaitreChien extends Enqueteur {
 	
 	//Méthodes
 	
+	/**
+	 * L'enquêteur enquête si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
+	 * Lorsqu'il a fini, le chien joue.
+	 */
 	@Override
 	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
 		System.out.println(lieu.getNom());
@@ -45,7 +52,6 @@ public class MaitreChien extends Enqueteur {
 				System.out.println("Je ne peux pas aller si loin...");
 			}
 		} else {
-			// g plu d'action frr
 			System.out.println("Le Maitre Chien n'a plus d'actions.");
 			chien.action(lieu);
 			System.out.println("Le Chien n'a plus d'actions.");
