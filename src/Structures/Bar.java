@@ -27,10 +27,4 @@ public class Bar extends Lieu {
 		
 	}
 
-	@Override
-	public char getNom() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
 }

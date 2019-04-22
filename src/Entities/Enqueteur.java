@@ -38,7 +38,7 @@ public abstract class Enqueteur extends Personnage {
 			Game.win();
 		}
 		this.lieu.setEmpty();
-		this.setLieu(lieu);
+		this.lieu = lieu;
 		this.lieu.setInvestigate();
 	}
 }

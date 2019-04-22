@@ -23,11 +23,11 @@ public class Phrase {
 		alea = new Random();
 	}
 	
-	public char nomMaison() {
+	public String nomMaison() {
 		int i = alea.nextInt(noms.size());
 		String nom = noms.get(i);
 		noms.remove(i);
-		return nom.charAt(0);
+		return nom;
 	}
 	
 	public String nextPhrase(int nbJours) {
@@ -41,13 +41,13 @@ public class Phrase {
 	}
 	
 	public String nextPhraseShort() {
-		return courts.get(alea.nextInt(courts.size()));
+		return courts.get(alea.nextInt(40));
 	}
 	
 	public String nextPhraseMedium() {
-		return moyens.get(alea.nextInt(moyens.size()));
+		return moyens.get(alea.nextInt(40));
 	}
 	public String nextPhraseLong() {
-		return longs.get(alea.nextInt(longs.size()));
+		return longs.get(alea.nextInt(40));
 	}
 }

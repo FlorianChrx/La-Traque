@@ -20,7 +20,7 @@ public class Maison extends Lieu{
 	 * Surface de la maison et implicitement sa position
 	 */
 	private int days;
-	private char nom;
+	private String nom;
 	
 	//Constructeurs
 	
@@ -140,7 +140,6 @@ public class Maison extends Lieu{
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + days;
-		result = prime * result + nom;
 		result = prime * result + ((statutMaison == null) ? 0 : statutMaison.hashCode());
 		return result;
 	}
@@ -155,18 +154,8 @@ public class Maison extends Lieu{
 		Maison other = (Maison) obj;
 		if (days != other.days)
 			return false;
-		if (nom != other.nom)
-			return false;
 		if (statutMaison != other.statutMaison)
 			return false;
 		return true;
 	}
-	public char getNom() {
-		return nom;
-	}
-	@Override
-	public String toString() {
-		return ""+nom;
-	}
-	
 }

@@ -35,14 +35,11 @@ public class MaitreChien extends Enqueteur {
 	
 	@Override
 	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
-		System.out.println(lieu.getNom());
 		if(canDoAction()) {
 			if(this.lieu.equals(lieu)) {
 				enquete();
-			} else if (canGoTo(lieu)){
-				goTo(lieu);
 			} else {
-				System.out.println("Je ne peux pas aller si loin...");
+				goTo(lieu);
 			}
 		} else {
 			// g plu d'action frr
