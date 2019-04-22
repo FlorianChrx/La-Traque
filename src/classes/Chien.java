@@ -1,7 +1,5 @@
 package classes;
 
-import java.util.List;
-
 import Entities.Personnage;
 import Structures.Lieu;
 import Structures.Maison;
@@ -17,7 +15,7 @@ public class Chien extends Personnage {
 	
 	//Constructeurs	
 	/**
-	 * Constructeur le lieu de départ du Chien
+	 * Constructeur avec le lieu de départ du Chien
 	 * @param lieu de départ
 	 * @param nbActions que peut effectuer le personnage
 	 */
@@ -29,9 +27,10 @@ public class Chien extends Personnage {
 	/**
 	 * Le chien avance. Si le tueur se situe dans la maison et que le chien a des
 	 *  points d'actions, le chien bloque le tueur. Si le tueur se situe dans la
-	 *  maison mais que le chien n'a plus de d'actions le tueur le bloque. Si il n'y
+	 *  maison mais que le chien n'a plus d'actions le tueur le bloque. Si il n'y
 	 *  a personne, le chien avance une nouvelle fois.
 	 */
+	@Override
 	public void action(Lieu lieu) { 
 		if(lieu instanceof Maison) {
 			goTo(lieu);
@@ -44,21 +43,6 @@ public class Chien extends Personnage {
 			}
 		}
 	}
-	
-	@Override
-	public List<Lieu> lieuxAccessibles() {
-		return lieu.getVoisins();
-	}
-	@Override
-	public void nextDay() {
-		goTo(lieu);
-		
-	}
-	@Override
-	public void update() {
-		nextDay();		
-	}
-
 	@Override
 	public void goTo(Lieu lieu) {
 		this.lieu = lieu;
@@ -67,7 +51,5 @@ public class Chien extends Personnage {
 	@Override
 	public boolean hasHelper() {
 		return false;
-	}
-	
-	
+	}	
 }

@@ -63,7 +63,9 @@ public abstract class Personnage implements Controlable, Entity {
 	//Méthodes	
 
 	@Override
-	public abstract List<Lieu> lieuxAccessibles();
+	public List<Lieu> lieuxAccessibles(){
+		return this.lieu.getVoisins();
+	}
 	/**
 	 * Permet d'obtenir le lieu dans lequel se trouve le personnage
 	 * @return
@@ -128,14 +130,18 @@ public abstract class Personnage implements Controlable, Entity {
 	/**
 	 * Permet d'effectuer certaines actions au changement de journée
 	 */
-	public abstract void nextDay();
+	public void nextDay() {
+		actionsDone = 0;
+	}
 	public boolean canGoTo(Lieu lieu) {
 		return lieuxAccessibles().contains(lieu);
 	}
 	public boolean canGoToAll(Collection<Lieu> lieux) {
 		return lieuxAccessibles().containsAll(lieux);
 	}
-	public abstract void update();
+	public void update() {
+		this.nextDay();
+	}
 	public abstract void action(Lieu lieu);
 	public abstract boolean hasHelper();
 }

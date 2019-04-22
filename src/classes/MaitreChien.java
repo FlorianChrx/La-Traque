@@ -1,7 +1,5 @@
 package classes;
 
-import java.util.List;
-
 import Entities.Enqueteur;
 import Structures.Lieu;
 import Structures.Village;
@@ -13,7 +11,10 @@ import Structures.Village;
  */
 public class MaitreChien extends Enqueteur {
 	//Attributs
-	private Chien chien; // -> Vraiment ?
+	/**
+	 * Bon toutou
+	 */
+	private Chien chien;
 	
 	//Constructeurs
 	
@@ -34,30 +35,28 @@ public class MaitreChien extends Enqueteur {
 	}
 	
 	//Méthodes
-	@Override
-	public List<Lieu> lieuxAccessibles() {
-		return lieu.getVoisins();
-	}
-	@Override
-	public void nextDay() {
-		actionsDone = 0;	
-	}
-	@Override
-	public void update() {
-		nextDay();
-	}
+	
+	/**
+	 * L'enquêteur enquête si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
+	 * Lorsqu'il a fini, le chien joue.
+	 */
 	@Override
 	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
+		System.out.println(lieu.getNom());
 		if(canDoAction()) {
 			if(this.lieu.equals(lieu)) {
 				enquete();
-			} else {
+			} else if (canGoTo(lieu)){
 				goTo(lieu);
+			} else {
+				System.out.println("Je ne peux pas aller si loin...");
 			}
 		} else {
-			// g plu d'action frr
+			System.out.println("Le Maitre Chien n'a plus d'actions.");
+			chien.action(lieu);
+			System.out.println("Le Chien n'a plus d'actions.");
 		}
-    actionsDone++;
+		actionsDone++;
 	}
 
 	@Override

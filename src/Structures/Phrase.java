@@ -1,27 +1,36 @@
 package Structures;
 
 import java.util.List;
+import util.CSVReader;
 import java.util.Random;
 
-import util.CSVReader;
-
 public class Phrase {
-	private List<String> courts;
-	private List<String> moyens; 
-	private List<String> longs; 
-	private Random alea;
+	private static List<String> courts;
+	private static List<String> moyens; 
+	private static List<String> longs; 
+	private static List<String> noms;
+	private static Random alea;
 	
 	public Phrase() {
-		CSVReader court = new CSVReader("../../DATA/court.csv");
-		CSVReader moyen = new CSVReader("../../DATA/moyen.csv");
-		CSVReader longss = new CSVReader("../../DATA/long.csv");
+		CSVReader court = new CSVReader("DATA/court.csv");
+		CSVReader moyen = new CSVReader("DATA/moyen.csv");
+		CSVReader longss = new CSVReader("DATA/long.csv");
+		CSVReader nomss = new CSVReader("DATA/noms.csv");
 		courts = court.getList();
 		moyens = moyen.getList();
 		longs = longss.getList();
+		noms = nomss.getList();
 		alea = new Random();
 	}
 	
-	public String nextPhrase(int nbJours) {
+	public char nomMaison() {
+		int i = alea.nextInt(noms.size());
+		String nom = noms.get(i);
+		noms.remove(i);
+		return nom.charAt(0);
+	}
+	
+	public static String nextPhrase(int nbJours) {
 		if (nbJours < 3) {
 			return nextPhraseShort();
 		}
@@ -32,13 +41,13 @@ public class Phrase {
 	}
 
 	public String nextPhraseShort() {
-		return courts.get(alea.nextInt(40));
+		return courts.get(alea.nextInt(courts.size()));
 	}
 	
 	public String nextPhraseMedium() {
-		return moyens.get(alea.nextInt(40));
+		return moyens.get(alea.nextInt(moyens.size()));
 	}
 	public String nextPhraseLong() {
-		return longs.get(alea.nextInt(40));
+		return longs.get(alea.nextInt(longs.size()));
 	}
 }

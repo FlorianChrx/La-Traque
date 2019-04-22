@@ -1,9 +1,9 @@
 package Structures;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Entities.Entity;
-import util.Game;
 import util.Position;
 import util.Surface;
 
@@ -14,7 +14,7 @@ import util.Surface;
  *
  */
 
-public abstract class Lieu implements Entity{
+public abstract class Lieu implements Entity {
 	/**
 	 * Surface de la maison et implicitement sa position
 	 */
@@ -24,17 +24,21 @@ public abstract class Lieu implements Entity{
 	 */
 	protected Statut statutLieu;
 	protected static Phrase phrase = new Phrase();
+	protected List<Lieu> voisins;	
 	
 	
-	
+	public Lieu(Surface surface, Statut statut, List<Lieu> voisins) {
+		this.surface = surface;
+		this.statutLieu = statut;
+		this.voisins = voisins;
+	}
 	/**
 	 * Permet de construire un lieu
 	 * @param statut correspondant au statut du lieu
 	 * @param surface correspondant à la surface du lieu
 	 */
 	public Lieu(Surface surface, Statut statut) {
-		this.surface = surface;
-		this.statutLieu = statut;
+		this(surface, statut, new ArrayList<Lieu>());
 	}
 	public Lieu(Surface surface) {
 		this(surface, Statut.EMPTY);
@@ -99,7 +103,7 @@ public abstract class Lieu implements Entity{
 	 * @return Retourne liste de lieus
 	 */
 	public List<Lieu> getVoisins() {
-		return Game.getVillageActuel().getVoisins(this);
+		return voisins;
 	}
 	/**
 	 * Permet d'obtenir la surface du lieu
@@ -178,5 +182,17 @@ public abstract class Lieu implements Entity{
 	 */
 	public void setStatutLieu(Statut statut) {
 		this.statutLieu = statut;
+	}
+	public abstract char getNom();
+	public void addVoisin(Lieu lieu) {
+		if(!voisins.contains(lieu)) {
+			voisins.add(lieu);
+			lieu.addVoisin(this);
+		}
+	}
+	public void addVoisins(List<Lieu> lieus) {
+		for (Lieu lieu : lieus) {
+			addVoisin(lieu);
+		}
 	}
 }
