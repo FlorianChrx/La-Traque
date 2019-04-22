@@ -85,7 +85,7 @@ class MaisonTest {
 
 	@Test
 	void testSetPositionPosition() {
-		Position position = new Position(5,5);
+		Position position = new Position(10,10);
 		maison.setPosition(position);
 		assertEquals(position, maison.getPosition());
 	}
