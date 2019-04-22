@@ -7,6 +7,7 @@ import Entities.Tueur;
 import Structures.Lieu;
 import Structures.Village;
 import classes.MaitreChien;
+import classes.TBrute;
 
 public class Game {
 	
@@ -35,11 +36,12 @@ public class Game {
 		System.out.println("Bienvenue dans notre jeu appuies sur entrée pour jouer !");
 		clavier.nextLine();
 		villageActuel = new Village("");
-		tueur = null;
+		tueur = new TBrute(villageActuel);
 		enqueteur = new MaitreChien(villageActuel);
 		while (!win) {
 			System.out.println(villageActuel.toString());
 			do {
+				System.out.println("-- ENQUETEUR --");
 				System.out.println("Vous êtes dans la maison " + getEnqueteurLocation().getNom());
 				System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getEnqueteurLocation()));
 				String choix;
@@ -52,7 +54,23 @@ public class Game {
 				} while (villageActuel.getLieu(name) == null);
 				enqueteur.action(villageActuel.getLieu(name));
 			} while (enqueteur.canDoAction());
+			System.out.println(villageActuel.toString());
+			do {
+				System.out.println("-- TUEUR --");
+				System.out.println("Vous êtes dans la maison " + getTueurLocation().getNom());
+				System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getTueurLocation()));
+				String choix;
+				char name;
+				do {
+					do {
+						choix = clavier.nextLine();
+					} while (choix.length() != 1);
+					name = choix.charAt(0);
+				} while (villageActuel.getLieu(name) == null);
+				tueur.action(villageActuel.getLieu(name));
+			} while (tueur.canDoAction());
 			enqueteur.update();
+			tueur.update();
 		}
 	}
 	/**
