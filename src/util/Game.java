@@ -41,9 +41,7 @@ public class Game {
 			System.out.println(villageActuel.toString());
 			do {
 				System.out.println("Vous êtes dans la maison " + getEnqueteurLocation().getNom());
-				System.out.println(villageActuel.getVoisins(getEnqueteurLocation()));
-				System.out.println(getEnqueteurLocation());
-				System.out.println(villageActuel.getVoisins(villageActuel.getLieu('C')));
+				System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getEnqueteurLocation()));
 				String choix;
 				char name;
 				do {

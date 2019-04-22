@@ -15,7 +15,6 @@ public class Village {
 	/**
 	 * Gestionnaire des routes (connexions) entre les lieux
 	 */
-	private Routes routes;
 	/**
 	 * Permet de construire un village selon une carte prédefinie 
 	 * dont le lien et donné en paramètre
@@ -34,7 +33,7 @@ public class Village {
 	 * @return Une liste de lieux
 	 */
 	public List<Lieu> getVoisins(Lieu lieu) {
-		return routes.getVoisins(lieu);
+		return lieu.getVoisins();
 	}
    /**
 	 * Permet d'obtenir la liste de tous les lieux du village
@@ -96,11 +95,14 @@ public class Village {
 		lieux.put(m3.getNom(), m3);
 		lieux.put(m4.getNom(), m4);
 		lieux.put(m5.getNom(), m5);
-		this.routes = new Routes(lieux.values());
-		routes.addConnexion(m1, m2);
-		routes.addConnexion(m2, m3);
-		routes.addConnexion(m3, m4);
-		routes.addConnexion(m3, m5);
+		m1.addVoisin(m2);
+		m2.addVoisin(m3);
+		m2.addVoisin(m1);
+		m3.addVoisin(m4);
+		m3.addVoisin(m2);
+		m4.addVoisin(m5);
+		m4.addVoisin(m3);
+		m5.addVoisin(m4);
 	}
 	public Lieu getLieu(char c) {
 		if (lieux.containsKey(Character.toUpperCase(c))) return lieux.get(Character.toUpperCase(c));
