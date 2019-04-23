@@ -66,7 +66,7 @@ public class Game {
 	}
 	private static void choixPersos() {
 		int choixE = 0;
-		System.out.println(" -- CHOIX DE L'ENQÊTEUR -- ");
+		System.out.println(" -- CHOIX DE L'ENQÊTEUR --");
 		afficher(ENQUETEURS);
 		choixE = SaisieNombre(ENQUETEURS.length + 1);
 		switch (choixE) {
@@ -118,6 +118,7 @@ public class Game {
 		System.out.println(" -- ENQUETEUR -- ");
 		System.out.println("Vous êtes dans la maison " + getEnqueteurLocation().getNom());
 		System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getEnqueteurLocation()));
+		System.out.println("\nPour vous rendre dans une des maisons accessibles, rentrez la lettre correspondante.\nVous pouvez aussi inspecter la maison sur laquelle vous vous trouvez de la même façon.");
 		String choix;
 		char name;
 		do {
@@ -133,6 +134,7 @@ public class Game {
 		System.out.println(" -- TUEUR -- ");
 		System.out.println("Vous êtes dans la maison " + getTueurLocation().getNom());
 		System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getTueurLocation()));
+		System.out.println("\nPour vous rendre dans une des maisons accessibles, rentrez la lettre correspondante.\nVous pouvez aussi massacrer les habitants de la maison sur laquelle vous vous trouvez de la même façon.");
 		String choix;
 		char name;
 		do {
