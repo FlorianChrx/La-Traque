@@ -41,37 +41,43 @@ public class Game {
 		while (!win) {
 			System.out.println(villageActuel.toString());
 			do {
-				System.out.println("-- ENQUETEUR --");
-				System.out.println("Vous êtes dans la maison " + getEnqueteurLocation().getNom());
-				System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getEnqueteurLocation()));
-				String choix;
-				char name;
-				do {
-					do {
-						choix = clavier.nextLine();
-					} while (choix.length() != 1);
-					name = choix.charAt(0);
-				} while (villageActuel.getLieu(name) == null);
-				enqueteur.action(villageActuel.getLieu(name));
+				tourEnqueteur();
 			} while (enqueteur.canDoAction());
 			System.out.println(villageActuel.toString());
 			do {
-				System.out.println("-- TUEUR --");
-				System.out.println("Vous êtes dans la maison " + getTueurLocation().getNom());
-				System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getTueurLocation()));
-				String choix;
-				char name;
-				do {
-					do {
-						choix = clavier.nextLine();
-					} while (choix.length() != 1);
-					name = choix.charAt(0);
-				} while (villageActuel.getLieu(name) == null);
-				tueur.action(villageActuel.getLieu(name));
+				tourTueur();
 			} while (tueur.canDoAction());
 			enqueteur.update();
 			tueur.update();
 		}
+	}
+	public static void tourEnqueteur() {
+		System.out.println("-- ENQUETEUR --");
+		System.out.println("Vous êtes dans la maison " + getEnqueteurLocation().getNom());
+		System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getEnqueteurLocation()));
+		String choix;
+		char name;
+		do {
+			do {
+				choix = clavier.nextLine();
+			} while (choix.length() != 1);
+			name = choix.charAt(0);
+		} while (villageActuel.getLieu(name) == null);
+		enqueteur.action(villageActuel.getLieu(name));
+	}
+	public static void tourTueur() {
+		System.out.println("-- TUEUR --");
+		System.out.println("Vous êtes dans la maison " + getTueurLocation().getNom());
+		System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getTueurLocation()));
+		String choix;
+		char name;
+		do {
+			do {
+				choix = clavier.nextLine();
+			} while (choix.length() != 1);
+			name = choix.charAt(0);
+		} while (villageActuel.getLieu(name) == null);
+		tueur.action(villageActuel.getLieu(name));
 	}
 	/**
 	 * Permet d'obtenir le lieu actuel du tueur
