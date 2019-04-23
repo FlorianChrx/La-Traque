@@ -30,7 +30,7 @@ public class Phrase {
 		return nom.charAt(0);
 	}
 	
-	public static String nextPhrase(int nbJours) {
+	public String nextPhrase(int nbJours) {
 		if (nbJours < 3) {
 			return nextPhraseShort();
 		}

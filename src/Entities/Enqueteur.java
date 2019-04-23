@@ -28,18 +28,14 @@ public abstract class Enqueteur extends Personnage {
 	//Méthodes	
 	public void enquete() {
 		if (this.lieu.isMurder()) {
-			//Game.win();
+			Game.win();
 		} else {
 			System.out.println(lieu.getPhrase());
 		}
 	}
 	public void goTo(Lieu lieu) {
-		if (lieu.isMurder()) {
-			Game.win();
-		}
 		this.lieu.setEmpty();
 		this.setLieu(lieu);
-		this.lieu.setInvestigate();
 	}
 }
 
