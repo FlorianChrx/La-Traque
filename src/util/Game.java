@@ -44,26 +44,29 @@ public class Game {
 		clavier.nextLine();
 		
 		while (!win) {
-			do {
-				if (win) {
-					break;
-				}
-				clearScreen();
-				if (! start) {
-					System.out.println("Changement de Joueur !");
-					clavier.nextLine();
-				} else {
-					start = false;
-				}
-				tourEnqueteur();
-			} while (enqueteur.canDoAction());
-			do {
-				if (win) {
-					break;
-				}
-				clearScreen();
+			//affiche qu'il y a un changement de joueur sauf si c'est le premier tour de boucle
+			//dans ce cas le booléen start passe a faux car a la prochaine execution ça ne sera
+			//plus la première éxecution de boucle
+			if (! start) {
 				System.out.println("Changement de Joueur !");
 				clavier.nextLine();
+			} else {
+				start = false;
+			}
+			do {
+				//si la partie est gagné on quitte directement la boucle
+				if (win) break;
+				clearScreen();
+				tourEnqueteur();
+			} while (enqueteur.canDoAction());
+			if (!win) {
+				System.out.println("Changement de Joueur !");
+				clavier.nextLine();
+			}
+			do {
+				//si la partie est gagné on quitte directement la boucle
+				if (win) break;
+				clearScreen();
 				tourTueur();
 			} while (tueur.canDoAction());
 			if(villageActuel.allDeads()) win();
