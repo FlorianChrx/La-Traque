@@ -1,7 +1,6 @@
 package Entities;
 
 import Structures.Lieu;
-import Structures.Phrase;
 import Structures.Maison;
 import Structures.Village;
 import util.Game;
