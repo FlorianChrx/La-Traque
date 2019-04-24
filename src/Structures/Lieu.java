@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Entities.Entity;
+import util.Phrase;
 import util.Position;
 import util.Surface;
 
