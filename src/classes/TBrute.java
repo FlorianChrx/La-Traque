@@ -32,7 +32,12 @@ public class TBrute extends Tueur {
 	//Méthodes 
 	@Override
 	public void action(Lieu lieu) {
-		// A voir avec l'équipe pour définir		
+		if(canDoAction()) {
+			goTo(lieu);
+		} else {
+			System.out.println("La Brute n'a plus d'actions.");
+		}
+		actionsDone++;
 	}
 
 	@Override
