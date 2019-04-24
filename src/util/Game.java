@@ -30,6 +30,7 @@ public class Game {
 	 */
 	private static Scanner clavier = new Scanner(System.in);
 	private static boolean win = false;
+	private static boolean start = true;
 	private final static String[] TUEURS = {"Warper", "Brute"};
 	private final static String[] ENQUETEURS = {"Maître Chien", "Fauconnier"};
 	
@@ -48,15 +49,21 @@ public class Game {
 					break;
 				}
 				clearScreen();
+				if (! start) {
+					System.out.println("Changement de Joueur !");
+					clavier.nextLine();
+				} else {
+					start = false;
+				}
 				tourEnqueteur();
 			} while (enqueteur.canDoAction());
-			System.out.println("Changement de Joueur !");
-			clavier.nextLine();
 			do {
 				if (win) {
 					break;
 				}
 				clearScreen();
+				System.out.println("Changement de Joueur !");
+				clavier.nextLine();
 				tourTueur();
 			} while (tueur.canDoAction());
 			if(villageActuel.allDeads()) win();
