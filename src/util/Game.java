@@ -59,6 +59,7 @@ public class Game {
 				clearScreen();
 				tourTueur();
 			} while (tueur.canDoAction());
+			if(villageActuel.allDeads()) win();
 			enqueteur.update();
 			tueur.update();
 		}

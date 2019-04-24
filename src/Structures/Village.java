@@ -108,4 +108,10 @@ public class Village {
 		if (lieux.containsKey(Character.toUpperCase(c))) return lieux.get(Character.toUpperCase(c));
 		return null;
 	}
+	public boolean allDeads() {
+		for (Lieu lieu : lieux.values()) {
+			if (((Maison) lieu).isAlive()) return false;
+		}
+		return true;
+	}
 }
