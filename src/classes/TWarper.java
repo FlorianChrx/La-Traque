@@ -62,7 +62,11 @@ public class TWarper extends Tueur {
 	@Override
 	public void action(Lieu lieu) {
 		if(canDoAction()) {
-			goTo(lieu);
+			if(lieu.isMurder()) {
+				tue();
+			} else if (canGoTo(lieu)){
+				goTo(lieu);
+			}
 		} else {
 			System.out.println("Le Warper n'a plus d'actions.");
 		}

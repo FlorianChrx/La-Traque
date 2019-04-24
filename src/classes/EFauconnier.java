@@ -53,7 +53,7 @@ public class EFauconnier extends Enqueteur {
 	 */
 	@Override
 	public void action(Lieu lieu) {
-		if(canDoAction()) {
+		if(actionsDone >= nbActions) {
 			if(this.lieu.equals(lieu)) {
 				enquete();
 			} else {
@@ -70,6 +70,11 @@ public class EFauconnier extends Enqueteur {
 	@Override
 	public boolean hasHelper() {
 		return true;
+	}
+	
+	@Override
+	public boolean canDoAction() {
+		return actionsDone >= nbActions || faucon.canDoAction();
 	}
 
 }
