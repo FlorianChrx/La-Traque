@@ -69,10 +69,15 @@ public class Game {
 				clearScreen();
 				tourTueur();
 			} while (tueur.canDoAction());
-			if(villageActuel.allDeads()) win();
+			//si tous les habitants sont morts l'enqueteur à perdu
+			if(villageActuel.allDeads()) lose();
 			enqueteur.update();
 			tueur.update();
 		}
+	}
+	private static void lose() {
+		System.out.println("L'Enqueteur à gagné !");
+		win = true;
 	}
 	private static void afficher(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
