@@ -1,6 +1,7 @@
-package util;
+package Structures;
 
 import java.util.List;
+import util.CSVReader;
 import java.util.Random;
 
 public class Phrase {
