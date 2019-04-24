@@ -35,7 +35,10 @@ public abstract class Enqueteur extends Personnage {
 	}
 	public void goTo(Lieu lieu) {
 		this.lieu.setEmpty();
-		this.setLieu(lieu);
+		this.lieu = lieu;
+		if(this.lieu.isEmpty()) {
+			this.lieu.setInvestigate();
+		}
 	}
 }
 

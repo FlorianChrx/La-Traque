@@ -195,4 +195,7 @@ public abstract class Lieu implements Entity {
 			addVoisin(lieu);
 		}
 	}
+	public boolean isEmpty() {
+		return this.statutLieu.equals(Statut.EMPTY);
+	}
 }

@@ -47,12 +47,16 @@ public class Game {
 				if (win) {
 					break;
 				}
+				clearScreen();
 				tourEnqueteur();
 			} while (enqueteur.canDoAction());
+			System.out.println("Changement de Joueur !");
+			clavier.nextLine();
 			do {
 				if (win) {
 					break;
 				}
+				clearScreen();
 				tourTueur();
 			} while (tueur.canDoAction());
 			enqueteur.update();
@@ -98,6 +102,11 @@ public class Game {
 		default:
 			tueur = new TWarper(villageActuel);
 			break;
+		}
+	}
+	private static void clearScreen() {
+		for (int i = 0; i < 100; i++) {
+			System.out.println("");
 		}
 	}
 	private static int SaisieNombre(int max) {
