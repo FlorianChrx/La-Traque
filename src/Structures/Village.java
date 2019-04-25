@@ -114,4 +114,9 @@ public class Village {
 		}
 		return true;
 	}
+	public void update() {
+		for (Lieu lieu : lieux.values()) {
+			lieu.update();
+		}
+	}
 }
