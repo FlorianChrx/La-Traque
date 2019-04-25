@@ -71,6 +71,7 @@ public class Game {
 			} while (tueur.canDoAction());
 			//si tous les habitants sont morts l'enqueteur à perdu
 			if(villageActuel.allDeads()) lose();
+			villageActuel.update();
 			enqueteur.update();
 			tueur.update();
 		}
