@@ -30,6 +30,7 @@ public class Game {
 	 */
 	private static Scanner clavier = new Scanner(System.in);
 	private static boolean win = false;
+	private static boolean start = true;
 	private final static String[] TUEURS = {"Warper", "Brute"};
 	private final static String[] ENQUETEURS = {"Maître Chien", "Fauconnier"};
 	
@@ -43,26 +44,40 @@ public class Game {
 		clavier.nextLine();
 		
 		while (!win) {
+			//affiche qu'il y a un changement de joueur sauf si c'est le premier tour de boucle
+			//dans ce cas le booléen start passe a faux car a la prochaine execution ça ne sera
+			//plus la première éxecution de boucle
+			if (! start) {
+				System.out.println("Changement de Joueur !");
+				clavier.nextLine();
+			} else {
+				start = false;
+			}
 			do {
-				if (win) {
-					break;
-				}
+				//si la partie est gagné on quitte directement la boucle
+				if (win) break;
 				clearScreen();
 				tourEnqueteur();
 			} while (enqueteur.canDoAction());
-			System.out.println("Changement de Joueur !");
-			clavier.nextLine();
+			if (!win) {
+				System.out.println("Changement de Joueur !");
+				clavier.nextLine();
+			}
 			do {
-				if (win) {
-					break;
-				}
+				//si la partie est gagné on quitte directement la boucle
+				if (win) break;
 				clearScreen();
 				tourTueur();
 			} while (tueur.canDoAction());
-			if(villageActuel.allDeads()) win();
+			//si tous les habitants sont morts l'enqueteur à perdu
+			if(villageActuel.allDeads()) lose();
 			enqueteur.update();
 			tueur.update();
 		}
+	}
+	private static void lose() {
+		System.out.println("L'Enqueteur à gagné !");
+		win = true;
 	}
 	private static void afficher(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
