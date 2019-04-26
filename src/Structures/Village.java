@@ -5,9 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import Entities.Updatable;
 import util.Position;
 
-public class Village {
+public class Village implements Updatable{
 	/**
 	 * Liste de tous les lieux du village
 	 */
