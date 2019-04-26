@@ -3,7 +3,7 @@ package Structures;
 import java.util.ArrayList;
 import java.util.List;
 
-import Entities.Entity;
+import Entities.Updatable;
 import util.Phrase;
 import util.Position;
 import util.Surface;
@@ -15,7 +15,7 @@ import util.Surface;
  *
  */
 
-public abstract class Lieu implements Entity {
+public abstract class Lieu implements Updatable {
 	/**
 	 * Surface de la maison et implicitement sa position
 	 */
