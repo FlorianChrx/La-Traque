@@ -15,7 +15,7 @@ import Structures.Village;
  *
  */
 
-public abstract class Personnage implements Controlable, Entity {
+public abstract class Personnage implements Controlable, Updatable {
 	
 	
 	//Attributs

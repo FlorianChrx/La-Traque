@@ -3,6 +3,7 @@ package util;
 import java.util.Scanner;
 
 import Entities.Enqueteur;
+import Entities.Updatable;
 import Entities.Tueur;
 import Structures.Lieu;
 import Structures.Village;
@@ -71,8 +72,10 @@ public class Game {
 			} while (tueur.canDoAction());
 			//si tous les habitants sont morts l'enqueteur à perdu
 			if(villageActuel.allDeads()) lose();
+			villageActuel.update();
 			enqueteur.update();
 			tueur.update();
+			updateAll(villageActuel, enqueteur, tueur);
 		}
 	}
 	private static void lose() {
@@ -209,5 +212,10 @@ public class Game {
 	public static void win() {
 		System.out.println("L'Enqueteur à gagné !");
 		win = true;
+	}
+	public static void updateAll(Updatable... entities) {
+		for (Updatable entity : entities) {
+			entity.update();
+		}
 	}
 }
