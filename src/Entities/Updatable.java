@@ -5,7 +5,7 @@ package Entities;
  * @author florianchiraux
  *
  */
-public interface Entity {
+public interface Updatable {
 	/**
 	 * Permet de mettre à jour une entité (utile en fin de tour)
 	 */
