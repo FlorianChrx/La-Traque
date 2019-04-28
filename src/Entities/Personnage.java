@@ -144,6 +144,8 @@ public abstract class Personnage implements Controlable, Updatable {
 	}
 	public abstract void action(Lieu lieu);
 	public abstract boolean hasHelper();
-
 	public abstract String getName();
+	public Personnage getHelper() {
+		return null;
+	}
 }

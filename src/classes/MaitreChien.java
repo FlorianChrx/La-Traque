@@ -1,6 +1,7 @@
 package classes;
 
 import Entities.Enqueteur;
+import Entities.Personnage;
 import Structures.Lieu;
 import Structures.Village;
 
@@ -24,6 +25,7 @@ public class MaitreChien extends Enqueteur {
 	 */
 	public MaitreChien(Village village) {
 		super(village, 2);
+		chien = new Chien(this.getLieu());
 	}
 	
 	/**
@@ -32,6 +34,7 @@ public class MaitreChien extends Enqueteur {
 	 */
 	public MaitreChien(Lieu lieu) {
 		super(lieu, 2);
+		chien = new Chien(lieu);
 	}
 	
 	//Méthodes
@@ -43,31 +46,32 @@ public class MaitreChien extends Enqueteur {
 	@Override
 	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
 		System.out.println(lieu.getNom());
-		if(actionsDone >= nbActions) {
+		if(canDoAction()) {
 			if(this.lieu.equals(lieu)) {
 				enquete();
+				actionsDone++;
 			} else if (canGoTo(lieu)){
 				goTo(lieu);
+				actionsDone++;
 			} else {
 				System.out.println("Je ne peux pas aller si loin...");
 			}
 		} else {
 			System.out.println("Le Maitre Chien n'a plus d'actions.");
 			chien.action(lieu);
-			System.out.println("Le Chien n'a plus d'actions.");
 		}
-		actionsDone++;
 	}
 
 	@Override
 	public boolean hasHelper() {
 		return true;
 	}
-	
+
 	@Override
-	public boolean canDoAction() {
-		return actionsDone >= nbActions || chien.canDoAction();
-	}	
+	public Personnage getHelper() {
+		return chien;
+	}
+	
 	
 }
 

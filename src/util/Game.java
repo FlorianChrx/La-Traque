@@ -46,14 +46,29 @@ public class Game {
 		clavier.nextLine();
 		
 		while (!win) {
+			if (!start) {
+				changementJoueur();
+			}
 			tour(enqueteur);
-			System.out.println("");
+			if (enqueteur.hasHelper()) {
+				tour(enqueteur.getHelper());
+			}
+			changementJoueur();
 			tour(tueur);
-			if(villageActuel.allDeads()) win();
+			if (tueur.hasHelper()) {
+				tour(tueur.getHelper());
+			}
+			if(villageActuel.allDeads()) lose();
 			enqueteur.update();
 			tueur.update();
 			updateAll(villageActuel, enqueteur, tueur);
+			start = false;
 		}
+	}
+	private static void changementJoueur() {
+		clearScreen();
+		System.out.println("CHANGEMENT DE JOUEUR !");
+		clavier.nextLine();
 	}
 	private static void lose() {
 		System.out.println("L'Enqueteur à gagné !");
@@ -138,6 +153,7 @@ public class Game {
 				name = choix.charAt(0);
 			} while (villageActuel.getLieu(name) == null);
 			p.action(villageActuel.getLieu(name));
+			clavier.nextLine();
 		} while (p.canDoAction());
 	}
 	/**
