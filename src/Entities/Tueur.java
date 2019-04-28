@@ -49,4 +49,8 @@ public abstract class Tueur extends Personnage {
 		this.lieu.setMurder();
 		tue();
 	}
+	@Override
+	public String getName() {
+		return ("Tueur");
+	}
 }

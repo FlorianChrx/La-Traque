@@ -144,4 +144,6 @@ public abstract class Personnage implements Controlable, Entity {
 	}
 	public abstract void action(Lieu lieu);
 	public abstract boolean hasHelper();
+
+	public abstract String getName();
 }

@@ -54,4 +54,9 @@ public class Faucon extends Personnage {
 		return false;
 	}
 
+	@Override
+	public String getName() {
+		return "Faucon";
+	}
+
 }

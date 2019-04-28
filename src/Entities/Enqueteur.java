@@ -40,5 +40,14 @@ public abstract class Enqueteur extends Personnage {
 			this.lieu.setInvestigate();
 		}
 	}
+	@Override
+	public boolean hasHelper() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	@Override
+	public String getName() {
+		return ("Enquêteur");
+	}
 }
 

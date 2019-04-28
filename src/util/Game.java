@@ -3,6 +3,7 @@ package util;
 import java.util.Scanner;
 
 import Entities.Enqueteur;
+import Entities.Personnage;
 import Entities.Tueur;
 import Structures.Lieu;
 import Structures.Village;
@@ -43,22 +44,9 @@ public class Game {
 		clavier.nextLine();
 		
 		while (!win) {
-			do {
-				if (win) {
-					break;
-				}
-				clearScreen();
-				tourEnqueteur();
-			} while (enqueteur.canDoAction());
-			System.out.println("Changement de Joueur !");
-			clavier.nextLine();
-			do {
-				if (win) {
-					break;
-				}
-				clearScreen();
-				tourTueur();
-			} while (tueur.canDoAction());
+			tour(enqueteur);
+			System.out.println("");
+			tour(tueur);
 			if(villageActuel.allDeads()) win();
 			enqueteur.update();
 			tueur.update();
@@ -123,37 +111,27 @@ public class Game {
 		}
 		return res;
 	}
-	public static void tourEnqueteur() {
-		System.out.println(villageActuel.toString());
-		System.out.println(" -- ENQUETEUR -- ");
-		System.out.println("Vous êtes dans la maison " + getEnqueteurLocation().getNom());
-		System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getEnqueteurLocation()));
-		System.out.println("\nPour vous rendre dans une des maisons accessibles, rentrez la lettre correspondante.\nVous pouvez aussi inspecter la maison sur laquelle vous vous trouvez de la même façon.");
-		String choix;
-		char name;
+	public static void tour(Personnage p) {
 		do {
+			if (win) {
+				break;
+			}
+			clearScreen();
+			System.out.println(villageActuel.toString());
+			System.out.println(p.getName());
+			System.out.println("Vous êtes dans la maison " + p.getLieu().getNom());
+			System.out.println("Maisons accessibles: " + villageActuel.getVoisins(p.getLieu()));
+			System.out.println("\nPour vous rendre dans une des maisons accessibles, rentrez la lettre correspondante.\nVous pouvez aussi intéragir avec la maison sur laquelle vous vous trouvez de la même façon.");
+			String choix;
+			char name;
 			do {
-				choix = clavier.nextLine();
-			} while (choix.length() != 1);
-			name = choix.charAt(0);
-		} while (villageActuel.getLieu(name) == null);
-		enqueteur.action(villageActuel.getLieu(name));
-	}
-	public static void tourTueur() {
-		System.out.println(villageActuel.toString());
-		System.out.println(" -- TUEUR -- ");
-		System.out.println("Vous êtes dans la maison " + getTueurLocation().getNom());
-		System.out.println("Maisons accessibles: " + villageActuel.getVoisins(getTueurLocation()));
-		System.out.println("\nPour vous rendre dans une des maisons accessibles, rentrez la lettre correspondante.\nVous pouvez aussi massacrer les habitants de la maison sur laquelle vous vous trouvez de la même façon.");
-		String choix;
-		char name;
-		do {
-			do {
-				choix = clavier.nextLine();
-			} while (choix.length() != 1);
-			name = choix.charAt(0);
-		} while (villageActuel.getLieu(name) == null);
-		tueur.action(villageActuel.getLieu(name));
+				do {
+					choix = clavier.nextLine();
+				} while (choix.length() != 1);
+				name = choix.charAt(0);
+			} while (villageActuel.getLieu(name) == null);
+			p.action(villageActuel.getLieu(name));
+		} while (p.canDoAction());
 	}
 	/**
 	 * Permet d'obtenir le lieu actuel du tueur
