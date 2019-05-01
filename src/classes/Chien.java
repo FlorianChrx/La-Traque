@@ -51,5 +51,10 @@ public class Chien extends Personnage {
 	@Override
 	public boolean hasHelper() {
 		return false;
+	}
+
+	@Override
+	public String getName() {
+		return "Chien";
 	}	
 }
