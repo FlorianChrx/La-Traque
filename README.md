@@ -18,7 +18,7 @@ Chaque joueur possèdera deux actions à chaque tour, à eux d'agir au mieux.
 ## Commande
 Il suffit de rentrer le nom de la maison avec laquelle on veut interragir, si l'on se trouve actuellement sur cette maison, le joueur la fouillera ou tuera ces habitants selon son rôle, sinon, il s'y déplacera.
 ## Créateur
-Groupe J:
+### Groupe J:
 
 Amélie LUQUET
 
