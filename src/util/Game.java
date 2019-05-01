@@ -150,24 +150,7 @@ public class Game {
 			System.out.println("");
 		}
 	}
-	/**
-	 * Méthode permettant la saisie d'un nombre entier inférieur à une borne maximum
-	 * @param max, un entier représentant l'entier maximum saisie (exclu)
-	 * @return le premier entier valide saisie
-	 */
-	private static int SaisieNombre(int max) {
-		int res = 0;
-		String choix = clavier.nextLine();
-		try {
-			Integer.parseInt(choix);
-		} catch (Exception e) {
-			res = SaisieNombre(max);
-		}
-		if (res >= max) {
-			res = SaisieNombre(max);
-		}
-		return res;
-  }
+	
 	/**
 	 * Méthode permettant la saisie d'un nombre entier inférieur à une borne maximum
 	 * @param min, un entier représentant la valeur minimum saisie (incluse)
@@ -175,8 +158,14 @@ public class Game {
 	 * @return le premier entier valide saisie
 	 */
 	private static int SaisieNombre(int min, int max) {
-		int res = SaisieNombre(max);
-		if (res < min) {
+		int res = 0;
+		String choix = clavier.nextLine();
+		try {
+			res = Integer.parseInt(choix);
+		} catch (Exception e) {
+			res = SaisieNombre(min , max);
+		}
+		if (res >= max || res < min) {
 			res = SaisieNombre(min, max);
 		}
 		return res;
