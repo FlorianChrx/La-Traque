@@ -33,8 +33,7 @@ public class CSVReader {
 			while(this.scanner.hasNextLine())
 				this.file.add(this.scanner.nextLine());
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-			System.out.println("lol pas toruvé");
+			System.out.println("Le fichier "+file+" n'as pas été trouvé");
 		}
 	}
 	
