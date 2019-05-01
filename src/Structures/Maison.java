@@ -161,6 +161,7 @@ public class Maison extends Lieu{
 			return false;
 		return true;
 	}
+	@Override
 	public char getNom() {
 		return nom;
 	}

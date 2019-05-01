@@ -31,9 +31,21 @@ public class Game {
 	 * Scanner permettant les saisies clavier
 	 */
 	private static Scanner clavier = new Scanner(System.in);
+	/**
+	 * Booléen déterminant si l'un des deux joueurs à gagné
+	 */
 	private static boolean win = false;
+	/**
+	 * Booléen déterminant si la partie viens d'être lancée
+	 */
 	private static boolean start = true;
+	/**
+	 * Tableau des différents tueurs jouables tels qu'affichés dans les menus
+	 */
 	private final static String[] TUEURS = {"Warper", "Brute"};
+	/**
+	 * Tableau des différents tueurs jouables tels qu'affichés dans les menus
+	 */
 	private final static String[] ENQUETEURS = {"Maître Chien", "Fauconnier"};
 	
 	/**
@@ -64,26 +76,40 @@ public class Game {
 			updateAll(villageActuel, enqueteur, tueur);
 			start = false;
 		}
-	}
+	
 	private static void changementJoueur() {
 		clearScreen();
 		System.out.println("CHANGEMENT DE JOUEUR !");
 		clavier.nextLine();
 	}
+  /**
+	 * Méthode déclenchée lorsque le tueur a gagné
+	 * Elle affiche le gagnant et met le booléen de victoire à vrai
+	 */
+    
 	private static void lose() {
-		System.out.println("L'Enqueteur à gagné !");
+		System.out.println("Le tueur a gagné !");
 		win = true;
 	}
+    
+	/**
+	 * Méthode permettant d'afficher toutes les chaînes de caractères d'un tableau
+	 * @param tab représentant un tableau de chaînes de caractères 
+	 */
 	private static void afficher(String[] tab) {
 		for (int i = 0; i < tab.length; i++) {
 			System.out.println((i+1)+". "+tab[i]);
 		}
 	}
+    
+	/**
+	 * Méthode permettant de déclencher la séquence de choix des personnages
+	 */
 	private static void choixPersos() {
 		int choixE = 0;
 		System.out.println(" -- CHOIX DE L'ENQÊTEUR --");
 		afficher(ENQUETEURS);
-		choixE = SaisieNombre(ENQUETEURS.length + 1);
+		choixE = SaisieNombre(1, ENQUETEURS.length + 1);
 		switch (choixE) {
 		case 1:
 			enqueteur = new MaitreChien(villageActuel);
@@ -100,7 +126,7 @@ public class Game {
 		int choixT = 0;
 		System.out.println(" -- CHOIX DU TUEUR -- ");
 		afficher(TUEURS);
-		choixE = SaisieNombre(TUEURS.length + 1);
+		choixE = SaisieNombre(1, TUEURS.length + 1);
 		switch (choixT) {
 		case 1:
 			tueur = new TWarper(villageActuel);
@@ -115,11 +141,19 @@ public class Game {
 			break;
 		}
 	}
+	/**
+	 * Méthode permettant de vider l'écran de tout affichage
+	 */
 	private static void clearScreen() {
 		for (int i = 0; i < 100; i++) {
 			System.out.println("");
 		}
 	}
+	/**
+	 * Méthode permettant la saisie d'un nombre entier inférieur à une borne maximum
+	 * @param max, un entier représentant l'entier maximum saisie (exclu)
+	 * @return le premier entier valide saisie
+	 */
 	private static int SaisieNombre(int max) {
 		int res = 0;
 		String choix = clavier.nextLine();
@@ -132,7 +166,21 @@ public class Game {
 			res = SaisieNombre(max);
 		}
 		return res;
+  }
+	/**
+	 * Méthode permettant la saisie d'un nombre entier inférieur à une borne maximum
+	 * @param min, un entier représentant la valeur minimum saisie (incluse)
+	 * @param max, un entier représentant la valeur maximum saisie (exclue)
+	 * @return le premier entier valide saisie
+	 */
+	private static int SaisieNombre(int min, int max) {
+		int res = SaisieNombre(max);
+		if (res < min) {
+			res = SaisieNombre(min, max);
+		}
+		return res;
 	}
+    
 	public static void tour(Personnage p) {
 		do {
 			if (win) {
@@ -191,9 +239,12 @@ public class Game {
 	public static Village getVillageActuel() {
 		return villageActuel;
 	}
-
+	/**
+	 * Méthode déclenchée lorsque l'enquêteur a gagné
+	 * Elle affiche le gagnant et met le booléen de victoire à vrai
+	 */
 	public static void win() {
-		System.out.println("L'Enqueteur à gagné !");
+		System.out.println("L'Enqueteur a gagné !");
 		win = true;
 	}
 	public static void updateAll(Updatable... entities) {

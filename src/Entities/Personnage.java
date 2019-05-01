@@ -133,16 +133,36 @@ public abstract class Personnage implements Controlable, Updatable {
 	public void nextDay() {
 		actionsDone = 0;
 	}
+	
+	/**
+	 * Permet de tester si le personnage peut se rendre à un lieu donné
+	 * @return un booléen déterminant si le personnage peut se rendre au lieu donné
+	 */
 	public boolean canGoTo(Lieu lieu) {
 		return lieuxAccessibles().contains(lieu);
 	}
+	/**
+	 * Permet de tester si le personnage peut se rendre à des lieux donnés
+	 * @return un booléen déterminant si le personnage peut se rendre aux lieux donnés
+	 */
 	public boolean canGoToAll(Collection<Lieu> lieux) {
 		return lieuxAccessibles().containsAll(lieux);
 	}
+	/**
+	 * méthode permettant d'actualiser un personnage
+	 */
 	public void update() {
 		this.nextDay();
 	}
+	/**
+	 * Permet de définir l'action du personnage
+	 * @param lieu dans lequel le personnage doit effectuer une action
+	 */
 	public abstract void action(Lieu lieu);
+	/**
+	 * Permet de savoir si un personnage possède un compagnon
+	 * @return vrai ou faux selon si le personnage est accompagné ou non 
+	 */
 	public abstract boolean hasHelper();
 	public abstract String getName();
 	public Personnage getHelper() {
