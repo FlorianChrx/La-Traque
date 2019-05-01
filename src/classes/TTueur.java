@@ -5,31 +5,31 @@ import Structures.Lieu;
 import Structures.Village;
 
 /**
- * Classe du rôle Brute (Tueur) [NbActions pas encore défini]
+ * Classe du rôle Tueur de base [NbActions pas encore défini]
  * @author calamar
  *
  */
-public class TBrute extends Tueur {
+public class TTueur extends Tueur {
 	//Attributs
 	
-	//Constructeurs	
+	//Constructeurs
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
 	 * @param village
 	 */
-	public TBrute(Village village) {
+	public TTueur(Village village) {
 		super(village, 1);
 	}
 	
 	/**
-	 * Constructeur avec le lieu de départ de la Brute
+	 * Constructeur avec le lieu de départ du Tueur
 	 * @param lieu de départ
 	 */
-	public TBrute(Lieu lieu) {
+	public TTueur(Lieu lieu) {
 		super(lieu, 1);
 	}
-
-	//Méthodes 
+	
+	//Méthodes
 	@Override
 	public void action(Lieu lieu) {
 		if(canDoAction()) {
@@ -39,7 +39,7 @@ public class TBrute extends Tueur {
 				goTo(lieu);
 			}
 		} else {
-			System.out.println("La Brute n'a plus d'actions.");
+			System.out.println("Le Tueur n'a plus d'actions.");
 		}
 		actionsDone++;
 	}

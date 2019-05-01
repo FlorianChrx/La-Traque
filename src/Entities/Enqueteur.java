@@ -26,6 +26,9 @@ public abstract class Enqueteur extends Personnage {
 	}
 	
 	//Méthodes	
+	/**
+	 * Déclenche la séquence d'enquête dans le lieu actuel de l'enquêteur
+	 */
 	public void enquete() {
 		if (this.lieu.isMurder()) {
 			Game.win();
@@ -33,8 +36,13 @@ public abstract class Enqueteur extends Personnage {
 			System.out.println(lieu.getPhrase());
 		}
 	}
+	/**
+	 * Permet de déplacer l'enqueteur
+	 */
 	public void goTo(Lieu lieu) {
-		this.lieu.setEmpty();
+		if(lieu.isInvestigate()) {
+			this.lieu.setEmpty();
+		}
 		this.lieu = lieu;
 		if(this.lieu.isEmpty()) {
 			this.lieu.setInvestigate();

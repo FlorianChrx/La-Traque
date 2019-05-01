@@ -1,44 +1,35 @@
 package classes;
 
 import Entities.Enqueteur;
-import Entities.Personnage;
 import Structures.Lieu;
 import Structures.Village;
 
 /**
- * Classe du rôle MaitreChien (Enquêteur) [Deux actions]
+ * Classe du rôle Enquêteur de base [Deux actions]
  * @author calamar
  *
  */
-public class MaitreChien extends Enqueteur {
+public class EEnqueteur extends Enqueteur {
 	//Attributs
-	/**
-	 * Bon toutou
-	 */
-	private Chien chien;
 	
 	//Constructeurs
-	
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
 	 * @param village
 	 */
-	public MaitreChien(Village village) {
+	public EEnqueteur(Village village) {
 		super(village, 2);
-		chien = new Chien(this.getLieu());
 	}
 	
 	/**
-	 * Construteur avec le lieu de départ du MaitreChien
+	 * Construteur avec le lieu de départ de l'enquêteur
 	 * @param lieu de départ
 	 */
-	public MaitreChien(Lieu lieu) {
+	public EEnqueteur(Lieu lieu) {
 		super(lieu, 2);
-		chien = new Chien(lieu);
 	}
 	
 	//Méthodes
-	
 	/**
 	 * L'enquêteur enquête si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
 	 * Lorsqu'il a fini, le chien joue.
@@ -49,29 +40,22 @@ public class MaitreChien extends Enqueteur {
 		if(canDoAction()) {
 			if(this.lieu.equals(lieu)) {
 				enquete();
-				actionsDone++;
 			} else if (canGoTo(lieu)){
 				goTo(lieu);
-				actionsDone++;
 			} else {
 				System.out.println("Je ne peux pas aller si loin...");
 			}
-		} else {
-			System.out.println("Le Maitre Chien n'a plus d'actions.");
-			chien.action(lieu);
 		}
+		actionsDone++;
 	}
 
 	@Override
 	public boolean hasHelper() {
-		return true;
+		return false;
 	}
-
+	
 	@Override
-	public Personnage getHelper() {
-		return chien;
+	public boolean canDoAction() {
+		return actionsDone >= nbActions;
 	}
-	
-	
 }
-

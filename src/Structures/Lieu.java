@@ -3,7 +3,8 @@ package Structures;
 import java.util.ArrayList;
 import java.util.List;
 
-import Entities.Entity;
+import Entities.Updatable;
+import util.Phrase;
 import util.Position;
 import util.Surface;
 
@@ -14,7 +15,7 @@ import util.Surface;
  *
  */
 
-public abstract class Lieu implements Entity {
+public abstract class Lieu implements Updatable {
 	/**
 	 * Surface de la maison et implicitement sa position
 	 */
@@ -23,10 +24,21 @@ public abstract class Lieu implements Entity {
 	 * Statut du lieu s'il contient l'enqueteur ou le tueur 
 	 */
 	protected Statut statutLieu;
+	/**
+	 * Phrase de description du lieu
+	 */
 	protected static Phrase phrase = new Phrase();
+	/**
+	 * Liste des lieux voisins à celui-ci
+	 */
 	protected List<Lieu> voisins;	
 	
-	
+	/**
+	 * Permet de construire un lieu
+	 * @param surface correspondant à la surface du lieu
+	 * @param statut statut correspondant au statut du lieu
+	 * @param voisins correspondants aux voisins du lieu
+	 */
 	public Lieu(Surface surface, Statut statut, List<Lieu> voisins) {
 		this.surface = surface;
 		this.statutLieu = statut;
@@ -40,6 +52,10 @@ public abstract class Lieu implements Entity {
 	public Lieu(Surface surface, Statut statut) {
 		this(surface, statut, new ArrayList<Lieu>());
 	}
+	/**
+	 * Permet de construire un lieu
+	 * @param surface
+	 */
 	public Lieu(Surface surface) {
 		this(surface, Statut.EMPTY);
 	}
@@ -183,18 +199,34 @@ public abstract class Lieu implements Entity {
 	public void setStatutLieu(Statut statut) {
 		this.statutLieu = statut;
 	}
+	/**
+	 * Permet d'obtenir le nom du lieu
+	 * @return une string représentant le nom du lieu
+	 */
 	public abstract char getNom();
+	/**
+	 * Permet d'ajouter un lieu voisin (nouvelle liaison)
+	 * @param lieu le lieu à lier
+	 */
 	public void addVoisin(Lieu lieu) {
 		if(!voisins.contains(lieu)) {
 			voisins.add(lieu);
 			lieu.addVoisin(this);
 		}
 	}
-	public void addVoisins(List<Lieu> lieus) {
-		for (Lieu lieu : lieus) {
+	/**
+	 * Permet d'ajouter un lieu voisin (nouvelles liaisons)
+	 * @param lieus la list des lieux à connecter
+	 */
+	public void addVoisins(List<Lieu> lieux) {
+		for (Lieu lieu : lieux) {
 			addVoisin(lieu);
 		}
 	}
+	/**
+	 * Verifie si un lieu est vide de personnage
+	 * @return un booléen confirmant si le lieu est vide
+	 */
 	public boolean isEmpty() {
 		return this.statutLieu.equals(Statut.EMPTY);
 	}

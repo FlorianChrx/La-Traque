@@ -44,10 +44,11 @@ public abstract class Tueur extends Personnage {
 		if (lieu.isInvestigate()) {
 			Game.win();
 		}
-		this.lieu.setEmpty();
+		if(!this.lieu.isEmpty()) {
+			this.lieu.setEmpty();
+		}
 		this.lieu = lieu;
 		this.lieu.setMurder();
-		tue();
 	}
 	@Override
 	public String getName() {
