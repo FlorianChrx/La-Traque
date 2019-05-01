@@ -76,6 +76,7 @@ public class Game {
 			updateAll(villageActuel, enqueteur, tueur);
 			start = false;
 		}
+	}
 	
 	private static void changementJoueur() {
 		clearScreen();
