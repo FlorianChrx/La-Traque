@@ -1,6 +1,6 @@
 # La Traque
 ## Description générale
-L'ombre de la mort s'étend sur un village paisible, alors que le garde-chasse municipal est brutalement assassiné. C'est à son fils et successeur de mener la chasse, et de mettre fin à la série de mort.\n
+L'ombre de la mort s'étend sur un village paisible, alors que le garde-chasse municipal est brutalement assassiné. C'est à son fils et successeur de mener la chasse, et de mettre fin à la série de mort.
 Saurez-vous traquez le responsable de tout cela, ou briserez vous le calme du village en même temps que ses habitants ?
 A vous de voir dans La Traque
 ### L'enquêteur
