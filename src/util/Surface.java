@@ -126,5 +126,4 @@ public class Surface implements Comparable<Surface>{
 	public void setOrigine(Position origine) {
 		this.origine = origine;
 	}
-	
 }

@@ -164,7 +164,15 @@ public abstract class Personnage implements Controlable, Updatable {
 	 * @return vrai ou faux selon si le personnage est accompagné ou non 
 	 */
 	public abstract boolean hasHelper();
+	/**
+	 * Permet d'obtenir le nom d'un personnage
+	 * @return une String correspondant au nom du personnage
+	 */
 	public abstract String getName();
+	/**
+	 * Permet d'obtenir le compagnon du personnage
+	 * @return un personnage qui accompagne le personnage actuel
+	 */
 	public Personnage getHelper() {
 		return null;
 	}

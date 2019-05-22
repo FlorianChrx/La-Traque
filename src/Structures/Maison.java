@@ -16,9 +16,6 @@ public class Maison extends Lieu{
 	 * Statut de son habitant 
 	 */
 	private StatutMaison statutMaison;
-	/**
-	 * Surface de la maison et implicitement sa position
-	 */
 	private int days;
 	private char nom;
 	
