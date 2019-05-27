@@ -25,11 +25,11 @@ public class Phrase {
 		alea = new Random();
 	}
 	
-	public char nomMaison() {
+	public String nomMaison() {
 		int i = alea.nextInt(noms.size());
 		String nom = noms.get(i);
 		noms.remove(i);
-		return nom.charAt(0);
+		return nom;
 	}
 	
 	public String phraseMeurtre() {

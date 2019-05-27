@@ -17,7 +17,7 @@ public class Maison extends Lieu{
 	 */
 	private StatutMaison statutMaison;
 	private int days;
-	private char nom;
+	private String nom;
 	
 	//Constructeurs
 	
@@ -137,7 +137,7 @@ public class Maison extends Lieu{
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + days;
-		result = prime * result + nom;
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
 		result = prime * result + ((statutMaison == null) ? 0 : statutMaison.hashCode());
 		return result;
 	}
@@ -152,14 +152,17 @@ public class Maison extends Lieu{
 		Maison other = (Maison) obj;
 		if (days != other.days)
 			return false;
-		if (nom != other.nom)
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
 			return false;
 		if (statutMaison != other.statutMaison)
 			return false;
 		return true;
 	}
 	@Override
-	public char getNom() {
+	public String getNom() {
 		return nom;
 	}
 	@Override

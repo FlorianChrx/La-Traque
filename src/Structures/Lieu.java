@@ -203,7 +203,7 @@ public abstract class Lieu implements Updatable {
 	 * Permet d'obtenir le nom du lieu
 	 * @return une string représentant le nom du lieu
 	 */
-	public abstract char getNom();
+	public abstract String getNom();
 	/**
 	 * Permet d'ajouter un lieu voisin (nouvelle liaison)
 	 * @param lieu le lieu à lier
