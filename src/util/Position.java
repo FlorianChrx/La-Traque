@@ -1,6 +1,12 @@
 package util;
 
-public class Position {
+import java.io.Serializable;
+
+public class Position implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6219884376040482089L;
 	private int x;
 	private int y;
 	

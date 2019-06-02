@@ -4,7 +4,7 @@ import Structures.Lieu;
 import Structures.Village;
 import util.Game;
 
-public abstract class Enqueteur extends Personnage {
+public abstract class Enqueteur extends Personnage{
 	//Attributs
 	
 	//Constructeurs	
@@ -29,12 +29,11 @@ public abstract class Enqueteur extends Personnage {
 	/**
 	 * Déclenche la séquence d'enquête dans le lieu actuel de l'enquêteur
 	 */
-	public void enquete() {
+	public boolean enquete() {
 		if (this.lieu.isMurder()) {
-			Game.win();
-		} else {
-			System.out.println(lieu.getPhrase());
+			return true;
 		}
+		return false;
 	}
 	/**
 	 * Permet de déplacer l'enqueteur

@@ -183,12 +183,12 @@ public class Game {
 			System.out.println("Maisons accessibles: " + villageActuel.getVoisins(p.getLieu()));
 			System.out.println("\nPour vous rendre dans une des maisons accessibles, rentrez la lettre correspondante.\nVous pouvez aussi intéragir avec la maison sur laquelle vous vous trouvez de la même façon.");
 			String choix;
-			char name;
+			String name;
 			do {
 				do {
 					choix = clavier.nextLine();
 				} while (choix.length() != 1);
-				name = choix.charAt(0);
+				name = choix.charAt(0)+"";
 			} while (villageActuel.getLieu(name) == null);
 			p.action(villageActuel.getLieu(name));
 			clavier.nextLine();

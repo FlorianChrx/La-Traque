@@ -1,11 +1,14 @@
 package Structures;
+
+import java.io.Serializable;
+
 /**
  * 
  * Classe énumérants les statuts caractérisant un lieu (si un personnage important s'y trouve)
  * @author florianchiraux
  *
  */
-public enum Statut {
+public enum Statut implements Serializable{
 	/**
 	 * MURDER: le tueur est présent dans le lieu
 	 * INVESTIGATE: l'enqueteur est présent dans le lie

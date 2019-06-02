@@ -39,7 +39,7 @@ public class Maison extends Lieu{
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(StatutMaison statut, Position origine, int height, int width) {
-		this(statut, new Surface(origine, height, width));
+		this(statut, new Surface(origine, width, height));
 	}
 	/**
 	 * @param origine correspondant au point d'origine de la surface de la maison
@@ -47,7 +47,7 @@ public class Maison extends Lieu{
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(Position origine, int height, int width) {
-		this(StatutMaison.ALIVE, new Surface(origine, height, width));
+		this(StatutMaison.ALIVE, new Surface(origine, width, height));
 	}
 	/**
 	 * @param x	correspondant à l'abscisse de l'origine de la surface de la maison
@@ -56,7 +56,7 @@ public class Maison extends Lieu{
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(int x, int y, int height, int width) {
-		this(StatutMaison.ALIVE, new Surface(new Position(x,y), height, width));
+		this(StatutMaison.ALIVE, new Surface(new Position(x,y), width, height));
 	}
 	
 	

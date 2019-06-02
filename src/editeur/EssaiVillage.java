@@ -1,20 +1,16 @@
-package application;
+package editeur;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.List;
-
-import Structures.Maison;
+import Structures.Village;
 
 public class EssaiVillage {
 	public static void main(String[] args) {
 		try {
-			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("ressource/test.txt"));
-			List<Maison> vil = (List<Maison>) ois.readObject();
+			ObjectInputStream ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));
+			Village vil = (Village) ois.readObject();
 			System.out.println(vil.toString());
 			ois.close();
 		} catch (FileNotFoundException e) {

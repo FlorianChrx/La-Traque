@@ -1,5 +1,6 @@
 package Structures;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,7 +10,11 @@ import java.util.Map;
 import Entities.Updatable;
 import util.Position;
 
-public class Village implements Updatable, Iterable<Lieu>{
+public class Village implements Updatable, Iterable<Lieu>, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4072332616589070044L;
 	/**
 	 * Liste de tous les lieux du village
 	 */

@@ -1,5 +1,7 @@
 package Entities;
 
+import java.io.Serializable;
+
 import Structures.Lieu;
 import Structures.Maison;
 import Structures.Village;
@@ -10,7 +12,7 @@ import util.Game;
  * @author geoffrey
  *
  */
-public abstract class Tueur extends Personnage {
+public abstract class Tueur extends Personnage implements Serializable{
 	//Attributs
 	
 	//Constructeurs
