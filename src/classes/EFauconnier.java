@@ -55,7 +55,7 @@ public class EFauconnier extends Enqueteur {
 	public void action(Lieu lieu) {
 		if(actionsDone >= nbActions) {
 			if(this.lieu.equals(lieu)) {
-				enquete();
+				
 			} else {
 				goTo(lieu);
 			}

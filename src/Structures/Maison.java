@@ -10,6 +10,7 @@ import util.Surface;
  * @author florianchiraux
  *
  */
+@SuppressWarnings("serial")
 public class Maison extends Lieu{
 	
 	//Attributs

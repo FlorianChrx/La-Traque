@@ -48,7 +48,6 @@ public class MaitreChien extends Enqueteur {
 		System.out.println(lieu.getNom());
 		if(canDoAction()) {
 			if(this.lieu.equals(lieu)) {
-				enquete();
 				actionsDone++;
 			} else if (canGoTo(lieu)){
 				goTo(lieu);
