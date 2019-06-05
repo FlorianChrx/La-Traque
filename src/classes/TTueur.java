@@ -3,7 +3,6 @@ package classes;
 import Entities.Tueur;
 import Structures.Lieu;
 import Structures.Village;
-import application.Main;
 
 /**
  * Classe du rôle Tueur de base [NbActions pas encore défini]
@@ -13,6 +12,11 @@ import application.Main;
 public class TTueur extends Tueur {
 	//Attributs
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7860707379882673629L;
+
 	//Constructeurs
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ

@@ -20,9 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
-import javafx.scene.effect.Bloom;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -65,8 +63,6 @@ public class Controller {
 	private List<Rectangle> rectVoisin;
 	private Rectangle tueurRectangle;
 	private Game game;
-	private double rectOpacity;
-
 	
 	public void initialize() throws IOException, ClassNotFoundException{
 		image = new ImageView(new Image(new FileInputStream("DATA/village.jpg"))); //instanciation de l'image
@@ -80,8 +76,6 @@ public class Controller {
 		ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
 		vil = (Village) ois.readObject();
 		ois.close();
-		
-		rectOpacity = 0.5;
 		
 		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
 		tueur = new TTueur(vil.getLieu("B"));
@@ -162,7 +156,6 @@ public class Controller {
 	}
 	
 	public void setRanctangleOpacity(double value) {
-		rectOpacity = value;
 		clearVoisin();
 		montrerLieux(game.getActualPlayer());
 	}

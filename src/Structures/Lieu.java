@@ -17,11 +17,8 @@ import util.Surface;
  *
  */
 
+@SuppressWarnings("serial")
 public abstract class Lieu implements Updatable, Serializable {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 9159386624654231364L;
 	/**
 	 * Surface de la maison et implicitement sa position
 	 */

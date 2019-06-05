@@ -5,8 +5,6 @@ import java.io.Serializable;
 import Structures.Lieu;
 import Structures.Maison;
 import Structures.Village;
-import application.Main;
-import util.Game;
 
 /**
  * Class abstraite correspondant aux Tueurs
@@ -16,6 +14,10 @@ import util.Game;
 public abstract class Tueur extends Personnage implements Serializable{
 	//Attributs
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4124489599918258283L;
 	//Constructeurs
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
