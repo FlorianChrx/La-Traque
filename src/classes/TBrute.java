@@ -12,11 +12,6 @@ import Structures.Village;
 public class TBrute extends Tueur {
 	//Attributs
 	
-	/**
-	 * Serialization
-	 */
-	private static final long serialVersionUID = -7387215184195661317L;
-
 	//Constructeurs	
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ

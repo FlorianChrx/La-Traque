@@ -3,6 +3,7 @@ package classes;
 import Entities.Personnage;
 import Structures.Lieu;
 import Structures.Maison;
+import util.Game;
 
 /**
  * Classe du Chien appartenant au MaitreChien [Deux actions]
