@@ -5,6 +5,7 @@ import java.io.Serializable;
 import Structures.Lieu;
 import Structures.Maison;
 import Structures.Village;
+import application.Main;
 import util.Game;
 
 /**
@@ -23,6 +24,7 @@ public abstract class Tueur extends Personnage implements Serializable{
 	 */
 	public Tueur(Village village, int nbActions) {
 		super(village, nbActions);
+		this.lieu.setMurder();
 	}	
 	/**
 	 * Construteur avec le lieu de départ du Tueur
@@ -31,6 +33,7 @@ public abstract class Tueur extends Personnage implements Serializable{
 	 */
 	public Tueur(Lieu lieu, int nbActions) {
 		super(lieu, nbActions);
+		this.lieu.setMurder();
 	}
 	
 	//Méthodes	
@@ -43,9 +46,6 @@ public abstract class Tueur extends Personnage implements Serializable{
 		}
 	}
 	public void goTo(Lieu lieu) {
-		if (lieu.isInvestigate()) {
-			Game.win();
-		}
 		if(!this.lieu.isEmpty()) {
 			this.lieu.setEmpty();
 		}

@@ -3,6 +3,7 @@ package classes;
 import Entities.Tueur;
 import Structures.Lieu;
 import Structures.Village;
+import application.Main;
 
 /**
  * Classe du rôle Tueur de base [NbActions pas encore défini]
@@ -33,6 +34,7 @@ public class TTueur extends Tueur {
 	@Override
 	public void action(Lieu lieu) {
 		if(canDoAction()) {
+			if(lieu.isInvestigate()) Main.getController().checkWin(this);
 			if(lieu.isMurder()) {
 				tue();
 			} else if (canGoTo(lieu)){

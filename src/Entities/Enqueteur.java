@@ -2,6 +2,7 @@ package Entities;
 
 import Structures.Lieu;
 import Structures.Village;
+import application.Main;
 import util.Game;
 
 public abstract class Enqueteur extends Personnage{
@@ -15,6 +16,7 @@ public abstract class Enqueteur extends Personnage{
 	 */
 	public Enqueteur(Village village, int nbActions) {
 		super(village, nbActions);
+		this.lieu.setInvestigate();
 	}	
 	/**
 	 * Constructeur avec le lieu de départ de l'Enquêteur
@@ -23,6 +25,7 @@ public abstract class Enqueteur extends Personnage{
 	 */
 	public Enqueteur(Lieu lieu, int nbActions) {
 		super(lieu, nbActions);
+		this.lieu.setInvestigate();
 	}
 	
 	//Méthodes	
@@ -31,6 +34,7 @@ public abstract class Enqueteur extends Personnage{
 	 */
 	public boolean enquete() {
 		if (this.lieu.isMurder()) {
+			Main.getController().checkWin(this);
 			return true;
 		}
 		return false;

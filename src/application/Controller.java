@@ -14,8 +14,8 @@ import Structures.Lieu;
 import Structures.Village;
 import classes.EEnqueteur;
 import classes.TTueur;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.Point2D;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
@@ -29,6 +29,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import util.Game;
 
 public class Controller {
 	@FXML
@@ -54,46 +55,64 @@ public class Controller {
 	@FXML
 	private Pane pane;
 	private ObjectInputStream ois;
-	private boolean win = false;
 	private Village vil;
 	private boolean waitForAction;
-	private Lieu lieuChoisi = null;
 	private Enqueteur enqueteur;
 	private Tueur tueur;
-	private Personnage playingPerso = enqueteur;
+	private Personnage playingPerso;
 	private List<Lieu> voisin;
 	private List<Rectangle> rectVoisin;
+	private Rectangle tueurRectangle;
+
 	
-	public void initialize() throws IOException, ClassNotFoundException{
-		ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
-		vil = (Village) ois.readObject();
-		ois.close();
-		
-		enqueteur = new EEnqueteur(vil);   //instanciation des personnage
-		tueur = new TTueur(vil);
-		label.setText(enqueteur.canDoAction()+"");
-		
-		rectVoisin = new ArrayList<>();
-		voisin = new ArrayList<Lieu>();
-		
-		
-		
+	public void initialize() throws IOException, ClassNotFoundException{		
 		image = new ImageView(new Image(new FileInputStream("DATA/village.jpg"))); //instanciation de l'image
 		vBox.getChildren().clear();										//reinitialisation de la vBox car sinon image invisible
 		vBox.getChildren().addAll(menu,image,hBox);
 		
+		tueurRectangle = new Rectangle(Double.MAX_VALUE, Double.MAX_VALUE);
+		tueurRectangle.setOpacity(0.5);
+		tueurRectangle.setFill(Color.valueOf("000000"));
+		
+		ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
+		vil = (Village) ois.readObject();
+		ois.close();
+		
+		
+		
+		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
+		tueur = new TTueur(vil.getLieu("B"));
+		playingPerso = enqueteur;
+		
+		rectVoisin = new ArrayList<>();
+		voisin = new ArrayList<Lieu>();
+		
 		tour(enqueteur);
+	}
+	
+	
+	
+	public void doEnquettez() {
+		if(waitForAction) {
+			playingPerso.action(playingPerso.getLieu());
+			if(playingPerso == enqueteur) label.setText(playingPerso.getLieu().getPhrase());
+			if(!playingPerso.canDoAction()) waitForAction = false;
+		}
+	}
+	
+	public void doCapacite() {
+		
+	}
+	
+	public void imageClicked(MouseEvent e) {
 		
 	}
 	
 	public void tour(Personnage p) {
-		do {
-			if (win) {
-				break;
-			}
+		montrerLieux(p);
+		if(p.canDoAction()) {
 			waitForAction = true;
-			montrerLieux(p);
-		} while (p.canDoAction());
+		}
 	}
 	
 	public Rectangle montrerLieu(Lieu l, Paint fill, Paint stroke) {
@@ -102,6 +121,7 @@ public class Controller {
 		r.setStroke(stroke);
 		r.setOpacity(0.25);
 		pane.getChildren().add(r);
+		r.setOnMouseClicked(new RectangleHandler());
 		return r;
 	}
 	
@@ -119,26 +139,45 @@ public class Controller {
 	}
 	
 	public void clearVoisin() {
+		pane.getChildren().removeAll(rectVoisin);
+		pane.getChildren().remove(pane.getChildren().size()-1);
 		rectVoisin.clear();
 		voisin.clear();
 	}
 	
-	public void doEnquettez() {
-		
+	public class RectangleHandler implements EventHandler<MouseEvent>{
+
+		@Override
+		public void handle(MouseEvent e) {
+			if(waitForAction && rectVoisin.contains((Rectangle) e.getSource())) {
+				playingPerso.action(voisin.get(rectVoisin.indexOf((Rectangle) e.getSource())));
+				clearVoisin();
+				montrerLieux(playingPerso);
+				if(!playingPerso.canDoAction()) waitForAction = false;
+			}
+			endOfTurn();
+		}
 	}
 	
-	public void doCapacite() {
-		
+	public void endOfTurn() {
+		if(!waitForAction) {
+			if(playingPerso == enqueteur) {
+				playingPerso = tueur;
+				System.out.println("Tueur joue");
+				tueurRectangle.setOpacity(0.5);
+			}else if(playingPerso == tueur) {
+				playingPerso = enqueteur;
+				System.out.println("Enquetteur joue");
+				Game.updateAll(vil, tueur, enqueteur);
+			}
+			label.setText(label.getText()+"\n"+playingPerso.getName() + " c'est à toi de jouer");
+			clearVoisin();
+			tour(playingPerso);
+		}
 	}
 	
-	public void imageClicked(MouseEvent e) {
-		if(waitForAction)
-			for(Rectangle r : rectVoisin)
-				if(r.contains(new Point2D(e.getSceneX(), e.getSceneY()))) {
-					playingPerso.action(voisin.get(rectVoisin.indexOf(r)));
-					clearVoisin();
-					montrerLieux(playingPerso);
-				}
-		waitForAction = false;
+	public void checkWin(Personnage p) {
+		label.setText(label.getText()+"\n"+p.getName() + " Vous avez gagnez");
+		System.out.println(p.getName() + " Vous avez gagnez");
 	}
 }
