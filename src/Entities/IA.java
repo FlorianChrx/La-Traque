@@ -6,10 +6,10 @@ import java.util.List;
 import Structures.Lieu;
 
 public class IA {
-	public static Lieu decision(Personnage p) {
+	public static void decision(Personnage p) {
 		List<Lieu> l = p.getLieu().getVoisins();
 		l.add(p.getLieu());
 		Collections.shuffle(l);
-		return l.get(0);
+		p.action(l.get(0));
 	}
 }
