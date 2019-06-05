@@ -1,18 +1,14 @@
 package util;
 
 import java.util.List;
-import java.util.Scanner;
 
 import Entities.Enqueteur;
-import Entities.Updatable;
 import Entities.Personnage;
 import Entities.Tueur;
+import Entities.Updatable;
 import Structures.Lieu;
+import Structures.Maison;
 import Structures.Village;
-import classes.EFauconnier;
-import classes.MaitreChien;
-import classes.TBrute;
-import classes.TWarper;
 
 public class Game {
 	
@@ -30,6 +26,7 @@ public class Game {
 	private Enqueteur enqueteur;
 	private Personnage[] persos;
 	private int tours = 0;
+	boolean endTurn = false;
 	
 	public Game(Village village, Tueur tueur, Enqueteur enqueteur) {
 		this.villageActuel = village;
@@ -41,7 +38,15 @@ public class Game {
 	public String resultatEvenement(Lieu lieu) {
 		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le tueur !";
 		persos[tours%2].action(lieu);
-		return persos[tours%2].getLieu().getPhrase();
+		if(!persos[tours%2].canDoAction()) {
+			tours++;
+			if(tours%2 == 0) {
+				updateAll(villageActuel, enqueteur, tueur);
+			}
+		}
+		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le tueur !"; 
+		if (((Maison) lieu).isDead()) return lieu.getPhrase();
+		return "Au tour de " + persos[tours%2].getName();
 	}
 	
 	/**

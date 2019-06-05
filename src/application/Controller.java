@@ -95,11 +95,9 @@ public class Controller {
 	
 	
 	public void doEnquettez() {
-		if(waitForAction) {
-			playingPerso.action(playingPerso.getLieu());
-			if(playingPerso == enqueteur) label.setText(playingPerso.getLieu().getPhrase());
-			if(!playingPerso.canDoAction()) waitForAction = false;
-		}
+		label.setText(game.resultatEvenement(game.getActualPlayer().getLieu()));
+		clearVoisin();
+		montrerLieux(game.getActualPlayer());
 	}
 	
 	public void doCapacite() {
@@ -158,6 +156,8 @@ public class Controller {
 				montrerLieux(game.getActualPlayer());
 			}
 			//endOfTurn();
+			clearVoisin();
+			montrerLieux(game.getActualPlayer());
 		}
 	}
 	
