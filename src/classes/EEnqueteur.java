@@ -54,8 +54,8 @@ public class EEnqueteur extends Enqueteur {
 		return false;
 	}
 	
-	@Override
+	/*@Override
 	public boolean canDoAction() {
 		return actionsDone >= nbActions;
-	}
+	}*/
 }

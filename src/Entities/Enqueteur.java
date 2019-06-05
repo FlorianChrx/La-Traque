@@ -2,9 +2,10 @@ package Entities;
 
 import Structures.Lieu;
 import Structures.Village;
+import application.Main;
 import util.Game;
 
-public abstract class Enqueteur extends Personnage {
+public abstract class Enqueteur extends Personnage{
 	//Attributs
 	
 	//Constructeurs	
@@ -15,6 +16,7 @@ public abstract class Enqueteur extends Personnage {
 	 */
 	public Enqueteur(Village village, int nbActions) {
 		super(village, nbActions);
+		this.lieu.setInvestigate();
 	}	
 	/**
 	 * Constructeur avec le lieu de départ de l'Enquêteur
@@ -23,18 +25,19 @@ public abstract class Enqueteur extends Personnage {
 	 */
 	public Enqueteur(Lieu lieu, int nbActions) {
 		super(lieu, nbActions);
+		this.lieu.setInvestigate();
 	}
 	
 	//Méthodes	
 	/**
 	 * Déclenche la séquence d'enquête dans le lieu actuel de l'enquêteur
 	 */
-	public void enquete() {
+	public boolean enquete() {
 		if (this.lieu.isMurder()) {
-			Game.win();
-		} else {
-			System.out.println(lieu.getPhrase());
+			Main.getController().checkWin(this);
+			return true;
 		}
+		return false;
 	}
 	/**
 	 * Permet de déplacer l'enqueteur

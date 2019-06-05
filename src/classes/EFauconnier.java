@@ -74,7 +74,7 @@ public class EFauconnier extends Enqueteur {
 	
 	@Override
 	public boolean canDoAction() {
-		return actionsDone >= nbActions || faucon.canDoAction();
+		return actionsDone < nbActions || faucon.canDoAction();
 	}
 
 }

@@ -1,21 +1,24 @@
 package Structures;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import Entities.Updatable;
 import util.Position;
 
-public class Village implements Updatable{
+public class Village implements Updatable, Iterable<Lieu>, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4072332616589070044L;
 	/**
 	 * Liste de tous les lieux du village
 	 */
-	private Map<Character, Lieu> lieux;
-	/**
-	 * Gestionnaire des routes (connexions) entre les lieux
-	 */
+	private Map<String, Lieu> lieux;
 	/**
 	 * Permet de construire un village selon une carte prédefinie 
 	 * dont le lien et donné en paramètre
@@ -85,7 +88,7 @@ public class Village implements Updatable{
 	 * Permet de générer un village test
 	 */
 	private void villageTest() {
-		this.lieux = new HashMap<Character, Lieu>();
+		this.lieux = new HashMap<String, Lieu>();
 		Maison m1 = new Maison(2, 2, 0, 0);
 		Maison m2 = new Maison(5, 5, 0, 0);
 		Maison m3 = new Maison(10, 10, 0, 0);	
@@ -105,8 +108,8 @@ public class Village implements Updatable{
 		m4.addVoisin(m3);
 		m5.addVoisin(m4);
 	}
-	public Lieu getLieu(char c) {
-		if (lieux.containsKey(Character.toUpperCase(c))) return lieux.get(Character.toUpperCase(c));
+	public Lieu getLieu(String string) {
+		if (lieux.containsKey(string)) return lieux.get(string);
 		return null;
 	}
 	public boolean allDeads() {
@@ -119,5 +122,12 @@ public class Village implements Updatable{
 		for (Lieu lieu : lieux.values()) {
 			lieu.update();
 		}
+	}
+	@Override
+	public Iterator<Lieu> iterator() {
+		return getLieux().iterator();
+	}
+	public void add(Lieu lieu) {
+		lieux.put(lieu.getNom(), lieu);
 	}
 }

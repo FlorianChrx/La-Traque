@@ -11,13 +11,14 @@ import util.Surface;
  *
  */
 public class Maison extends Lieu{
+	
 	//Attributs
 	/**
 	 * Statut de son habitant 
 	 */
 	private StatutMaison statutMaison;
 	private int days;
-	private char nom;
+	private String nom;
 	
 	//Constructeurs
 	
@@ -39,7 +40,7 @@ public class Maison extends Lieu{
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(StatutMaison statut, Position origine, int height, int width) {
-		this(statut, new Surface(origine, height, width));
+		this(statut, new Surface(origine, width, height));
 	}
 	/**
 	 * @param origine correspondant au point d'origine de la surface de la maison
@@ -47,7 +48,7 @@ public class Maison extends Lieu{
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(Position origine, int height, int width) {
-		this(StatutMaison.ALIVE, new Surface(origine, height, width));
+		this(StatutMaison.ALIVE, new Surface(origine, width, height));
 	}
 	/**
 	 * @param x	correspondant à l'abscisse de l'origine de la surface de la maison
@@ -56,7 +57,7 @@ public class Maison extends Lieu{
 	 * @param width correspondant à la largeur de la représentation de la maison
 	 */
 	public Maison(int x, int y, int height, int width) {
-		this(StatutMaison.ALIVE, new Surface(new Position(x,y), height, width));
+		this(StatutMaison.ALIVE, new Surface(new Position(x,y), width, height));
 	}
 	
 	
@@ -137,7 +138,7 @@ public class Maison extends Lieu{
 		final int prime = 31;
 		int result = super.hashCode();
 		result = prime * result + days;
-		result = prime * result + nom;
+		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
 		result = prime * result + ((statutMaison == null) ? 0 : statutMaison.hashCode());
 		return result;
 	}
@@ -152,14 +153,17 @@ public class Maison extends Lieu{
 		Maison other = (Maison) obj;
 		if (days != other.days)
 			return false;
-		if (nom != other.nom)
+		if (nom == null) {
+			if (other.nom != null)
+				return false;
+		} else if (!nom.equals(other.nom))
 			return false;
 		if (statutMaison != other.statutMaison)
 			return false;
 		return true;
 	}
 	@Override
-	public char getNom() {
+	public String getNom() {
 		return nom;
 	}
 	@Override

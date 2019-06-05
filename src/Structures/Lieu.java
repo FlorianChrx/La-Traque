@@ -1,9 +1,11 @@
 package Structures;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import Entities.Updatable;
+import javafx.scene.shape.Rectangle;
 import util.Phrase;
 import util.Position;
 import util.Surface;
@@ -15,7 +17,11 @@ import util.Surface;
  *
  */
 
-public abstract class Lieu implements Updatable {
+public abstract class Lieu implements Updatable, Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9159386624654231364L;
 	/**
 	 * Surface de la maison et implicitement sa position
 	 */
@@ -203,7 +209,7 @@ public abstract class Lieu implements Updatable {
 	 * Permet d'obtenir le nom du lieu
 	 * @return une string représentant le nom du lieu
 	 */
-	public abstract char getNom();
+	public abstract String getNom();
 	/**
 	 * Permet d'ajouter un lieu voisin (nouvelle liaison)
 	 * @param lieu le lieu à lier
@@ -229,5 +235,9 @@ public abstract class Lieu implements Updatable {
 	 */
 	public boolean isEmpty() {
 		return this.statutLieu.equals(Statut.EMPTY);
+	}
+	
+	public Rectangle getRectangle() {
+		return new Rectangle(surface.getOrigine().getX(),surface.getOrigine().getY(), surface.getWidth(),surface.getHeight());
 	}
 }

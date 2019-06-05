@@ -36,7 +36,7 @@ public class Chien extends Personnage {
 			goTo(lieu);
 			actionsDone ++;
 			if(canDoAction() && lieu.isMurder()) {
-				Game.getTueur().setBlocked();
+				//Game.setKillerBlocked();
 				actionsDone ++;
 			} else if ((!canDoAction()) && lieu.isMurder()) {
 				setBlocked();

@@ -12,7 +12,7 @@ import Structures.Lieu;
  * @author florianchiraux
  *
  */
-public interface Controlable {
+public interface Controlable{
 	/**
 	 * Permet de lister les lieux accessible à l'entité
 	 * @return une liste de lieu où peut se rendre l'entité

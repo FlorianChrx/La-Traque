@@ -1,6 +1,12 @@
 package util;
 
-public class Surface implements Comparable<Surface>{
+import java.io.Serializable;
+
+public class Surface implements Comparable<Surface>, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9092648014599001789L;
 	private Position origine;
 	private int width;
 	private int height;
@@ -22,13 +28,6 @@ public class Surface implements Comparable<Surface>{
 	
 	public Surface(int x, int y, int width, int height) {
 		this(new Position(x, y), width, height);
-	}
-	
-	public Position getorigine() {
-		return origine;
-	}
-	public void setorigine(Position origine) {
-		this.origine = origine;
 	}
 	public int getWidth() {
 		return width;
