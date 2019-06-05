@@ -89,4 +89,8 @@ public class Game {
 			entity.update();
 		}
 	}
+	
+	public Personnage getActualPlayer() {
+		return persos[tours%2];
+	}
 }

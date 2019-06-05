@@ -63,9 +63,10 @@ public class Controller {
 	private List<Lieu> voisin;
 	private List<Rectangle> rectVoisin;
 	private Rectangle tueurRectangle;
+	private Game game;
 
 	
-	public void initialize() throws IOException, ClassNotFoundException{		
+	public void initialize() throws IOException, ClassNotFoundException{
 		image = new ImageView(new Image(new FileInputStream("DATA/village.jpg"))); //instanciation de l'image
 		vBox.getChildren().clear();										//reinitialisation de la vBox car sinon image invisible
 		vBox.getChildren().addAll(menu,image,hBox);
@@ -82,7 +83,8 @@ public class Controller {
 		
 		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
 		tueur = new TTueur(vil.getLieu("B"));
-		playingPerso = enqueteur;
+		
+		game = new Game(vil, tueur, enqueteur);
 		
 		rectVoisin = new ArrayList<>();
 		voisin = new ArrayList<Lieu>();
@@ -109,6 +111,7 @@ public class Controller {
 	}
 	
 	public void tour(Personnage p) {
+		playingPerso = p;
 		montrerLieux(p);
 		if(p.canDoAction()) {
 			waitForAction = true;
@@ -149,31 +152,28 @@ public class Controller {
 
 		@Override
 		public void handle(MouseEvent e) {
-			if(waitForAction && rectVoisin.contains((Rectangle) e.getSource())) {
-				playingPerso.action(voisin.get(rectVoisin.indexOf((Rectangle) e.getSource())));
+			if(rectVoisin.contains((Rectangle) e.getSource())) {
+				label.setText(game.resultatEvenement(voisin.get(rectVoisin.indexOf((Rectangle) e.getSource()))));
 				clearVoisin();
-				montrerLieux(playingPerso);
-				if(!playingPerso.canDoAction()) waitForAction = false;
+				montrerLieux(game.getActualPlayer());
 			}
-			endOfTurn();
+			//endOfTurn();
 		}
 	}
 	
 	public void endOfTurn() {
-		if(!waitForAction) {
-			if(playingPerso == enqueteur) {
-				playingPerso = tueur;
-				System.out.println("Tueur joue");
-				tueurRectangle.setOpacity(0.5);
-			}else if(playingPerso == tueur) {
-				playingPerso = enqueteur;
-				System.out.println("Enquetteur joue");
-				Game.updateAll(vil, tueur, enqueteur);
-			}
-			label.setText(label.getText()+"\n"+playingPerso.getName() + " c'est à toi de jouer");
-			clearVoisin();
-			tour(playingPerso);
+		if(playingPerso == enqueteur) {
+			playingPerso = tueur;
+			System.out.println("Tueur joue");
+			tueurRectangle.setOpacity(0.5);
+		}else if(playingPerso == tueur) {
+			playingPerso = enqueteur;
+			System.out.println("Enquetteur joue");
+			Game.updateAll(vil, tueur, enqueteur);
 		}
+		label.setText(label.getText()+"\n"+playingPerso.getName() + " c'est à toi de jouer");
+		clearVoisin();
+		tour(playingPerso);
 	}
 	
 	public void checkWin(Personnage p) {
