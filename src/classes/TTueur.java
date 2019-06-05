@@ -34,7 +34,6 @@ public class TTueur extends Tueur {
 	@Override
 	public void action(Lieu lieu) {
 		if(canDoAction()) {
-			if(lieu.isInvestigate()) Main.getController().checkWin(this);
 			if(lieu.isMurder()) {
 				tue();
 			} else if (canGoTo(lieu)){
