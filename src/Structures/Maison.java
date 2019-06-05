@@ -11,10 +11,6 @@ import util.Surface;
  *
  */
 public class Maison extends Lieu{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4168050509765971796L;
 	
 	//Attributs
 	/**
