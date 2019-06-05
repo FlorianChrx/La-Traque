@@ -56,7 +56,6 @@ public class Controller {
 	private Pane pane;
 	private ObjectInputStream ois;
 	private Village vil;
-	private boolean waitForAction;
 	private Enqueteur enqueteur;
 	private Tueur tueur;
 	private Personnage playingPerso;
@@ -112,7 +111,6 @@ public class Controller {
 		playingPerso = p;
 		montrerLieux(p);
 		if(p.canDoAction()) {
-			waitForAction = true;
 		}
 	}
 	

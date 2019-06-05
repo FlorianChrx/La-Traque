@@ -3,7 +3,6 @@ package Entities;
 import Structures.Lieu;
 import Structures.Village;
 import application.Main;
-import util.Game;
 
 public abstract class Enqueteur extends Personnage{
 	//Attributs
