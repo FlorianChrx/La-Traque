@@ -83,7 +83,7 @@ public class Controller {
 		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
 		tueur = new TTueur(vil.getLieu("B"));
 		
-		game = new Game(vil, tueur, enqueteur);
+		game = new Game(vil, tueur, enqueteur, -1);
 		
 		rectVoisin = new ArrayList<>();
 		voisin = new ArrayList<Lieu>();
