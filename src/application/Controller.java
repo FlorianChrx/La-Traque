@@ -76,7 +76,6 @@ public class Controller {
 		ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
 		vil = (Village) ois.readObject();
 		ois.close();
-		
 		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
 		tueur = new TTueur(vil.getLieu("B"));
 		
