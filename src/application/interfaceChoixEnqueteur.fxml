@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="BOTTOM_LEFT" maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.OverlordV">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Enquêteur : Choix du personnage">
+         <font>
+            <Font name="Acadian Runes Regular" size="48.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="100.0" />
+         </VBox.margin>
+      </Text>
+      <HBox prefHeight="812.0" prefWidth="1800.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
+               <children>
+                  <ImageView fx:id="imageChien" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverChien" onMouseExited="#imageOpacityQuitChien" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <SepiaTone />
+                     </effect>
+                     <image>
+                        <Image url="@../../doc/resources/MaitreChien.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="titleChien" strokeType="OUTSIDE" strokeWidth="0.0" text="Maitre Chien">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="40.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="textChien" strokeType="OUTSIDE" strokeWidth="0.0" text="Ouvrez la chasse et lancez votre limier sur la proie">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
+               <children>
+                  <ImageView fx:id="imageFaucon" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverFaucon" onMouseExited="#imageOpacityQuitFaucon" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <SepiaTone />
+                     </effect>
+                     <image>
+                        <Image url="@../../doc/resources/Fauconnier.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="titleFaucon" strokeType="OUTSIDE" strokeWidth="0.0" text="Fauconnier">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="40.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="textFaucon" strokeType="OUTSIDE" strokeWidth="0.0" text="Domptez les airs et retrouvez cette abomination">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../../../../git/Projet/src/Application/background.css" />
+      <URL value="@background.css" />
+   </stylesheets>
+</VBox>
