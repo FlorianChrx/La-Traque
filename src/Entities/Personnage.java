@@ -157,8 +157,9 @@ public abstract class Personnage implements Controlable, Updatable {
 	/**
 	 * Permet de définir l'action du personnage
 	 * @param lieu dans lequel le personnage doit effectuer une action
+	 * @return Une string résultant de l'action du personnage
 	 */
-	public abstract void action(Lieu lieu);
+	public abstract String action(Lieu lieu);
 	/**
 	 * Permet de savoir si un personnage possède un compagnon
 	 * @return vrai ou faux selon si le personnage est accompagné ou non 

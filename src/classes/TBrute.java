@@ -36,17 +36,9 @@ public class TBrute extends Tueur {
 
 	//Méthodes 
 	@Override
-	public void action(Lieu lieu) {
-		if(canDoAction()) {
-			if(lieu.isMurder()) {
-				tue();
-			} else if (canGoTo(lieu)){
-				goTo(lieu);
-			}
-		} else {
-			System.out.println("La Brute n'a plus d'actions.");
-		}
+	public String action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
 		actionsDone++;
+		return getLieu().getPhrase();
 	}
 
 	@Override

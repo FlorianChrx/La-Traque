@@ -35,13 +35,9 @@ public class EEnqueteur extends Enqueteur {
 	 * Lorsqu'il a fini, le chien joue.
 	 */
 	@Override
-	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
-		if(canDoAction()) {
-			if (canGoTo(lieu)){
-				goTo(lieu);
-			}
-		}
+	public String action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
 		actionsDone++;
+		return getLieu().getPhrase();
 	}
 
 	@Override
