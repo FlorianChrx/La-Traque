@@ -65,17 +65,9 @@ public class TWarper extends Tueur {
 	 * Le Warper se déplace d'une ou de deux maisons en fonction du lieu choisit.
 	 */
 	@Override
-	public void action(Lieu lieu) {
-		if(canDoAction()) {
-			if(lieu.isMurder()) {
-				tue();
-			} else if (canGoTo(lieu)){
-				goTo(lieu);
-			}
-		} else {
-			System.out.println("Le Warper n'a plus d'actions.");
-		}
+	public String action() { // -> lieu paramètre = lieu cliqué par joueur
 		actionsDone++;
+		return getLieu().getPhrase();
 	}
 
 	@Override

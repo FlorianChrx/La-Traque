@@ -52,19 +52,9 @@ public class EFauconnier extends Enqueteur {
 	 * L'enquêteur enquête  si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
 	 */
 	@Override
-	public void action(Lieu lieu) {
-		if(actionsDone >= nbActions) {
-			if(this.lieu.equals(lieu)) {
-				
-			} else {
-				goTo(lieu);
-			}
-		} else {
-			System.out.println("Le Fauconnier n'a plus d'actions.");
-			faucon.action(lieu);
-			System.out.println("Le Faucon n'a plus d'actions.");
-		}
+	public String action() { // -> lieu paramètre = lieu cliqué par joueur
 		actionsDone++;
+		return getLieu().getPhrase();
 	}
 
 	@Override

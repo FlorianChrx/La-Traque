@@ -7,7 +7,6 @@ import Entities.Personnage;
 import Entities.Tueur;
 import Entities.Updatable;
 import Structures.Lieu;
-import Structures.Maison;
 import Structures.Village;
 
 public class Game {
@@ -36,17 +35,35 @@ public class Game {
 	}
 	
 	public String resultatEvenement(Lieu lieu) {
-		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le tueur !";
-		persos[tours%2].action(lieu);
+		String res = null;
+		if(sameLieu()) return "L'enquêteur à arrêté le tueur !";
+		if(needMove(lieu)) {
+			persos[tours%2].goTo(lieu);
+		} else {
+			res = persos[tours%2].action();
+		}
 		if(!persos[tours%2].canDoAction()) {
 			tours++;
 			if(tours%2 == 0) {
 				updateAll(villageActuel, enqueteur, tueur);
 			}
 		}
-		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le tueur !"; 
-		if (((Maison) lieu).isDead()) return lieu.getPhrase();
-		return "Au tour de " + persos[tours%2].getName();
+		if(sameLieu()) return "L'enquêteur à arrêté le tueur !"; 
+		return res;
+	}
+
+	/**
+	 * Verifie si les deux personnages sont dans le même lieu
+	 * @return un boolean révélant si les personnages se sont rencontrés
+	 */
+	private boolean sameLieu() {
+		return getEnqueteurLocation().equals(getTueurLocation());
+	}
+	/**
+	 * determine si le personnage actuel doit effectuer un déplacement vers un lieu donné
+	 */
+	private boolean needMove(Lieu lieu) {
+		return !persos[tours%2].getLieu().equals(lieu);
 	}
 	
 	/**

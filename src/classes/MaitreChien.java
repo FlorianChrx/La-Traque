@@ -44,21 +44,9 @@ public class MaitreChien extends Enqueteur {
 	 * Lorsqu'il a fini, le chien joue.
 	 */
 	@Override
-	public void action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
-		System.out.println(lieu.getNom());
-		if(canDoAction()) {
-			if(this.lieu.equals(lieu)) {
-				actionsDone++;
-			} else if (canGoTo(lieu)){
-				goTo(lieu);
-				actionsDone++;
-			} else {
-				System.out.println("Je ne peux pas aller si loin...");
-			}
-		} else {
-			System.out.println("Le Maitre Chien n'a plus d'actions.");
-			chien.action(lieu);
-		}
+	public String action() { // -> lieu paramètre = lieu cliqué par joueur
+		actionsDone++;
+		return getLieu().getPhrase();
 	}
 
 	@Override

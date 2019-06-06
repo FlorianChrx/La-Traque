@@ -2,7 +2,6 @@ package classes;
 
 import Entities.Personnage;
 import Structures.Lieu;
-import Structures.Maison;
 
 /**
  * Classe du Chien appartenant au MaitreChien [Deux actions]
@@ -30,18 +29,10 @@ public class Chien extends Personnage {
 	 *  a personne, le chien avance une nouvelle fois.
 	 */
 	@Override
-	public void action(Lieu lieu) { 
-		if(lieu instanceof Maison) {
-			goTo(lieu);
-			actionsDone ++;
-			if(canDoAction() && lieu.isMurder()) {
-				//Game.setKillerBlocked();
-				actionsDone ++;
-			} else if ((!canDoAction()) && lieu.isMurder()) {
-				setBlocked();
-			}
-		}
+	public String action() { 
+		return null;
 	}
+	
 	@Override
 	public void goTo(Lieu lieu) {
 		this.lieu = lieu;

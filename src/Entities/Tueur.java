@@ -53,6 +53,7 @@ public abstract class Tueur extends Personnage implements Serializable{
 		}
 		this.lieu = lieu;
 		this.lieu.setMurder();
+		actionsDone++;
 	}
 	@Override
 	public String getName() {
