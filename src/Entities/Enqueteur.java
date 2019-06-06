@@ -34,7 +34,6 @@ public abstract class Enqueteur extends Personnage{
 	 */
 	public boolean enquete() {
 		if (this.lieu.isMurder()) {
-			Main.getController().checkWin(this);
 			return true;
 		}
 		return false;

@@ -14,7 +14,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage stage) throws IOException, ClassNotFoundException{
 		loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("interfaceProjet.fxml"));
+        loader.setLocation(getClass().getResource("interfaceProjet2.fxml"));
         Pane pane = loader.load();
         Scene scene = new Scene(pane);
 		stage.setScene(scene);

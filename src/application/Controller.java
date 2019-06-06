@@ -18,11 +18,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
-import javafx.scene.effect.Bloom;
+import javafx.scene.control.TextArea;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -32,19 +29,12 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
 import util.Game;
 
 public class Controller {
 	@FXML
 	private VBox vBox;
-	@FXML
-	private MenuBar menu;
-	@FXML
-	private Menu file;
-	@FXML
-	private Menu help;
-	@FXML
-	private Menu edit;
 	@FXML
 	private ImageView image;
 	@FXML
@@ -54,9 +44,12 @@ public class Controller {
 	@FXML
 	private Button capacite;
 	@FXML
-	private Label label;
+	private Text label;
 	@FXML
 	private Pane pane;
+	@FXML
+	private Label nbAction;
+	
 	private ObjectInputStream ois;
 	private Village vil;
 	private Enqueteur enqueteur;
@@ -69,24 +62,27 @@ public class Controller {
 
 	
 	public void initialize() throws IOException, ClassNotFoundException{
-		image = new ImageView(new Image(new FileInputStream("DATA/village.jpg"))); //instanciation de l'image
+		
+		image = new ImageView(new Image(new FileInputStream("DATA/village2.png"))); //instanciation de l'image
 		vBox.getChildren().clear();										//reinitialisation de la vBox car sinon image invisible
-		vBox.getChildren().addAll(menu,image,hBox);
+		vBox.getChildren().addAll(image,hBox);
 		
 		tueurRectangle = new Rectangle(Double.MAX_VALUE, Double.MAX_VALUE);
 		tueurRectangle.setOpacity(0.5);
 		tueurRectangle.setFill(Color.valueOf("000000"));
 		
-		ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
+		ois = new ObjectInputStream(new FileInputStream("DATA/test2.txt"));  //chargement du village
 		vil = (Village) ois.readObject();
 		ois.close();
 		
-		rectOpacity = 0.5;
+		rectOpacity = 0.3;
 		
 		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
-		tueur = new TTueur(vil.getLieu("B"));
+		tueur = new TTueur(vil.getLieu("C"));
 		
 		game = new Game(vil, tueur, enqueteur);
+
+		nbAction.setText("Action possible : "+game.getActualPlayer().getNbActions());
 		
 		rectVoisin = new ArrayList<>();
 		voisin = new ArrayList<Lieu>();
@@ -111,10 +107,10 @@ public class Controller {
 	}
 	
 	public Rectangle montrerLieu(Lieu l, Paint fill, Paint stroke) {
-		Rectangle r = new Rectangle(l.getSurface().getOrigine().getX(),l.getSurface().getOrigine().getY()+30,l.getSurface().getWidth(),l.getSurface().getHeight());
+		Rectangle r = new Rectangle(l.getSurface().getOrigine().getX(),l.getSurface().getOrigine().getY(),l.getSurface().getWidth(),l.getSurface().getHeight());
 		r.setFill(fill);
 		r.setStroke(stroke);
-		r.setOpacity(0.25);
+		r.setOpacity(rectOpacity);
 		pane.getChildren().add(r);
 		r.setOnMouseClicked(new RectangleHandler());
 		return r;
@@ -129,13 +125,15 @@ public class Controller {
 	}
 	
 	public void montrerLieux(Personnage p) {
-		montrerLieu(p.getLieu(), Color.valueOf("ffffff"), Color.valueOf("000000"));
+		Rectangle r = montrerLieu(p.getLieu(), Color.valueOf("6062b2"), Color.valueOf("000000"));
+		r.setOpacity(0.5);
+		rectVoisin.add(r);
+		voisin.add(p.getLieu());
 		montrerVoisinPlayer(p);
 	}
 	
 	public void clearVoisin() {
 		pane.getChildren().removeAll(rectVoisin);
-		pane.getChildren().remove(pane.getChildren().size()-1);
 		rectVoisin.clear();
 		voisin.clear();
 	}
@@ -144,19 +142,18 @@ public class Controller {
 
 		@Override
 		public void handle(MouseEvent e) {
+			nbAction.setText("Action possible : "+game.getActualPlayer().getNbActions());
 			if(rectVoisin.contains((Rectangle) e.getSource())) {
 				label.setText(game.resultatEvenement(voisin.get(rectVoisin.indexOf((Rectangle) e.getSource()))));
-				clearVoisin();
-				montrerLieux(game.getActualPlayer());
 			}
 			clearVoisin();
 			montrerLieux(game.getActualPlayer());
 			if(game.getActualPlayer() instanceof Tueur) {
 				image.setEffect(new ColorAdjust(0,0,-0.6,0));
-				setRanctangleOpacity(0.3);
+				setRanctangleOpacity(0.1);
 			} else {
 				image.setEffect(new ColorAdjust(0,0,0,0));
-				setRanctangleOpacity(0.5);
+				setRanctangleOpacity(0.3);
 			}
 		}
 	}

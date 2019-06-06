@@ -64,8 +64,8 @@ public class Main extends Application {
 	
 	public void start(Stage primaryStage) throws FileNotFoundException, IOException {
 		maisonList = new Village();
-		oos = new ObjectOutputStream(new FileOutputStream("DATA/test.txt"));
-		ImageView img = new ImageView(new Image(new FileInputStream("DATA/village.jpg")));
+		oos = new ObjectOutputStream(new FileOutputStream("DATA/test2.txt"));
+		ImageView img = new ImageView(new Image(new FileInputStream("DATA/village2.png")));
 		
 		
 		rectangle.setWidth(10);
@@ -87,6 +87,7 @@ public class Main extends Application {
 			if(lastStep) {
 				try {
 					oos.writeObject(maisonList);
+					oos.close();
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}
