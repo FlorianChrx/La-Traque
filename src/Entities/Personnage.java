@@ -33,7 +33,6 @@ public abstract class Personnage implements Controlable, Updatable {
 	 */
 	protected int actionsDone;
 	
-	
 	//Constructeurs
 
 	/**

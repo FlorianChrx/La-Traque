@@ -60,15 +60,6 @@ public class TWarper extends Tueur {
 	public void update() {
 		nextDay();		
 	}
-	
-	/**
-	 * Le Warper se déplace d'une ou de deux maisons en fonction du lieu choisit.
-	 */
-	@Override
-	public String action() { // -> lieu paramètre = lieu cliqué par joueur
-		actionsDone++;
-		return getLieu().getPhrase();
-	}
 
 	@Override
 	public boolean hasHelper() {

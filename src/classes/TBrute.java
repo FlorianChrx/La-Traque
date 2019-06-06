@@ -34,13 +34,6 @@ public class TBrute extends Tueur {
 		super(lieu, 1);
 	}
 
-	//Méthodes 
-	@Override
-	public String action() { // -> lieu paramètre = lieu cliqué par joueur
-		actionsDone++;
-		return getLieu().getPhrase();
-	}
-
 	@Override
 	public boolean hasHelper() {
 		return false;

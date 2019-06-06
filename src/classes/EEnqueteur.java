@@ -30,15 +30,6 @@ public class EEnqueteur extends Enqueteur {
 	}
 	
 	//Méthodes
-	/**
-	 * L'enquêteur enquête si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
-	 * Lorsqu'il a fini, le chien joue.
-	 */
-	@Override
-	public String action() { // -> lieu paramètre = lieu cliqué par joueur
-		actionsDone++;
-		return getLieu().getPhrase();
-	}
 
 	@Override
 	public boolean hasHelper() {
