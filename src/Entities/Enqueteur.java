@@ -2,8 +2,6 @@ package Entities;
 
 import Structures.Lieu;
 import Structures.Village;
-import application.Main;
-import util.Game;
 
 public abstract class Enqueteur extends Personnage{
 	//Attributs
@@ -28,16 +26,6 @@ public abstract class Enqueteur extends Personnage{
 		this.lieu.setInvestigate();
 	}
 	
-	//Méthodes	
-	/**
-	 * Déclenche la séquence d'enquête dans le lieu actuel de l'enquêteur
-	 */
-	public boolean enquete() {
-		if (this.lieu.isMurder()) {
-			return true;
-		}
-		return false;
-	}
 	/**
 	 * Permet de déplacer l'enqueteur
 	 */

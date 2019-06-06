@@ -15,6 +15,11 @@ import Structures.Village;
 public class TWarper extends Tueur {
 	//Attributs
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7577365370842280120L;
+
 	//Constructeurs
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ

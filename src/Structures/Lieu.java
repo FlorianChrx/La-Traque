@@ -17,6 +17,7 @@ import util.Surface;
  *
  */
 
+
 public abstract class Lieu implements Updatable, Serializable {
 	/**
 	 * 

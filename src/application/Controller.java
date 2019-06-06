@@ -59,7 +59,6 @@ public class Controller {
 	private Rectangle tueurRectangle;
 	private Game game;
 	private double rectOpacity;
-
 	
 	public void initialize() throws IOException, ClassNotFoundException{
 		
@@ -74,9 +73,7 @@ public class Controller {
 		ois = new ObjectInputStream(new FileInputStream("DATA/test2.txt"));  //chargement du village
 		vil = (Village) ois.readObject();
 		ois.close();
-		
 		rectOpacity = 0.3;
-		
 		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
 		tueur = new TTueur(vil.getLieu("C"));
 		
