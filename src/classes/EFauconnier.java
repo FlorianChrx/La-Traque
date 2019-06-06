@@ -52,7 +52,7 @@ public class EFauconnier extends Enqueteur {
 	 * L'enquêteur enquête  si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
 	 */
 	@Override
-	public String action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
+	public String action() { // -> lieu paramètre = lieu cliqué par joueur
 		actionsDone++;
 		return getLieu().getPhrase();
 	}

@@ -27,7 +27,7 @@ public class Faucon extends Personnage {
 	 * Le Faucon prend le lieu du Fauconnier et affiche le statut d'une maison voisine aléatoire.
 	 */
 	@Override
-	public String action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
+	public String action() { // -> lieu paramètre = lieu cliqué par joueur
 		actionsDone++;
 		return getLieu().getPhrase();
 	}

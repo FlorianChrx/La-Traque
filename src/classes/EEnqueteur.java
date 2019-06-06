@@ -35,7 +35,7 @@ public class EEnqueteur extends Enqueteur {
 	 * Lorsqu'il a fini, le chien joue.
 	 */
 	@Override
-	public String action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
+	public String action() { // -> lieu paramètre = lieu cliqué par joueur
 		actionsDone++;
 		return getLieu().getPhrase();
 	}

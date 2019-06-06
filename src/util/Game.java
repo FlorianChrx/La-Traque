@@ -40,7 +40,7 @@ public class Game {
 		if(needMove(lieu)) {
 			persos[tours%2].goTo(lieu);
 		} else {
-			res = persos[tours%2].getLieu().getPhrase();
+			res = persos[tours%2].action();
 		}
 		if(!persos[tours%2].canDoAction()) {
 			tours++;

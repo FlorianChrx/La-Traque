@@ -36,7 +36,7 @@ public class TTueur extends Tueur {
 	
 	//Méthodes
 	@Override
-	public String action(Lieu lieu) { // -> lieu paramètre = lieu cliqué par joueur
+	public String action() { // -> lieu paramètre = lieu cliqué par joueur
 		actionsDone++;
 		return getLieu().getPhrase();
 	}

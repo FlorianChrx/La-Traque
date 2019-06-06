@@ -29,7 +29,7 @@ public class Chien extends Personnage {
 	 *  a personne, le chien avance une nouvelle fois.
 	 */
 	@Override
-	public String action(Lieu lieu) { 
+	public String action() { 
 		return null;
 	}
 	
