@@ -31,6 +31,7 @@ public abstract class Enqueteur extends Personnage{
 	 */
 	public void goTo(Lieu lieu) {
 		this.lieu = lieu;
+		actionsDone++;
 	}
 	
 	@Override

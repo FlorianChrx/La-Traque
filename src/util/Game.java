@@ -63,7 +63,7 @@ public class Game {
 	 * determine si le personnage actuel doit effectuer un déplacement vers un lieu donné
 	 */
 	private boolean needMove(Lieu lieu) {
-		return persos[tours%2].getLieu().equals(lieu);
+		return !persos[tours%2].getLieu().equals(lieu);
 	}
 	
 	/**
