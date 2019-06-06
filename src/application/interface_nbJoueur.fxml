@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="BOTTOM_LEFT" maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.OverlordIII">
+<VBox alignment="BOTTOM_LEFT" maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OverlordIII">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choix du mode de jeu">
          <font>
@@ -22,7 +22,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
                <children>
-                  <ImageView fx:id="iA" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverIA" onMouseExited="#imageOpacityQuitIA" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="iA" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#changementUn" onMouseEntered="#imageOpacityOverIA" onMouseExited="#imageOpacityQuitIA" pickOnBounds="true" preserveRatio="true">
                      <effect>
                         <SepiaTone />
                      </effect>
@@ -39,12 +39,12 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
                <children>
-                  <ImageView fx:id="jcJ" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverJcJ" onMouseExited="#imageOpacityQuitJcJ" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="jcJ" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#changementDeux" onMouseEntered="#imageOpacityOverJcJ" onMouseExited="#imageOpacityQuitJcJ" pickOnBounds="true" preserveRatio="true">
                      <effect>
                         <SepiaTone />
                      </effect>
                      <image>
-                        <Image url="@../../../../../git/Projet/doc/resources/Hunter.png" />
+                        <Image url="@../../doc/resources/deuxJoueur.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="jcJText" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur contre Joueur">

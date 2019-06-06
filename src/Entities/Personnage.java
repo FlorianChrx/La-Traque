@@ -55,7 +55,7 @@ public abstract class Personnage implements Controlable, Updatable {
 		List<Lieu> lieux = new ArrayList<Lieu>();
 		lieux.addAll(village.getLieux());
 		Collections.shuffle(lieux);
-		this.setLieu(lieux.get(1));
+		this.setLieu(lieux.get(0));
 		this.setNbActions(nbActions);
 	}
 

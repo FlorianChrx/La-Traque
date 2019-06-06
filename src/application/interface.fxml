@@ -7,7 +7,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="BOTTOM_LEFT" maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Overlord">
+<VBox alignment="BOTTOM_LEFT" maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@background.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Overlord">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choix du personnage : Joueur 1">
          <font>
@@ -21,7 +21,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
                <children>
-                  <ImageView fx:id="imagePrey" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverPrey" onMouseExited="#imageOpacityQuitPrey" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imagePrey" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#changementScenePrey" onMouseEntered="#imageOpacityOverPrey" onMouseExited="#imageOpacityQuitPrey" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../doc/resources/Prey.png" />
                      </image>
@@ -37,7 +37,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
                <children>
-                  <ImageView fx:id="imageHunt" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverHunt" onMouseExited="#imageOpacityQuitHunt" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageHunt" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#changementSceneHunt" onMouseEntered="#imageOpacityOverHunt" onMouseExited="#imageOpacityQuitHunt" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../doc/resources/Hunter.png" />
                      </image>

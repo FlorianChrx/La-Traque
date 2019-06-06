@@ -1,10 +1,13 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class OverlordII {
+public class OverlordII extends SController {
 	@FXML
 	Text jouer;
 	@FXML
@@ -17,19 +20,23 @@ public class OverlordII {
 		quitter.setOpacity(0);
 		rune.setOpacity(0);
 	}
-	public void overJouer() {
+	public void overJouer(MouseEvent event) {
 		jouer.setOpacity(1);
 	}
-	public void exitJouer() {
+	public void exitJouer(MouseEvent event) {
 		jouer.setOpacity(0);
 	}
 	
-	public void overQuitter() {
+	public void overQuitter(MouseEvent event) {
 		quitter.setOpacity(1);
 		rune.setOpacity(0.4);
 	}
-	public void exitQuitter() {
+	public void exitQuitter(MouseEvent event) {
 		quitter.setOpacity(0);
 		rune.setOpacity(0);
+	}
+	
+	public void clicJouer(MouseEvent event) throws IOException {
+		changeScene(jouer, Interface.MODEMENU);
 	}
 }

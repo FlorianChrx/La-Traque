@@ -1,11 +1,13 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class OverlordIII {
+public class OverlordIII extends SController{
 	@FXML
 	ImageView iA;
 	@FXML
@@ -41,5 +43,13 @@ public class OverlordIII {
 	public void imageOpacityQuitJcJ(MouseEvent event) {
 		jcJ.setOpacity(0.8);
 		jcJText.setOpacity(0.3);
+	}
+	
+	public void changementUn() throws IOException {
+		changeScene(iA, Interface.CHOIXMENU);
+	}
+	
+	public void changementDeux() throws IOException {
+		changeScene(iA, Interface.CHOIXMENU);
 	}
 }
