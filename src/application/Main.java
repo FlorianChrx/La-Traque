@@ -12,7 +12,7 @@ public class Main extends Application {
 	
 
 	@Override
-	public void start(Stage stage) throws IOException, ClassNotFoundException{
+	public void start(Stage stage) throws IOException, ClassNotFoundException {
 		loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("interfaceProjet.fxml"));
         Pane pane = loader.load();

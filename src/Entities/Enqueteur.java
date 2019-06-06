@@ -30,14 +30,9 @@ public abstract class Enqueteur extends Personnage{
 	 * Permet de déplacer l'enqueteur
 	 */
 	public void goTo(Lieu lieu) {
-		if(lieu.isInvestigate()) {
-			this.lieu.setEmpty();
-		}
 		this.lieu = lieu;
-		if(this.lieu.isEmpty()) {
-			this.lieu.setInvestigate();
-		}
 	}
+	
 	@Override
 	public boolean hasHelper() {
 		// TODO Auto-generated method stub
