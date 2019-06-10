@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	private static FXMLLoader loader;
-	public boolean ia;
+	public static boolean ia;
 	public static Tueur tueur;
 	public static Enqueteur enqueteur;
 	public static Village village;
