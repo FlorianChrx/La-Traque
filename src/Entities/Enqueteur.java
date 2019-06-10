@@ -2,8 +2,6 @@ package Entities;
 
 import Structures.Lieu;
 import Structures.Village;
-import application.Main;
-import util.Game;
 
 public abstract class Enqueteur extends Personnage{
 	//Attributs
@@ -28,34 +26,29 @@ public abstract class Enqueteur extends Personnage{
 		this.lieu.setInvestigate();
 	}
 	
-	//Méthodes	
-	/**
-	 * Déclenche la séquence d'enquête dans le lieu actuel de l'enquêteur
-	 */
-	public boolean enquete() {
-		if (this.lieu.isMurder()) {
-			Main.getController().checkWin(this);
-			return true;
-		}
-		return false;
-	}
 	/**
 	 * Permet de déplacer l'enqueteur
 	 */
 	public void goTo(Lieu lieu) {
-		if(lieu.isInvestigate()) {
-			this.lieu.setEmpty();
-		}
 		this.lieu = lieu;
 		if(this.lieu.isEmpty()) {
 			this.lieu.setInvestigate();
 		}
+		actionsDone++;
 	}
+	
+	@Override
+	public String action() { 
+		actionsDone++;
+		return getLieu().getPhrase();
+	}
+	
 	@Override
 	public boolean hasHelper() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 	@Override
 	public String getName() {
 		return ("Enquêteur");

@@ -9,9 +9,15 @@ import Structures.Village;
  * @author calamar
  *
  */
+@SuppressWarnings("serial")
 public class TBrute extends Tueur {
 	//Attributs
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7387215184195661317L;
+
 	//Constructeurs	
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
@@ -30,19 +36,6 @@ public class TBrute extends Tueur {
 	}
 
 	//Méthodes 
-	@Override
-	public void action(Lieu lieu) {
-		if(canDoAction()) {
-			if(lieu.isMurder()) {
-				tue();
-			} else if (canGoTo(lieu)){
-				goTo(lieu);
-			}
-		} else {
-			System.out.println("La Brute n'a plus d'actions.");
-		}
-		actionsDone++;
-	}
 
 	@Override
 	public boolean hasHelper() {

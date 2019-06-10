@@ -3,16 +3,21 @@ package classes;
 import Entities.Tueur;
 import Structures.Lieu;
 import Structures.Village;
-import application.Main;
 
 /**
  * Classe du rôle Tueur de base [NbActions pas encore défini]
  * @author calamar
  *
  */
+@SuppressWarnings("serial")
 public class TTueur extends Tueur {
 	//Attributs
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7860707379882673629L;
+
 	//Constructeurs
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
@@ -31,20 +36,6 @@ public class TTueur extends Tueur {
 	}
 	
 	//Méthodes
-	@Override
-	public void action(Lieu lieu) {
-		if(canDoAction()) {
-			if(lieu.isInvestigate()) Main.getController().checkWin(this);
-			if(lieu.isMurder()) {
-				tue();
-			} else if (canGoTo(lieu)){
-				goTo(lieu);
-			}
-		} else {
-			System.out.println("Le Tueur n'a plus d'actions.");
-		}
-		actionsDone++;
-	}
 
 	@Override
 	public boolean hasHelper() {

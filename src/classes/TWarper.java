@@ -12,9 +12,15 @@ import Structures.Village;
  * @author calamar
  *
  */
+@SuppressWarnings("serial")
 public class TWarper extends Tueur {
 	//Attributs
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7577365370842280120L;
+
 	//Constructeurs
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
@@ -54,23 +60,6 @@ public class TWarper extends Tueur {
 	@Override
 	public void update() {
 		nextDay();		
-	}
-	
-	/**
-	 * Le Warper se déplace d'une ou de deux maisons en fonction du lieu choisit.
-	 */
-	@Override
-	public void action(Lieu lieu) {
-		if(canDoAction()) {
-			if(lieu.isMurder()) {
-				tue();
-			} else if (canGoTo(lieu)){
-				goTo(lieu);
-			}
-		} else {
-			System.out.println("Le Warper n'a plus d'actions.");
-		}
-		actionsDone++;
 	}
 
 	@Override

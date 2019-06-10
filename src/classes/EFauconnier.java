@@ -47,26 +47,7 @@ public class EFauconnier extends Enqueteur {
 	public void update() {
 		nextDay();		
 	}
-
-	/**
-	 * L'enquêteur enquête  si le lieu cliqué est sa maison actuelle sinon il se déplace à la maison selectionnée.
-	 */
-	@Override
-	public void action(Lieu lieu) {
-		if(actionsDone >= nbActions) {
-			if(this.lieu.equals(lieu)) {
-				enquete();
-			} else {
-				goTo(lieu);
-			}
-		} else {
-			System.out.println("Le Fauconnier n'a plus d'actions.");
-			faucon.action(lieu);
-			System.out.println("Le Faucon n'a plus d'actions.");
-		}
-		actionsDone++;
-	}
-
+  
 	@Override
 	public boolean hasHelper() {
 		return true;

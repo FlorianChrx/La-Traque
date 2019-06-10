@@ -5,16 +5,18 @@ import java.io.Serializable;
 import Structures.Lieu;
 import Structures.Maison;
 import Structures.Village;
-import application.Main;
-import util.Game;
+import util.Phrase;
 
 /**
  * Class abstraite correspondant aux Tueurs
  * @author geoffrey
  *
  */
+@SuppressWarnings("serial")
 public abstract class Tueur extends Personnage implements Serializable{
 	//Attributs
+	
+	Phrase phrase = new Phrase();
 	
 	//Constructeurs
 	/**
@@ -45,12 +47,21 @@ public abstract class Tueur extends Personnage implements Serializable{
 			((Maison) lieu).setDead();
 		}
 	}
+	
+	@Override
+	public String action() { 
+		actionsDone++;
+		tue();
+		return phrase.phraseMeurtre();
+	}
+	
 	public void goTo(Lieu lieu) {
 		if(!this.lieu.isEmpty()) {
 			this.lieu.setEmpty();
 		}
 		this.lieu = lieu;
 		this.lieu.setMurder();
+		actionsDone++;
 	}
 	@Override
 	public String getName() {
