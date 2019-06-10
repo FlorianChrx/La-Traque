@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="BOTTOM_LEFT" maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OverlordIII">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Choix du mode de jeu">
+         <font>
+            <Font name="Acadian Runes Regular" size="48.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="100.0" />
+         </VBox.margin>
+      </Text>
+      <HBox prefHeight="812.0" prefWidth="1800.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
+               <children>
+                  <ImageView fx:id="iA" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#changementUn" onMouseEntered="#imageOpacityOverIA" onMouseExited="#imageOpacityQuitIA" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <SepiaTone />
+                     </effect>
+                     <image>
+                        <Image url="@../../doc/resources/unJoueur.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="iAText" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur contre IA">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="40.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
+               <children>
+                  <ImageView fx:id="jcJ" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#changementDeux" onMouseEntered="#imageOpacityOverJcJ" onMouseExited="#imageOpacityQuitJcJ" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <SepiaTone />
+                     </effect>
+                     <image>
+                        <Image url="@../../doc/resources/deuxJoueur.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="jcJText" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur contre Joueur">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="40.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../../../../git/Projet/src/Application/background.css" />
+      <URL value="@background.css" />
+   </stylesheets>
+</VBox>

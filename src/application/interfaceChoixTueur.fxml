@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="BOTTOM_LEFT" maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OverlordIV">
+   <children>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tueur : Choix du personnage">
+         <font>
+            <Font name="Acadian Runes Regular" size="48.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="100.0" />
+         </VBox.margin>
+      </Text>
+      <HBox prefHeight="812.0" prefWidth="1800.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
+               <children>
+                  <ImageView fx:id="imageWarper" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverWarper" onMouseExited="#imageOpacityQuitWarper" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <SepiaTone />
+                     </effect>
+                     <image>
+                        <Image url="@../../doc/resources/Warper.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="titleWarper" strokeType="OUTSIDE" strokeWidth="0.0" text="Warper">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="40.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="textWarper" strokeType="OUTSIDE" strokeWidth="0.0" text="Utilisez les sentiers oubliez et surgissez dans l'ombre">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
+               <children>
+                  <ImageView fx:id="imageBrute" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverHunt" onMouseExited="#imageOpacityQuitHunt" pickOnBounds="true" preserveRatio="true">
+                     <effect>
+                        <SepiaTone />
+                     </effect>
+                     <image>
+                        <Image url="@../../doc/resources/Brute.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="titleBrute" strokeType="OUTSIDE" strokeWidth="0.0" text="Brute">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="40.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="textBrute" strokeType="OUTSIDE" strokeWidth="0.0" text="Imposez votre force, écrasez les faibles">
+                     <font>
+                        <Font name="Acadian Runes Regular" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <stylesheets>
+      <URL value="@../../../../../git/Projet/src/Application/background.css" />
+      <URL value="@background.css" />
+   </stylesheets>
+</VBox>

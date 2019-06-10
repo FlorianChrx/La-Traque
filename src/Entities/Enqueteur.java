@@ -31,7 +31,16 @@ public abstract class Enqueteur extends Personnage{
 	 */
 	public void goTo(Lieu lieu) {
 		this.lieu = lieu;
+		if(this.lieu.isEmpty()) {
+			this.lieu.setInvestigate();
+		}
 		actionsDone++;
+	}
+	
+	@Override
+	public String action(Lieu lieu) { 
+		actionsDone++;
+		return getLieu().getPhrase();
 	}
 	
 	@Override
@@ -39,6 +48,7 @@ public abstract class Enqueteur extends Personnage{
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 	@Override
 	public String getName() {
 		return ("Enquêteur");

@@ -5,19 +5,19 @@ import java.io.Serializable;
 import Structures.Lieu;
 import Structures.Maison;
 import Structures.Village;
+import util.Phrase;
 
 /**
  * Class abstraite correspondant aux Tueurs
  * @author geoffrey
  *
  */
+@SuppressWarnings("serial")
 public abstract class Tueur extends Personnage implements Serializable{
 	//Attributs
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4124489599918258283L;
+	Phrase phrase = new Phrase();
+	
 	//Constructeurs
 	/**
 	 * Constructeur avec un village en prenant une maison aléatoirement comme lieu de départ
@@ -47,6 +47,14 @@ public abstract class Tueur extends Personnage implements Serializable{
 			((Maison) lieu).setDead();
 		}
 	}
+	
+	@Override
+	public String action(Lieu lieu) { 
+		actionsDone++;
+		tue();
+		return phrase.phraseMeurtre();
+	}
+	
 	public void goTo(Lieu lieu) {
 		if(!this.lieu.isEmpty()) {
 			this.lieu.setEmpty();

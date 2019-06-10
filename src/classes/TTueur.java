@@ -9,6 +9,7 @@ import Structures.Village;
  * @author calamar
  *
  */
+@SuppressWarnings("serial")
 public class TTueur extends Tueur {
 	//Attributs
 	
@@ -35,11 +36,6 @@ public class TTueur extends Tueur {
 	}
 	
 	//Méthodes
-	@Override
-	public String action() { // -> lieu paramètre = lieu cliqué par joueur
-		actionsDone++;
-		return getLieu().getPhrase();
-	}
 
 	@Override
 	public boolean hasHelper() {

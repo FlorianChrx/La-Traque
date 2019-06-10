@@ -12,6 +12,7 @@ import Structures.Village;
  * @author calamar
  *
  */
+@SuppressWarnings("serial")
 public class TWarper extends Tueur {
 	//Attributs
 	
@@ -59,15 +60,6 @@ public class TWarper extends Tueur {
 	@Override
 	public void update() {
 		nextDay();		
-	}
-	
-	/**
-	 * Le Warper se déplace d'une ou de deux maisons en fonction du lieu choisit.
-	 */
-	@Override
-	public String action() { // -> lieu paramètre = lieu cliqué par joueur
-		actionsDone++;
-		return getLieu().getPhrase();
 	}
 
 	@Override

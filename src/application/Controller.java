@@ -102,7 +102,7 @@ public class Controller {
 	public void imageClicked(MouseEvent e) {
 		
 	}
-	
+
 	public Rectangle montrerLieu(Lieu l, Paint fill, Paint stroke) {
 		Rectangle r = new Rectangle(l.getSurface().getOrigine().getX(),l.getSurface().getOrigine().getY()+30,l.getSurface().getWidth(),l.getSurface().getHeight());
 		r.setFill(fill);

@@ -22,16 +22,10 @@ public class Chien extends Personnage {
 	}
 
 	//Méthodes	
-	/**
-	 * Le chien avance. Si le tueur se situe dans la maison et que le chien a des
-	 *  points d'actions, le chien bloque le tueur. Si le tueur se situe dans la
-	 *  maison mais que le chien n'a plus d'actions le tueur le bloque. Si il n'y
-	 *  a personne, le chien avance une nouvelle fois.
-	 */
+
 	@Override
 	public String action() { 
 		return null;
-	}
 	
 	@Override
 	public void goTo(Lieu lieu) {
