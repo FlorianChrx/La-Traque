@@ -1,11 +1,13 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class OverlordV {
+public class OverlordV extends SController {
 	@FXML
 	ImageView imageChien;
 	@FXML
@@ -51,5 +53,9 @@ public class OverlordV {
 		imageFaucon.setOpacity(0.8);
 		titleFaucon.setOpacity(0.3);
 		textFaucon.setOpacity(0.3);	
+	}
+	
+	public void changementScene() throws IOException {
+		changeScene(imageChien, Interface.TUEURMENU);
 	}
 }
