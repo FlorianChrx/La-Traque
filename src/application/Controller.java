@@ -81,8 +81,8 @@ public class Controller {
 		
 		
 		
-		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
-		tueur = new TTueur(vil.getLieu("B"));
+		enqueteur = Main.enqueteur;  //instanciation des personnage
+		tueur = Main.tueur;
 		
 		game = new Game(vil, tueur, enqueteur);
 		

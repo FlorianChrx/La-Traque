@@ -6,7 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 
 public enum Interface {
-	MAINMENU("interface_first.fxml"), MODEMENU("interface_nbJoueur.fxml"), CHOIXMENU("interface.fxml"), ENQUETEURMENU("interfaceChoixEnqueteur.fxml"), TUEURMENU("interfaceChoixTueur.fxml");
+	MAINMENU("interface_first.fxml"), MODEMENU("interface_nbJoueur.fxml"), CHOIXMENU("interface.fxml"), ENQUETEURMENU("interfaceChoixEnqueteur.fxml"), TUEURMENU("interfaceChoixTueur.fxml"), JEU("interfaceProjet");
 	private String link;
 	Interface(String link){
 		this.link = link;

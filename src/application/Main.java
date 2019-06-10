@@ -1,6 +1,9 @@
 package application;
 
 import java.io.IOException;
+
+import Entities.Enqueteur;
+import Entities.Tueur;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,6 +13,11 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 	private static FXMLLoader loader;
+	public boolean ia;
+	public static Tueur tueur;
+	public static Enqueteur enqueteur;
+	
+	
 	
 	@Override
 	public void start(Stage stage) throws IOException, ClassNotFoundException{
