@@ -63,7 +63,6 @@ public class Controller {
 	private List<Rectangle> rectVoisin;
 	private Rectangle tueurRectangle;
 	private Game game;
-	private double rectOpacity;
 	
 	public void initialize() throws IOException, ClassNotFoundException{
 		image = new ImageView(new Image(new FileInputStream("DATA/village.jpg"))); //instanciation de l'image
@@ -77,7 +76,6 @@ public class Controller {
 		ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
 		vil = (Village) ois.readObject();
 		ois.close();
-		rectOpacity = 0.3;
 		enqueteur = new EEnqueteur(vil.getLieu("Z"));   //instanciation des personnage
 		tueur = new TTueur(vil.getLieu("B"));
 		
