@@ -26,6 +26,7 @@ public class Chien extends Personnage {
 	@Override
 	public String action() { 
 		return null;
+	}
 	
 	@Override
 	public void goTo(Lieu lieu) {

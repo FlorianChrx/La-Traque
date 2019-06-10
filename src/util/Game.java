@@ -8,6 +8,7 @@ import Entities.Tueur;
 import Entities.Updatable;
 import Structures.Lieu;
 import Structures.Village;
+import Structures.Maison;
 import classes.EEnqueteur;
 import classes.TTueur;
 
@@ -59,7 +60,7 @@ public class Game {
 		String res ="";
 		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le TUEUR !";
 		if(persos[tours%persos.length].getLieu().equals(lieu)) {
-			res = persos[tours%persos.length].action(lieu);
+			res = persos[tours%persos.length].action();
 		} else {
 			persos[tours%persos.length].goTo(lieu);
 		}

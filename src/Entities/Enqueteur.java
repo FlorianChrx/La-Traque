@@ -38,7 +38,7 @@ public abstract class Enqueteur extends Personnage{
 	}
 	
 	@Override
-	public String action(Lieu lieu) { 
+	public String action() { 
 		actionsDone++;
 		return getLieu().getPhrase();
 	}
