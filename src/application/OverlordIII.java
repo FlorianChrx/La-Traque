@@ -48,7 +48,6 @@ public class OverlordIII extends SController{
 	
 	public void changementUn() throws IOException {
 		changeScene(iA, Interface.CHOIXMENU);
-		Main.enqueteur = new EEnqueteur(Null);
 	}
 	
 	public void changementDeux() throws IOException {
