@@ -49,7 +49,7 @@ public abstract class Tueur extends Personnage implements Serializable{
 	}
 	
 	@Override
-	public String action(Lieu lieu) { 
+	public String action() { 
 		actionsDone++;
 		tue();
 		return phrase.phraseMeurtre();

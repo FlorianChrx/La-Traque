@@ -24,7 +24,7 @@ public class Faucon extends Personnage {
 	//Méthodes
 	
 	@Override
-	public String action(Lieu lieu) {
+	public String action() {
 		return "";
 	}
 
