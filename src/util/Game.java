@@ -3,6 +3,7 @@ package util;
 import java.util.List;
 
 import Entities.Enqueteur;
+import Entities.IA;
 import Entities.Personnage;
 import Entities.Tueur;
 import Entities.Updatable;
@@ -28,9 +29,9 @@ public class Game {
 	private final Enqueteur ENQUETEUR;
 	private Personnage[] persos;
 	private int tours = 0;
-	boolean endTurn = false;
+	private boolean[] ia; 
 	
-	public Game(Village village, Tueur TUEUR, Enqueteur ENQUETEUR) {
+	public Game(Village village, Tueur TUEUR, Enqueteur ENQUETEUR, boolean ia) {
 		int nb = 2;
 		if(TUEUR.hasHelper()) nb++;
 		if(ENQUETEUR.hasHelper()) nb++;
@@ -38,6 +39,7 @@ public class Game {
 		this.TUEUR = TUEUR;
 		this.ENQUETEUR = ENQUETEUR;
 		persos = new Personnage[nb];
+		this.ia = new boolean[nb];
 		nb = 1;
 		try {
 			persos[0] = ENQUETEUR;
@@ -47,9 +49,11 @@ public class Game {
 			}
 			if(TUEUR.hasHelper()) {
 				persos[nb] = TUEUR.getHelper();
+				if (ia) this.ia[nb] = true;
 				nb++;
 			}
 			persos[nb] = TUEUR;
+			if (ia) this.ia[nb] = true;
 		} catch (Exception e) {
 			System.out.println("Erreur création des personnages");
 			persos = new Personnage[] {new EEnqueteur(village), new TTueur(village)};
@@ -59,12 +63,12 @@ public class Game {
 	public String resultatEvenement(Lieu lieu) {
 		String res ="";
 		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le TUEUR !";
-		if(persos[tours%persos.length].getLieu().equals(lieu)) {
-			res = persos[tours%persos.length].action();
+		if(getActualPlayer().getLieu().equals(lieu)) {
+			res = getActualPlayer().action();
 		} else {
 			persos[tours%persos.length].goTo(lieu);
 		}
-		if(!persos[tours%persos.length].canDoAction()) {
+		if(!getActualPlayer().canDoAction()) {
 			tours++;
 			if(tours%persos.length == 0) {
 				updateAll(persos);
@@ -73,6 +77,15 @@ public class Game {
 		}
 		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le TUEUR !"; 
 		if (((Maison) lieu).isDead()) return lieu.getPhrase();
+		while(ia[tours%persos.length]) {
+			Lieu decision = IA.decision(getActualPlayer());
+			if(getActualPlayer().getLieu().equals(decision)) {
+				getActualPlayer().action();
+			} else {
+				getActualPlayer().goTo(decision);
+			}
+			tours++;
+		}
 		return res;
 	}
 	
