@@ -9,84 +9,111 @@ import Entities.Updatable;
 import Structures.Lieu;
 import Structures.Maison;
 import Structures.Village;
+import classes.EEnqueteur;
+import classes.TTueur;
 
 public class Game {
 	
 	/**
 	 * Village actuel présent dans le jeu
 	 */
-	private Village villageActuel;
+	private final Village VILLAGE;
 	/**
 	 * Tueur actuel présent dans le jeu
 	 */
-	private Tueur tueur;
+	private final Tueur TUEUR;
 	/**
 	 * Enqueteur actuel présent dans le jeu
 	 */
-	private Enqueteur enqueteur;
+	private final Enqueteur ENQUETEUR;
 	private Personnage[] persos;
 	private int tours = 0;
 	boolean endTurn = false;
 	
-	public Game(Village village, Tueur tueur, Enqueteur enqueteur) {
-		this.villageActuel = village;
-		this.tueur = tueur;
-		this.enqueteur = enqueteur;
-		persos = new Personnage[] {enqueteur, tueur};
+	public Game(Village village, Tueur TUEUR, Enqueteur ENQUETEUR) {
+		int nb = 2;
+		if(TUEUR.hasHelper()) nb++;
+		if(ENQUETEUR.hasHelper()) nb++;
+		this.VILLAGE = village;
+		this.TUEUR = TUEUR;
+		this.ENQUETEUR = ENQUETEUR;
+		persos = new Personnage[nb];
+		nb = 1;
+		try {
+			persos[0] = ENQUETEUR;
+			if(ENQUETEUR.hasHelper()) {
+				persos[nb] = ENQUETEUR.getHelper();
+				nb++;
+			}
+			if(TUEUR.hasHelper()) {
+				persos[nb] = TUEUR.getHelper();
+				nb++;
+			}
+			persos[nb] = TUEUR;
+		} catch (Exception e) {
+			System.out.println("Erreur création des personnages");
+			persos = new Personnage[] {new EEnqueteur(village), new TTueur(village)};
+		}
 	}
 	
 	public String resultatEvenement(Lieu lieu) {
-		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le tueur !";
-		persos[tours%2].action(lieu);
-		if(!persos[tours%2].canDoAction()) {
+		String res ="";
+		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le TUEUR !";
+		if(persos[tours%persos.length].getLieu().equals(lieu)) {
+			res = persos[tours%persos.length].action(lieu);
+		} else {
+			persos[tours%persos.length].goTo(lieu);
+		}
+		if(!persos[tours%persos.length].canDoAction()) {
 			tours++;
-			if(tours%2 == 0) {
-				updateAll(villageActuel, enqueteur, tueur);
+			if(tours%persos.length == 0) {
+				updateAll(persos);
+				VILLAGE.update();
 			}
 		}
-		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le tueur !"; 
+		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le TUEUR !"; 
 		if (((Maison) lieu).isDead()) return lieu.getPhrase();
-		return "Au tour de " + persos[tours%2].getName();
+		return res;
 	}
 	
 	/**
-	 * Permet d'obtenir le lieu actuel du tueur
-	 * @return le lieu ou se situe le tueur
+	 * Permet d'obtenir le lieu actuel du TUEUR
+	 * @return le lieu ou se situe le TUEUR
 	 */
 	public Lieu getTueurLocation() {
-		return tueur.getLieu();
+		return TUEUR.getLieu();
 	}
 	/**
-	 * Permet d'obtenir le lieu actuel de l'enqueteur
-	 * @return le lieu ou se situe l'enqueteur
+	 * Permet d'obtenir le lieu actuel de l'ENQUETEUR
+	 * @return le lieu ou se situe l'ENQUETEUR
 	 */
 	public Lieu getEnqueteurLocation() {
-		return enqueteur.getLieu();
+		return ENQUETEUR.getLieu();
 	}
 	/**
-	 * Permet d'obtenir l'instance du tueur actuel du jeu
-	 * @return le tueur actuel
+	 * Permet d'obtenir l'instance du TUEUR actuel du jeu
+	 * @return le TUEUR actuel
 	 */
 	public Tueur getTueur() {
-		return tueur;
+		return TUEUR;
 	}
 	/**
-	 * Permet d'obtenir l'instance de l'enqueteur actuel du jeu
-	 * @return l'enqueteur actuel
+	 * Permet d'obtenir l'instance de l'ENQUETEUR actuel du jeu
+	 * @return l'ENQUETEUR actuel
 	 */
 	public Enqueteur getEnqueteur() {
-		return enqueteur;
+		return ENQUETEUR;
 	}
 	/**
 	 * Permet d'obtenir l'instance du village actuel du jeu
 	 * @return le village actuel ou se déroule l'action
 	 */
 	public Village getVillageActuel() {
-		return villageActuel;
+		return VILLAGE;
 	}
 	
 	public List<Lieu> getLieuxAccessibles() {
-		return persos[tours%2].lieuxAccessibles();
+		return persos[tours%persos.length].lieuxAccessibles();
 	}
 	
 	public static void updateAll(Updatable... entities) {
@@ -96,6 +123,6 @@ public class Game {
 	}
 	
 	public Personnage getActualPlayer() {
-		return persos[tours%2];
+		return persos[tours%persos.length];
 	}
 }

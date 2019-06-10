@@ -3,7 +3,6 @@ package Entities;
 import Structures.Lieu;
 import Structures.Village;
 import application.Main;
-import util.Game;
 
 public abstract class Enqueteur extends Personnage{
 	//Attributs
@@ -50,12 +49,21 @@ public abstract class Enqueteur extends Personnage{
 		if(this.lieu.isEmpty()) {
 			this.lieu.setInvestigate();
 		}
+		actionsDone++;
 	}
+	
+	@Override
+	public String action(Lieu lieu) { 
+		actionsDone++;
+		return getLieu().getPhrase();
+	}
+	
 	@Override
 	public boolean hasHelper() {
 		// TODO Auto-generated method stub
 		return false;
 	}
+	
 	@Override
 	public String getName() {
 		return ("Enquêteur");
