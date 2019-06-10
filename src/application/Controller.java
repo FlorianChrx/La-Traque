@@ -55,9 +55,6 @@ public class Controller {
 	@FXML
 	private Pane pane;
 	private ObjectInputStream ois;
-	private Village vil;
-	private Enqueteur enqueteur;
-	private Tueur tueur;
 	private Personnage playingPerso;
 	private List<Lieu> voisin;
 	private List<Rectangle> rectVoisin;
@@ -72,21 +69,12 @@ public class Controller {
 		
 		tueurRectangle = new Rectangle(Double.MAX_VALUE, Double.MAX_VALUE);
 		tueurRectangle.setOpacity(0.5);
-		tueurRectangle.setFill(Color.valueOf("000000"));
+		tueurRectangle.setFill(Color.valueOf("000000"));		
 		
-		ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
-		vil = (Village) ois.readObject();
-		ois.close();		
-		
-		enqueteur = Main.enqueteur;  //instanciation des personnage
-		tueur = Main.tueur;
-		
-		game = new Game(vil, tueur, enqueteur, true);
+		game = new Game(Main.village, Main.tueur, Main.enqueteur, true);
 		
 		rectVoisin = new ArrayList<>();
 		voisin = new ArrayList<Lieu>();
-		
-		tour(enqueteur);
 	}
 	
 	
@@ -103,13 +91,6 @@ public class Controller {
 	
 	public void imageClicked(MouseEvent e) {
 		
-	}
-	
-	public void tour(Personnage p) {
-		playingPerso = p;
-		montrerLieux(p);
-		if(p.canDoAction()) {
-		}
 	}
 	
 	public Rectangle montrerLieu(Lieu l, Paint fill, Paint stroke) {
@@ -155,25 +136,5 @@ public class Controller {
 			clearVoisin();
 			montrerLieux(game.getActualPlayer());
 		}
-	}
-	
-	public void endOfTurn() {
-		if(playingPerso == enqueteur) {
-			playingPerso = tueur;
-			System.out.println("Tueur joue");
-			tueurRectangle.setOpacity(0.5);
-		}else if(playingPerso == tueur) {
-			playingPerso = enqueteur;
-			System.out.println("Enquetteur joue");
-			Game.updateAll(vil, tueur, enqueteur);
-		}
-		label.setText(label.getText()+"\n"+playingPerso.getName() + " c'est à toi de jouer");
-		clearVoisin();
-		tour(playingPerso);
-	}
-	
-	public void checkWin(Personnage p) {
-		label.setText(label.getText()+"\n"+p.getName() + " Vous avez gagnez");
-		System.out.println(p.getName() + " Vous avez gagnez");
 	}
 }

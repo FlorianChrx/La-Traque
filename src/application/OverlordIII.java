@@ -2,6 +2,7 @@ package application;
 
 import java.io.IOException;
 
+import classes.EEnqueteur;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -47,6 +48,7 @@ public class OverlordIII extends SController{
 	
 	public void changementUn() throws IOException {
 		changeScene(iA, Interface.CHOIXMENU);
+		Main.enqueteur = new EEnqueteur(Null);
 	}
 	
 	public void changementDeux() throws IOException {

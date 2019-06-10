@@ -1,9 +1,12 @@
 package application;
 
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 
 import Entities.Enqueteur;
 import Entities.Tueur;
+import Structures.Village;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,12 +18,14 @@ public class Main extends Application {
 	public boolean ia;
 	public static Tueur tueur;
 	public static Enqueteur enqueteur;
-	
-	
+	public static Village village;
 	
 	@Override
 	public void start(Stage stage) throws IOException, ClassNotFoundException {
 		loader = new FXMLLoader();
+		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
+		village = (Village) ois.readObject();
+		ois.close();
 		loader.setLocation(getClass().getResource("interfaceProjet.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
