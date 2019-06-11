@@ -22,7 +22,7 @@
          <children>
             <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
                <children>
-                  <ImageView fx:id="imageChien" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverChien" onMouseExited="#imageOpacityQuitChien" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageChien" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#choixChien" onMouseEntered="#imageOpacityOverChien" onMouseExited="#imageOpacityQuitChien" pickOnBounds="true" preserveRatio="true">
                      <effect>
                         <SepiaTone />
                      </effect>
@@ -44,7 +44,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
                <children>
-                  <ImageView fx:id="imageFaucon" fitHeight="700.0" fitWidth="600.0" onMouseEntered="#imageOpacityOverFaucon" onMouseExited="#imageOpacityQuitFaucon" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageFaucon" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#choixFaucon" onMouseEntered="#imageOpacityOverFaucon" onMouseExited="#imageOpacityQuitFaucon" pickOnBounds="true" preserveRatio="true">
                      <effect>
                         <SepiaTone />
                      </effect>

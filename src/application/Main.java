@@ -44,5 +44,8 @@ public class Main extends Application {
 		Application.launch(args);
 	}
 	
+	public static void end() {
+		
+	}
 	
 }

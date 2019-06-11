@@ -2,6 +2,8 @@ package application;
 
 import java.io.IOException;
 
+import classes.EFauconnier;
+import classes.MaitreChien;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -55,7 +57,13 @@ public class OverlordV extends SController {
 		textFaucon.setOpacity(0.3);	
 	}
 	
-	public void changementScene() throws IOException {
+	public void choixChien() throws IOException {
+		Main.enqueteur = new MaitreChien(Main.village);
+		changeScene(imageChien, Interface.TUEURMENU);
+	}
+	
+	public void choixFaucon() throws IOException {
+		Main.enqueteur = new EFauconnier(Main.village);
 		changeScene(imageChien, Interface.TUEURMENU);
 	}
 }
