@@ -39,4 +39,8 @@ public class OverlordII extends SController {
 	public void clicJouer(MouseEvent event) throws IOException {
 		changeScene(jouer, Interface.MODEMENU);
 	}
+	
+	public void clicQuitter(MouseEvent event) throws IOException {
+		Main.end();
+	}
 }

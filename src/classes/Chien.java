@@ -1,6 +1,9 @@
 package classes;
 
+import java.util.List;
+
 import Entities.Personnage;
+import Entities.Tueur;
 import Structures.Lieu;
 
 /**
@@ -24,12 +27,20 @@ public class Chien extends Personnage {
 	//Méthodes	
 
 	@Override
-	public String action() { 
-		return null;
+	public String action(List<Personnage> personnages) { 
+		actionsDone++;
+		for (Personnage perso : personnages) {
+			if (perso instanceof Tueur && perso.getLieu().equals(getLieu())) {
+				perso.setBlocked();
+				return "Le chien aboie !";
+			}
+		}
+		return "Le chien cherche une piste";
 	}
 	
 	@Override
 	public void goTo(Lieu lieu) {
+		actionsDone++;
 		this.lieu = lieu;
 	}
 
