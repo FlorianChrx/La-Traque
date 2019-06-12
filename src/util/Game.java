@@ -10,7 +10,6 @@ import Entities.Tueur;
 import Entities.Updatable;
 import Structures.Lieu;
 import Structures.Village;
-import application.Main;
 import Structures.Maison;
 import classes.EEnqueteur;
 import classes.TTueur;
