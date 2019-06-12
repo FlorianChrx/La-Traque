@@ -33,6 +33,9 @@ public class Game {
 	private boolean[] ia; 
 	
 	public Game(Village village, Tueur TUEUR, Enqueteur ENQUETEUR, boolean ia) {
+		for (Lieu lieu : village) {
+			System.out.println(lieu.getNom());
+		}
 		int nb = 2;
 		if(TUEUR.hasHelper()) nb++;
 		if(ENQUETEUR.hasHelper()) nb++;

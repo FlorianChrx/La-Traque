@@ -19,16 +19,8 @@ public class Village implements Updatable, Iterable<Lieu>, Serializable{
 	 * Liste de tous les lieux du village
 	 */
 	private Map<String, Lieu> lieux;
-	/**
-	 * Permet de construire un village selon une carte prédefinie 
-	 * dont le lien et donné en paramètre
-	 * @param lienCSV un String représentant le lien vers le fichier de configuration du village
-	 */
-	public Village(String lienCSV) {
-		villageTest();
-	}
 	public Village() {
-		villageTest();
+		lieux = new HashMap<String, Lieu>();
 	}
 	
 	/**
@@ -84,30 +76,7 @@ public class Village implements Updatable, Iterable<Lieu>, Serializable{
 		}
 		return res;
 	}
-	/**
-	 * Permet de générer un village test
-	 */
-	private void villageTest() {
-		this.lieux = new HashMap<String, Lieu>();
-		Maison m1 = new Maison(2, 2, 0, 0);
-		Maison m2 = new Maison(5, 5, 0, 0);
-		Maison m3 = new Maison(10, 10, 0, 0);	
-		Maison m4 = new Maison(20, 20, 0, 0);
-		Maison m5 = new Maison(25, 25, 0, 0);
-		lieux.put(m1.getNom(), m1);
-		lieux.put(m2.getNom(), m2);
-		lieux.put(m3.getNom(), m3);
-		lieux.put(m4.getNom(), m4);
-		lieux.put(m5.getNom(), m5);
-		m1.addVoisin(m2);
-		m2.addVoisin(m3);
-		m2.addVoisin(m1);
-		m3.addVoisin(m4);
-		m3.addVoisin(m2);
-		m4.addVoisin(m5);
-		m4.addVoisin(m3);
-		m5.addVoisin(m4);
-	}
+
 	public Lieu getLieu(String string) {
 		if (lieux.containsKey(string)) return lieux.get(string);
 		return null;

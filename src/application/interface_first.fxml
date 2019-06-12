@@ -8,11 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@backgroundFirst.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OverlordII">
+<AnchorPane maxHeight="920.0" maxWidth="1800.0" minHeight="920.0" minWidth="1800.0" prefHeight="400.0" prefWidth="600.0" styleClass="bodybg" stylesheets="@../../DATA/backgroundFirst.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OverlordII">
    <children>
       <ImageView fitHeight="920.0" fitWidth="594.0" layoutX="184.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true" rotate="-7.1">
          <image>
-            <Image url="@../../doc/resources/menuBook.png" />
+            <Image url="@../../DATA/menuBook.png" />
          </image>
       </ImageView>
       <Text fill="WHITE" layoutX="349.0" layoutY="311.0" rotate="-7.1" strokeType="OUTSIDE" strokeWidth="0.0" text="La Traque" textAlignment="CENTER" wrappingWidth="238.47950744628906">
@@ -27,32 +27,32 @@
       </Text>
       <ImageView fitHeight="408.0" fitWidth="230.0" layoutX="898.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" rotate="9.5">
          <image>
-            <Image url="@../../doc/resources/aLcarte.png" />
+            <Image url="@../../DATA/aLcarte.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="408.0" fitWidth="230.0" layoutX="1029.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true" rotate="-8.1">
          <image>
-            <Image url="@../../doc/resources/gVcarte.png" />
+            <Image url="@../../DATA/gVcarte.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="408.0" fitWidth="230.0" layoutX="1279.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" rotate="23.2">
          <image>
-            <Image url="@../../doc/resources/fCcarte.png" />
+            <Image url="@../../DATA/fCcarte.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="408.0" fitWidth="230.0" layoutX="1186.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true" rotate="-18.4">
          <image>
-            <Image url="@../../doc/resources/bCcarte.png" />
+            <Image url="@../../DATA/bCcarte.png" />
          </image>
       </ImageView>
       <ImageView fx:id="rune" fitHeight="469.0" fitWidth="545.0" layoutX="1371.0" layoutY="399.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../doc/resources/magicalEffect.png" />
+            <Image url="@../../DATA/magicalEffect.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cercleRune" fitHeight="316.0" fitWidth="381.0" layoutX="1447.0" layoutY="465.0" onMouseEntered="#overQuitter" onMouseExited="#exitQuitter" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../doc/resources/exit.png" />
+            <Image url="@../../DATA/exit.png" />
          </image>
       </ImageView>
       <Text fx:id="quitter" fill="WHITE" layoutX="1497.0" layoutY="860.0" onMouseEntered="#overQuitter" onMouseExited="#exitQuitter" strokeType="OUTSIDE" strokeWidth="0.0" text="Quitter" underline="true">

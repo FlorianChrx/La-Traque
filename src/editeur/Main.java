@@ -117,7 +117,7 @@ public class Main extends Application {
 		
 		Scene scene = new Scene(vBox);
 		scene.setOnKeyPressed(e -> {
-			if(!lastStep && e.getCode() == KeyCode.ENTER) {
+			if(!lastStep && e.getCode().equals(KeyCode.ENTER)) {
 				Rectangle c = new Rectangle(rectangle.getLayoutX(), rectangle.getLayoutY(), rectangle.getWidth(),rectangle.getHeight());
 				c.setStroke(Paint.valueOf("000000"));
 				c.setFill(Paint.valueOf("5c5c3d"));

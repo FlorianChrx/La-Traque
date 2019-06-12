@@ -27,7 +27,7 @@
                         <SepiaTone />
                      </effect>
                      <image>
-                        <Image url="@../../doc/resources/unJoueur.png" />
+                        <Image url="@../../DATA/unJoueur.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="iAText" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur contre IA">
@@ -44,7 +44,7 @@
                         <SepiaTone />
                      </effect>
                      <image>
-                        <Image url="@../../doc/resources/deuxJoueur.png" />
+                        <Image url="@../../DATA/deuxJoueur.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="jcJText" strokeType="OUTSIDE" strokeWidth="0.0" text="Joueur contre Joueur">
@@ -58,7 +58,7 @@
       </HBox>
    </children>
    <stylesheets>
-      <URL value="@../../../../../git/Projet/src/Application/background.css" />
-      <URL value="@background.css" />
+      <URL value="@../../DATA/background.css" />
+      <URL value="@../../DATA/background.css" />
    </stylesheets>
 </VBox>

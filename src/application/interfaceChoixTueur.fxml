@@ -27,7 +27,7 @@
                         <SepiaTone />
                      </effect>
                      <image>
-                        <Image url="@../../doc/resources/Warper.png" />
+                        <Image url="@../../DATA/Warper.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="titleWarper" strokeType="OUTSIDE" strokeWidth="0.0" text="Warper">
@@ -49,7 +49,7 @@
                         <SepiaTone />
                      </effect>
                      <image>
-                        <Image url="@../../doc/resources/Brute.png" />
+                        <Image url="@../../DATA/Brute.png" />
                      </image>
                   </ImageView>
                   <Text fx:id="titleBrute" strokeType="OUTSIDE" strokeWidth="0.0" text="Brute">
@@ -68,7 +68,7 @@
       </HBox>
    </children>
    <stylesheets>
-      <URL value="@../../../../../git/Projet/src/Application/background.css" />
-      <URL value="@background.css" />
+      <URL value="@../../DATA/background.css" />
+      <URL value="@../../DATA/background.css" />
    </stylesheets>
 </VBox>

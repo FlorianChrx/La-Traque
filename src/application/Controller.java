@@ -14,7 +14,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
-import javafx.scene.control.MenuBar;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -30,8 +29,6 @@ import util.Game;
 public class Controller {
 	@FXML
 	private VBox vBox;
-	@FXML
-	private MenuBar menu;
 	@FXML
 	private Menu file;
 	@FXML
@@ -58,7 +55,7 @@ public class Controller {
 	public void initialize() throws IOException, ClassNotFoundException{
 		image = new ImageView(new Image(new FileInputStream("DATA/village.jpg"))); //instanciation de l'image
 		vBox.getChildren().clear();										//reinitialisation de la vBox car sinon image invisible
-		vBox.getChildren().addAll(menu,image,hBox);
+		vBox.getChildren().addAll(image,hBox);
 		
 		tueurRectangle = new Rectangle(Double.MAX_VALUE, Double.MAX_VALUE);
 		tueurRectangle.setOpacity(0.5);
@@ -89,7 +86,7 @@ public class Controller {
 	}
 
 	public Rectangle montrerLieu(Lieu l, Paint fill, Paint stroke) {
-		Rectangle r = new Rectangle(l.getSurface().getOrigine().getX(),l.getSurface().getOrigine().getY()+30,l.getSurface().getWidth(),l.getSurface().getHeight());
+		Rectangle r = new Rectangle(l.getSurface().getOrigine().getX(),l.getSurface().getOrigine().getY(),l.getSurface().getWidth(),l.getSurface().getHeight());
 		r.setFill(fill);
 		r.setStroke(stroke);
 		r.setOpacity(0.25);
