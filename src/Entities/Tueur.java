@@ -1,6 +1,7 @@
 package Entities;
 
 import java.io.Serializable;
+import java.util.List;
 
 import Structures.Lieu;
 import Structures.Maison;
@@ -49,7 +50,7 @@ public abstract class Tueur extends Personnage implements Serializable{
 	}
 	
 	@Override
-	public String action() { 
+	public String action(List<Personnage> personnages) { 
 		actionsDone++;
 		tue();
 		return phrase.phraseMeurtre();

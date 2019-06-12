@@ -1,6 +1,8 @@
 package classes;
 
+import java.util.List;
 import Entities.Personnage;
+import Entities.Tueur;
 import Structures.Lieu;
 
 /**
@@ -24,18 +26,25 @@ public class Faucon extends Personnage {
 	//Méthodes
 	
 	@Override
-	public String action() {
-		return "";
-	}
-
-	@Override
-	public void goTo(Lieu lieu) {
-		this.lieu = lieu;
+	public String action(List<Personnage> personnages) {
+		actionsDone++;
+		for (Personnage perso : personnages) {
+			if (perso instanceof Tueur && perso.getLieu().equals(getLieu())) {
+				return "Le Faucon semble intrigué";
+			}
+		}
+		return "Le faucon recherche sa proie...";
 	}
 	
 	@Override
 	public boolean hasHelper() {
 		return false;
+	}
+	
+	@Override
+	public void goTo(Lieu lieu) {
+		actionsDone++;
+		this.lieu = lieu;
 	}
 
 	@Override

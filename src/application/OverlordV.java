@@ -1,11 +1,15 @@
 package application;
 
+import java.io.IOException;
+
+import classes.EFauconnier;
+import classes.MaitreChien;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 
-public class OverlordV {
+public class OverlordV extends SController {
 	@FXML
 	ImageView imageChien;
 	@FXML
@@ -51,5 +55,15 @@ public class OverlordV {
 		imageFaucon.setOpacity(0.8);
 		titleFaucon.setOpacity(0.3);
 		textFaucon.setOpacity(0.3);	
+	}
+	
+	public void choixChien() throws IOException {
+		Main.enqueteur = new MaitreChien(Main.village);
+		changeScene(imageChien, Interface.TUEURMENU);
+	}
+	
+	public void choixFaucon() throws IOException {
+		Main.enqueteur = new EFauconnier(Main.village);
+		changeScene(imageChien, Interface.TUEURMENU);
 	}
 }
