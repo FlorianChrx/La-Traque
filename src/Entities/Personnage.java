@@ -157,8 +157,9 @@ public abstract class Personnage implements Controlable, Updatable {
 	/**
 	 * Permet de définir l'action du personnage
 	 * @return Une string résultant de l'action du personnage
+	 * @param une list de personnage avec lesquels il peut potentiellement agir
 	 */
-	public abstract String action();
+	public abstract String action(List<Personnage> personnages);
 	/**
 	 * Permet de savoir si un personnage possède un compagnon
 	 * @return vrai ou faux selon si le personnage est accompagné ou non 

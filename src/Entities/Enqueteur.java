@@ -1,5 +1,7 @@
 package Entities;
 
+import java.util.List;
+
 import Structures.Lieu;
 import Structures.Village;
 
@@ -38,15 +40,9 @@ public abstract class Enqueteur extends Personnage{
 	}
 	
 	@Override
-	public String action() { 
+	public String action(List<Personnage> personnages) { 
 		actionsDone++;
 		return getLieu().getPhrase();
-	}
-	
-	@Override
-	public boolean hasHelper() {
-		// TODO Auto-generated method stub
-		return false;
 	}
 	
 	@Override

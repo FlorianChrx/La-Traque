@@ -1,5 +1,6 @@
 package util;
 
+import java.util.Arrays;
 import java.util.List;
 
 import Entities.Enqueteur;
@@ -9,6 +10,7 @@ import Entities.Tueur;
 import Entities.Updatable;
 import Structures.Lieu;
 import Structures.Village;
+import application.Main;
 import Structures.Maison;
 import classes.EEnqueteur;
 import classes.TTueur;
@@ -64,7 +66,7 @@ public class Game {
 		String res ="";
 		if(getEnqueteurLocation().equals(getTueurLocation())) return "L'enquêteur à arrêté le TUEUR !";
 		if(getActualPlayer().getLieu().equals(lieu)) {
-			res = getActualPlayer().action();
+			res = getActualPlayer().action(Arrays.asList(persos));
 		} else {
 			persos[tours%persos.length].goTo(lieu);
 		}
@@ -80,7 +82,7 @@ public class Game {
 		while(ia[tours%persos.length]) {
 			Lieu decision = IA.decision(getActualPlayer());
 			if(getActualPlayer().getLieu().equals(decision)) {
-				getActualPlayer().action();
+				getActualPlayer().action(Arrays.asList(persos));
 			} else {
 				getActualPlayer().goTo(decision);
 			}
