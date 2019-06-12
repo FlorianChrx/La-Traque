@@ -12,7 +12,6 @@ import Structures.Village;
  * @author calamar
  *
  */
-@SuppressWarnings("serial")
 public class TWarper extends Tueur {
 	//Attributs
 	

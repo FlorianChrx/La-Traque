@@ -3,11 +3,9 @@ package application;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 public class Overlord extends SController {
 	@FXML

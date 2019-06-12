@@ -9,7 +9,6 @@ import Structures.Village;
  * @author calamar
  *
  */
-@SuppressWarnings("serial")
 public class TBrute extends Tueur {
 	//Attributs
 	

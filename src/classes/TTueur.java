@@ -9,7 +9,6 @@ import Structures.Village;
  * @author calamar
  *
  */
-@SuppressWarnings("serial")
 public class TTueur extends Tueur {
 	//Attributs
 	
