@@ -31,7 +31,7 @@ import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import util.Game;
 
-public class Controller {
+public class Controller extends SController {
 	@FXML
 	private VBox vBox;
 	@FXML

@@ -44,7 +44,7 @@
             </VBox>
             <VBox alignment="CENTER" prefHeight="720.0" prefWidth="900.0">
                <children>
-                  <ImageView fx:id="imageBrute" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#choixBrute" onMouseEntered="#imageOpacityOverHunt" onMouseExited="#imageOpacityQuitHunt" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="imageBrute" fitHeight="700.0" fitWidth="600.0" onMouseClicked="#choixBrute" onMouseEntered="#imageOpacityOverBrute" onMouseExited="#imageOpacityQuitBrute" pickOnBounds="true" preserveRatio="true">
                      <effect>
                         <SepiaTone />
                      </effect>

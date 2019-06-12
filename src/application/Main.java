@@ -9,7 +9,6 @@ import Entities.Tueur;
 import Structures.Village;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -26,11 +25,8 @@ public class Main extends Application {
 		ObjectInputStream ois = new ObjectInputStream(new FileInputStream("DATA/test.txt"));  //chargement du village
 		village = (Village) ois.readObject();
 		ois.close();
-		loader.setLocation(getClass().getResource("interfaceProjet.fxml"));
-        Parent root = loader.load();
-        Scene scene = new Scene(root);
-		stage.setScene(scene);
-
+		loader.setLocation(getClass().getResource("interface_first.fxml"));
+		stage.setScene(new Scene(loader.load()));
         
         stage.setTitle("Chasse au Monstre");
         stage.show();
