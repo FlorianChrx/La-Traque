@@ -3,6 +3,7 @@ package classes;
 import java.util.List;
 
 import Entities.Enqueteur;
+import Entities.Personnage;
 import Structures.Lieu;
 import Structures.Village;
 
@@ -22,6 +23,7 @@ public class EFauconnier extends Enqueteur {
 	 */
 	public EFauconnier(Village village) {
 		super(village, 1);
+		this.faucon = new Faucon(lieu);
 	}
 	
 	/**
@@ -30,6 +32,7 @@ public class EFauconnier extends Enqueteur {
 	 */
 	public EFauconnier(Lieu lieu) {
 		super(lieu, 1);
+		this.faucon = new Faucon(lieu);
 	}
 
 	//Méthodes
@@ -52,10 +55,11 @@ public class EFauconnier extends Enqueteur {
 	public boolean hasHelper() {
 		return true;
 	}
-	
-	@Override
-	public boolean canDoAction() {
-		return actionsDone < nbActions || faucon.canDoAction();
-	}
 
+	@Override
+	public Personnage getHelper() {
+		return faucon;
+	}
+	
+	
 }
